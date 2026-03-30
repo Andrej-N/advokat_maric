@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "title": "Advokatska kancelarija Marić | Loznica",
+    "description": "Advokatska kancelarija Marić pruža pravnu pomoć fizičkim i pravnim licima od 1994. godine. Krivično, radno, građansko, upravno, privredno i prekršajno pravo.",
+    "keywords": "advokat Loznica, advokatska kancelarija, pravna pomoć, Marić advokat, krivično pravo, radno pravo, građansko pravo"
+  },
+  "nav": {
+    "home": "Početna",
+    "about": "O nama",
+    "services": "Pravna pomoć",
+    "proBono": "Pro Bono",
+    "blog": "Blog",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "title": "Advokatska kancelarija",
+    "titleAccent": "Marić",
+    "subtitle": "Pravna sigurnost zasnovana na iskustvu od 1994. godine",
+    "cta": "Oblasti prava",
+    "ctaSecondary": "Kontaktirajte nas"
+  },
+  "about": {
+    "title": "O nama",
+    "subtitle": "Više od tri decenije pravne prakse",
+    "description": "Advokatska kancelarija Marić je osnovana januara 1994. godine sa sedištem u Loznici i od tada neprekidno pruža pravnu pomoć fizičkim i pravnim licima na teritoriji Republike Srbije.",
+    "services": "Pravna pomoć koju pružamo zasniva se na davanju pravnih saveta i mišljenja, izradi opštih i pojedinačnih pravnih akata, ugovora, izjava i drugih isprava, kao i zastupanju klijenata pred sudovima, organima uprave, organizacijama i drugim licima.",
+    "yearFounded": "1994",
+    "yearFoundedLabel": "Godina osnivanja",
+    "experienceYears": "30+",
+    "experienceLabel": "Godina iskustva",
+    "areasCount": "7",
+    "areasLabel": "Oblasti prava"
+  },
+  "services": {
+    "title": "Oblasti prava",
+    "subtitle": "Pružamo sveobuhvatnu pravnu pomoć u svim ključnim oblastima prava",
+    "criminal": {
+      "title": "Krivično pravo",
+      "slug": "krivicno-pravo",
+      "description": "Odbrana osumnjičenih i okrivljenih lica u svim fazama krivičnog postupka, zastupanje oštećenih, zastupanje maloletnih lica.",
+      "full": "Naša advokatska kancelarija pruža pravnu pomoć u oblasti krivičnog prava koja obuhvata odbranu osumnjičenih i okrivljenih lica u svim fazama krivičnog postupka — od policijske istrage, preko tužilaštva, do sudskog postupka. Takođe zastupamo oštećena lica tokom celokupnog krivičnog postupka, kao i maloletne učinioce krivičnih dela i povređene maloletnike."
+    },
+    "labor": {
+      "title": "Radno pravo",
+      "slug": "radno-pravo",
+      "description": "Izrada ugovora o radu, pravilnika, zastupanje u radnim sporovima, povrede na radu, mobbing.",
+      "full": "Naša advokatska kancelarija pruža pravnu pomoć u oblasti radnog prava, uključujući izradu ugovora o radu, pravilnika o radu, pravilnika o organizaciji i sistematizaciji poslova, rešenja o korišćenju godišnjeg odmora i rešenja o prestanku radnog odnosa. Zastupamo i zaposlene i poslodavce u radnim sporovima koji se tiču neisplaćenih zarada, beneficija, prevoza, naknade zarade i drugih potraživanja. Kancelarija se bavi i slučajevima povreda na radu, kao i zastupanjem u postupcima mobinga i zlostavljanja na radu, kako u sudskim, tako i u vansudskim postupcima."
+    },
+    "civil": {
+      "title": "Građansko pravo",
+      "slug": "gradjansko-pravo",
+      "description": "Stvarno pravo, nasledno pravo i porodično pravo.",
+      "full": "U oblasti građanskog prava pružamo sveobuhvatnu pravnu pomoć koja obuhvata tri ključne podoblasti: stvarno građansko pravo (imovinski odnosi, vlasništvo, službenosti), nasledno pravo (ostavinski postupci, testamenti, nasledni sporovi) i porodično pravo (razvod braka, starateljstvo, alimentacija, podela imovine)."
+    },
+    "administrative": {
+      "title": "Upravno pravo",
+      "slug": "upravno-pravo",
+      "description": "Pravna pomoć u svim upravnim postupcima pred organima uprave i upravnim sporovima.",
+      "full": "Naša advokatska kancelarija pruža pravnu pomoć u svim upravnim postupcima pred organima uprave i upravnim sporovima. Zastupamo klijente u postupcima pred državnim organima, pokrajinskim i lokalnim organima uprave, kao i u upravnim sporovima pred Upravnim sudom."
+    },
+    "commercial": {
+      "title": "Privredno pravo",
+      "slug": "privredno-pravo",
+      "description": "Osnivanje kompanija, izrada akata, statusne promene, finansijske transakcije, zastupanje u privrednim prestupima.",
+      "full": "Naša advokatska kancelarija pruža savete o načinu osnivanja kompanija i njihovih predstavništava, donošenju svih neophodnih akata u poslovanju, sprovođenju statusnih promena i obavljanju finansijskih transakcija sa inostranim elementom. Vršimo sveobuhvatne pravne analize privrednih subjekata, izrađujemo razne vrste ugovora za poslovne potrebe i pripremamo dokumentaciju potrebnu za organizacione promene. Zastupamo klijente u parničnim postupcima, vanparničnim postupcima, privrednim prestupima, kao i u postupcima stečaja i likvidacije."
+    },
+    "misdemeanor": {
+      "title": "Prekršajno pravo",
+      "slug": "prekrsajno-pravo",
+      "description": "Pravna pomoć fizičkim i pravnim licima u svim postupcima pred Prekršajnim sudom.",
+      "full": "Naša advokatska kancelarija pruža pravnu pomoć fizičkim i pravnim licima u svim postupcima pred Prekršajnim sudom. Branimo klijente od prekršajnih prijava i zastupamo ih u svim fazama prekršajnog postupka."
+    },
+    "humanRights": {
+      "title": "Zaštita ljudskih prava",
+      "slug": "zastita-ljudskih-prava",
+      "description": "Zastupanje pred Ustavnim sudom RS i podnošenje predstavki Evropskom sudu za ljudska prava u Strazburu.",
+      "full": "Naša advokatska kancelarija pruža usluge zastupanja stranaka u postupcima pred Ustavnim sudom Republike Srbije (podnošenje ustavne žalbe) i podnošenje predstavki Evropskom sudu za ljudska prava u Strazburu. Ovo je najviši nivo pravne zaštite koji pojedinac može da ostvari."
+    }
+  },
+  "proBono": {
+    "title": "Pro Bono",
+    "subtitle": "Društvena odgovornost pravničke profesije",
+    "description": "Advokatska kancelarija Marić nastoji da pružanjem Pro Bono pravne pomoći i društvenim aktivizmom doprinese zajednici u kojoj radi, promovišući advokaturu kao društveno odgovornu profesiju.",
+    "org1": "Udruženje građana za borbu protiv raka kod dece \u201eUvek sa decom\u201c",
+    "org2": "Nacionalno udruženje roditelja dece obolele od raka \u201eNURDOR\u201c",
+    "org3": "Udruženje građana za borbu protiv retkih bolesti kod dece \u201eŽIVOT\u201c"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "subtitle": "Stupite u kontakt sa nama",
+    "address": "Ul. V. Zečevića K-1, Loznica",
+    "addressLabel": "Adresa",
+    "phone": "+381 63 896 4004",
+    "phoneLabel": "Telefon",
+    "email": "kancelarija.maric@gmail.com",
+    "emailLabel": "Email",
+    "website": "www.mariclaw.rs",
+    "websiteLabel": "Web"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Pravni saveti i aktuelnosti",
+    "readMore": "Pročitajte više",
+    "allPosts": "Svi članci",
+    "backToBlog": "Nazad na blog"
+  },
+  "footer": {
+    "disclaimer": "Ova internet stranica je isključivo informativnog karaktera i ni na koji način nije namenjena pridobijanju klijenata i ne predstavlja pravno savetovanje u vezi sa bilo kojom od navedenih oblasti.",
+    "rights": "Sva prava zadržana.",
+    "disclaimerLink": "Ograničenje odgovornosti"
+  },
+  "disclaimerPage": {
+    "title": "Ograničenje odgovornosti",
+    "p1": "Ovaj vebsajt je namenjen licima koja žele da saznaju više o Advokatskoj kancelariji Marić. Cilj ovog vebsajta nije neželjeno kontaktiranje klijenata niti pružanje pravnih saveta.",
+    "p2": "Budući da u svakom trenutku može doći do razvoja u pojedinim oblastima prava, vebsajt može sadržati informacije koje su nepotpune ili neažurne.",
+    "p3": "Posetioci vebsajta ne smeju smatrati informacije na ovom vebsajtu pozivom na angažovanje Advokatske kancelarije Marić ili bilo kog advokata kancelarije i ne smeju se oslanjati na ovde navedene informacije kao na pravni savet u bilo koje svrhe, te uvek treba da potraže pravni savet adekvatnog pravnika u relevantnoj jurisdikciji.",
+    "p4": "Kancelarija se izričito odriče svake odgovornosti zasnovane na informacijama navedenim na ovom sajtu.",
+    "p5": "Prethodni rezultati ne garantuju sličan ishod.",
+    "p6": "Elektronska komunikacija koja se obavlja preko sajta nije sigurna i takva komunikacija neće se smatrati poverljivom.",
+    "p7": "Kancelarija ne preuzima odgovornost i ne podržava nužno sadržaj koji je dostupan na veb sajtovima kojima se može pristupiti preko ovog sajta.",
+    "p8": "Takođe, kancelarija nije odgovorna za bilo koju praksu, uključujući i zaštitu ličnih podataka, koja se primenjuje na sajtovima kojima se može pristupiti preko ovog sajta.",
+    "p9": "Sedište kancelarije je u Loznici, Republika Srbija.",
+    "p10": "Informacije na ovom sajtu ne smeju se koristiti za slanje neželjenih grupnih elektronskih oglasa ili ponuda. Svako takvo korišćenje informacija na ovom sajtu smatra se kršenjem ovih Uslova korišćenja.",
+    "p11": "Ovaj vebsajt je vlasništvo Advokatske kancelarije Marić."
+  },
+  "reviews": {
+    "title": "Utisci klijenata",
+    "subtitle": "Recenzije sa Google naloga",
+    "viewAll": "Pogledajte sve recenzije na Google"
+  },
+  "common": {
+    "learnMore": "Saznajte više",
+    "backToHome": "Nazad na početnu"
+  }
+}

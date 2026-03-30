@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:mariclaw.rs)",
+      "WebFetch(domain:www.andjelkoviclaw.rs)",
+      "WebFetch(domain:www.karanovicpartners.com)",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir=false --import-alias=\"@/*\" --use-npm --no-turbopack)",
+      "Bash(mv PLAN.md _PLAN.md)",
+      "Bash(mv BLOG_PRODUCTION.md _BLOG_PRODUCTION.md)",
+      "Bash(mkdir -p /tmp/maric_docs)",
+      "Bash(mv _PLAN.md /tmp/maric_docs/PLAN.md)",
+      "Bash(mv _BLOG_PRODUCTION.md /tmp/maric_docs/BLOG_PRODUCTION.md)",
+      "Bash(npm install:*)",
+      "Bash(cd:*)",
+      "Bash(cp /tmp/maric_docs/PLAN.md ./PLAN.md)",
+      "Bash(cp /tmp/maric_docs/BLOG_PRODUCTION.md ./BLOG_PRODUCTION.md)",
+      "Bash(npx next:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3001/)",
+      "WebFetch(domain:www.geciclaw.com)",
+      "WebSearch"
+    ]
+  }
+}

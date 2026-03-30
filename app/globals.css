@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  /* Blue law firm palette */
+  --color-primary: #0A1628;
+  --color-primary-light: #0F2340;
+  --color-secondary: #1E3A5F;
+  --color-accent: #2563EB;
+  --color-accent-light: #3B82F6;
+  --color-accent-dim: #1D4ED8;
+
+  --color-surface: #0F2340;
+  --color-surface-light: #162D50;
+  --color-border: rgba(30, 58, 95, 0.4);
+  --color-border-light: rgba(30, 58, 95, 0.6);
+
+  /* Dark section text */
+  --color-text-primary: #F8FAFC;
+  --color-text-muted: #94A3B8;
+  --color-text-dim: #64748B;
+
+  /* White/light section tokens */
+  --color-white-bg: #FFFFFF;
+  --color-white-bg-alt: #F8FAFC;
+  --color-white-surface: #F1F5F9;
+  --color-white-border: #E2E8F0;
+  --color-white-text: #0F172A;
+  --color-white-text-muted: #475569;
+  --color-white-text-dim: #94A3B8;
+
+  /* Spacing tokens */
+  --spacing-section: 112px;
+  --spacing-group: 64px;
+  --spacing-element: 24px;
+
+  /* Radius tokens */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 999px;
+
+  /* Fonts */
+  --font-heading: "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-white-bg);
+  color: var(--color-white-text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-white-bg-alt);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-dim);
+}

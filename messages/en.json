@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "title": "Marić Law Office | Loznica, Serbia",
+    "description": "Marić Law Office has been providing legal assistance to individuals and legal entities since 1994. Criminal, labor, civil, administrative, commercial, and misdemeanor law.",
+    "keywords": "lawyer Loznica, law office Serbia, legal assistance, Marić attorney, criminal law, labor law, civil law"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Practice Areas",
+    "proBono": "Pro Bono",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Law Office",
+    "titleAccent": "Marić",
+    "subtitle": "Legal certainty built on experience since 1994",
+    "cta": "Practice Areas",
+    "ctaSecondary": "Contact Us"
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Over three decades of legal practice",
+    "description": "Marić Law Office was established in January 1994, headquartered in Loznica, and has been continuously providing legal assistance to individuals and legal entities throughout the territory of the Republic of Serbia.",
+    "services": "The legal assistance we provide is based on giving legal advice and opinions, drafting general and individual legal acts, contracts, statements, and other documents, as well as representing clients before courts, administrative bodies, organizations, and other entities.",
+    "yearFounded": "1994",
+    "yearFoundedLabel": "Year Founded",
+    "experienceYears": "30+",
+    "experienceLabel": "Years of Experience",
+    "areasCount": "7",
+    "areasLabel": "Practice Areas"
+  },
+  "services": {
+    "title": "Practice Areas",
+    "subtitle": "Comprehensive legal assistance across all key areas of law",
+    "criminal": {
+      "title": "Criminal Law",
+      "slug": "krivicno-pravo",
+      "description": "Defense of suspects and accused persons in all stages of criminal proceedings, representation of victims, and juvenile cases.",
+      "full": "Our law office provides legal assistance in the field of criminal law, including the defense of suspects and accused persons in all stages of criminal proceedings — from police investigation, through prosecution, to court proceedings. We also represent injured parties throughout the entire criminal process, as well as juvenile offenders and injured minors."
+    },
+    "labor": {
+      "title": "Labor Law",
+      "slug": "radno-pravo",
+      "description": "Employment contracts, regulations, representation in labor disputes, workplace injuries, and mobbing cases.",
+      "full": "Our law office provides legal assistance in the field of labor law, including drafting employment contracts, work regulations, organizational and systematization rules, annual leave decisions, and employment termination decisions. We represent both employees and employers in labor disputes concerning unpaid wages, benefits, transportation allowances, wage compensation, and other claims. The office also handles workplace injury cases and represents parties in mobbing and workplace abuse proceedings, both in court and out-of-court settings."
+    },
+    "civil": {
+      "title": "Civil Law",
+      "slug": "gradjansko-pravo",
+      "description": "Property law, inheritance law, and family law.",
+      "full": "In the field of civil law, we provide comprehensive legal assistance covering three key sub-areas: property law (property relations, ownership, easements), inheritance law (probate proceedings, wills, inheritance disputes), and family law (divorce, custody, alimony, property division)."
+    },
+    "administrative": {
+      "title": "Administrative Law",
+      "slug": "upravno-pravo",
+      "description": "Legal assistance in all administrative proceedings before government authorities and administrative disputes.",
+      "full": "Our law office provides legal assistance in all administrative proceedings before government authorities and in administrative disputes. We represent clients in proceedings before state bodies, provincial and local administrative authorities, as well as in administrative disputes before the Administrative Court."
+    },
+    "commercial": {
+      "title": "Commercial Law",
+      "slug": "privredno-pravo",
+      "description": "Company establishment, corporate acts, status changes, financial transactions, and representation in commercial offenses.",
+      "full": "Our law office provides advice on establishing companies and their representative offices, adopting all necessary business acts, implementing status changes, and conducting financial transactions with foreign elements. We perform comprehensive legal analyses of commercial entities, draft various types of contracts for business purposes, and prepare documentation needed for organizational changes. We represent clients in civil proceedings, non-contentious proceedings, commercial offenses, as well as in bankruptcy and liquidation proceedings."
+    },
+    "misdemeanor": {
+      "title": "Misdemeanor Law",
+      "slug": "prekrsajno-pravo",
+      "description": "Legal assistance to individuals and legal entities in all proceedings before the Misdemeanor Court.",
+      "full": "Our law office provides legal assistance to individuals and legal entities in all proceedings before the Misdemeanor Court. We defend clients against misdemeanor charges and represent them in all stages of misdemeanor proceedings."
+    },
+    "humanRights": {
+      "title": "Human Rights Protection",
+      "slug": "zastita-ljudskih-prava",
+      "description": "Representation before the Constitutional Court of Serbia and petitions to the European Court of Human Rights in Strasbourg.",
+      "full": "Our law office provides representation of parties in proceedings before the Constitutional Court of the Republic of Serbia (filing constitutional complaints) and submitting petitions to the European Court of Human Rights in Strasbourg. This represents the highest level of legal protection available to an individual."
+    }
+  },
+  "proBono": {
+    "title": "Pro Bono",
+    "subtitle": "Social responsibility of the legal profession",
+    "description": "Marić Law Office strives to contribute to the community through Pro Bono legal assistance and social activism, promoting the legal profession as a socially responsible practice.",
+    "org1": "Citizens' Association for Fighting Childhood Cancer \"Always With Children\"",
+    "org2": "National Association of Parents of Children with Cancer \"NURDOR\"",
+    "org3": "Citizens' Association for Fighting Rare Childhood Diseases \"LIFE\""
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Get in touch with us",
+    "address": "V. Zečević St. K-1, Loznica, Serbia",
+    "addressLabel": "Address",
+    "phone": "+381 63 896 4004",
+    "phoneLabel": "Phone",
+    "email": "kancelarija.maric@gmail.com",
+    "emailLabel": "Email",
+    "website": "www.mariclaw.rs",
+    "websiteLabel": "Website"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Legal advice and news",
+    "readMore": "Read more",
+    "allPosts": "All articles",
+    "backToBlog": "Back to blog"
+  },
+  "footer": {
+    "disclaimer": "This website is exclusively informational in nature and is in no way intended to solicit clients, nor does it constitute legal advice regarding any of the listed areas.",
+    "rights": "All rights reserved.",
+    "disclaimerLink": "Limitation of Liability"
+  },
+  "disclaimerPage": {
+    "title": "Limitation of Liability",
+    "p1": "This website is intended for individuals who wish to learn more about Marić Law Office. The purpose of this website is not to solicit clients or provide legal advice.",
+    "p2": "Since developments in various areas of law may occur at any time, the website may contain information that is incomplete or not up to date.",
+    "p3": "Visitors to the website must not consider the information on this website as an invitation to engage Marić Law Office or any of its attorneys, and must not rely on the information provided herein as legal advice for any purpose. Visitors should always seek legal advice from an appropriate lawyer in the relevant jurisdiction.",
+    "p4": "The office expressly disclaims any liability based on the information provided on this website.",
+    "p5": "Past results do not guarantee a similar outcome.",
+    "p6": "Electronic communication conducted through this website is not secure, and such communication will not be considered confidential.",
+    "p7": "The office assumes no responsibility for and does not necessarily endorse content available on websites accessible through this site.",
+    "p8": "Furthermore, the office is not responsible for any practices, including personal data protection, applied on websites accessible through this site.",
+    "p9": "The office is headquartered in Loznica, Republic of Serbia.",
+    "p10": "Information on this website must not be used for sending unsolicited mass electronic advertisements or offers. Any such use of information on this website constitutes a violation of these Terms of Use.",
+    "p11": "This website is the property of Marić Law Office."
+  },
+  "reviews": {
+    "title": "Client Testimonials",
+    "subtitle": "Reviews from Google",
+    "viewAll": "View all reviews on Google"
+  },
+  "common": {
+    "learnMore": "Learn more",
+    "backToHome": "Back to home"
+  }
+}
