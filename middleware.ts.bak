@@ -1,0 +1,6 @@
+// Middleware is disabled for static export (GitHub Pages).
+// See REVERT_TO_VERCEL.md for the original middleware config.
+
+export const config = {
+  matcher: [],
+};
