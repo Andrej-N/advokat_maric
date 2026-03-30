@@ -22,8 +22,8 @@ export default async function HomePage({
       <ServicesGrid />
       <ProBonoPreview />
       <BlogPreview />
-      <GoogleReviews />
       <ContactInfo />
+      <GoogleReviews />
     </>
   );
 }

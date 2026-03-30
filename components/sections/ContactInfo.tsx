@@ -56,12 +56,12 @@ export function ContactInfo() {
               {href ? (
                 <a
                   href={href}
-                  className="text-text-primary text-sm hover:text-accent-light transition-colors"
+                  className="text-text-primary text-sm hover:text-accent-light transition-colors break-all"
                 >
                   {value}
                 </a>
               ) : (
-                <span className="text-text-primary text-sm">{value}</span>
+                <span className="text-text-primary text-sm break-all">{value}</span>
               )}
             </div>
           ))}
