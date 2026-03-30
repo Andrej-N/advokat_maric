@@ -46,13 +46,17 @@ export const config = {
 
 Obrisi fajl `.github/workflows/deploy.yml` (nije potreban za Vercel).
 
-## 4. sitemap.ts i robots.ts — ukloni force-static
+## 4. lib/i18n/routing.ts — vrati localePrefix
+
+Zameni `localePrefix: "always"` sa `localePrefix: "as-needed"`.
+
+## 5. sitemap.ts i robots.ts — ukloni force-static
 
 Obrisi liniju `export const dynamic = "force-static";` iz oba fajla:
 - `app/sitemap.ts`
 - `app/robots.ts`
 
-## 5. Dashboard edit page — spoji nazad (opciono)
+## 6. Dashboard edit page — spoji nazad (opciono)
 
 Fajl `app/dashboard/blog/[id]/edit/page.tsx` je razdvojen na server + client komponentu zbog static export-a. Za Vercel ovo radi i ovako, ali ako zelis da vratis na originalni oblik, spoji `EditBlogPostClient.tsx` nazad u `page.tsx` sa `"use client"` i obrisi `generateStaticParams`.
 
