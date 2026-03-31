@@ -106,15 +106,19 @@ function Nodes() {
           linePositions.array[pi + 4] = positions[j * 3 + 1];
           linePositions.array[pi + 5] = positions[j * 3 + 2];
 
-          // Blue color with alpha
-          lineColors.array[ci] = 0.231;
-          lineColors.array[ci + 1] = 0.51;
-          lineColors.array[ci + 2] = 0.965;
-          lineColors.array[ci + 3] = alpha * 0.4;
-          lineColors.array[ci + 4] = 0.231;
-          lineColors.array[ci + 5] = 0.51;
-          lineColors.array[ci + 6] = 0.965;
-          lineColors.array[ci + 7] = alpha * 0.4;
+          // Teal-blue gradient color with alpha
+          const t = (positions[i * 3 + 1] + 4) / 8;
+          const r = 0.16 + t * 0.05;
+          const g = 0.55 + t * 0.12;
+          const b = 0.50 + t * 0.15;
+          lineColors.array[ci] = r;
+          lineColors.array[ci + 1] = g;
+          lineColors.array[ci + 2] = b;
+          lineColors.array[ci + 3] = alpha * 0.35;
+          lineColors.array[ci + 4] = r;
+          lineColors.array[ci + 5] = g;
+          lineColors.array[ci + 6] = b;
+          lineColors.array[ci + 7] = alpha * 0.35;
 
           lineIndex++;
         }
@@ -137,7 +141,7 @@ function Nodes() {
       {/* Nodes */}
       <instancedMesh ref={meshRef} args={[undefined, undefined, NODE_COUNT]}>
         <sphereGeometry args={[1, 8, 8]} />
-        <meshBasicMaterial color="#3B82F6" transparent opacity={0.8} />
+        <meshBasicMaterial color="#2A9D8F" transparent opacity={0.7} />
       </instancedMesh>
 
       {/* Lines */}

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/lib/i18n/routing";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import { Scale, Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 const serviceKeys = [
   "criminal",
@@ -61,7 +61,6 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <Scale className="w-7 h-7 text-accent transition-transform group-hover:scale-110" />
             <div className="flex flex-col">
               <span
                 className={`text-lg font-semibold leading-tight tracking-tight ${

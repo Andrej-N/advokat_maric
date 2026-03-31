@@ -25,27 +25,26 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 tracking-tight">
+        <h1 className="font-[family-name:var(--font-cormorant)] font-light text-3xl sm:text-4xl md:text-5xl mb-3 tracking-wide">
           <span className="text-text-primary">{t("title")}</span>
           <br />
-          <span className="text-accent">{t("titleAccent")}</span>
+          <span className="text-accent font-medium text-4xl sm:text-5xl md:text-6xl tracking-wider uppercase">
+            {t("titleAccent")}
+          </span>
         </h1>
-        <p className="text-lg sm:text-xl text-text-muted max-w-2xl mx-auto mb-10">
-          {t("subtitle")}
-        </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
           <Link
-            href="/pravna-pomoc/krivicno-pravo"
+            href="/pravna-pomoc/krivicno-pravo" scroll={false} onClick={(e) => { e.preventDefault(); document.getElementById('usluge')?.scrollIntoView({ behavior: 'smooth' }); }}
             className="bg-accent hover:bg-accent-dim text-white px-8 py-3.5 rounded-[var(--radius-md)] font-medium transition-colors cursor-pointer"
           >
             {t("cta")}
           </Link>
-          <Link
-            href="/kontakt"
+          <a
+            href="tel:+381638964004"
             className="border border-border-light text-text-primary px-8 py-3.5 rounded-[var(--radius-md)] font-medium hover:bg-surface transition-colors cursor-pointer"
           >
             {t("ctaSecondary")}
-          </Link>
+          </a>
         </div>
       </div>
 

@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { MapPin, Phone, Mail, Globe } from "lucide-react";
+import { ContactForm } from "@/components/sections/ContactForm";
 
 export async function generateMetadata({
   params,
@@ -12,7 +13,6 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "contact" });
   return {
     title: t("title"),
-    description: t("subtitle"),
   };
 }
 
@@ -61,10 +61,9 @@ function ContactPageContent() {
     <div className="pt-24 lg:pt-32 bg-white-bg">
       <section className="py-28 px-4">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-white-text mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-white-text mb-12">
             {t("title")}
           </h1>
-          <p className="text-xl text-white-text-muted mb-12">{t("subtitle")}</p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {contactItems.map(({ icon: Icon, label, value, href }) => (
@@ -90,6 +89,11 @@ function ContactPageContent() {
                 )}
               </div>
             ))}
+          </div>
+
+          {/* Contact Form */}
+          <div className="mt-12">
+            <ContactForm />
           </div>
 
           {/* Google Maps Embed */}

@@ -7,7 +7,7 @@
   "nav": {
     "home": "Home",
     "about": "About",
-    "services": "Practice Areas",
+    "services": "Services",
     "proBono": "Pro Bono",
     "blog": "Blog",
     "contact": "Contact"
@@ -16,8 +16,8 @@
     "title": "Law Office",
     "titleAccent": "Marić",
     "subtitle": "Legal certainty built on experience since 1994",
-    "cta": "Practice Areas",
-    "ctaSecondary": "Contact Us"
+    "cta": "Services",
+    "ctaSecondary": "Schedule a Consultation"
   },
   "about": {
     "title": "About Us",
@@ -32,7 +32,7 @@
     "areasLabel": "Practice Areas"
   },
   "services": {
-    "title": "Practice Areas",
+    "title": "Services",
     "subtitle": "Comprehensive legal assistance across all key areas of law",
     "criminal": {
       "title": "Criminal Law",
@@ -79,15 +79,18 @@
   },
   "proBono": {
     "title": "Pro Bono",
-    "subtitle": "Social responsibility of the legal profession",
+    "subtitle": "",
     "description": "Marić Law Office strives to contribute to the community through Pro Bono legal assistance and social activism, promoting the legal profession as a socially responsible practice.",
     "org1": "Citizens' Association for Fighting Childhood Cancer \"Always With Children\"",
+    "org1Url": "https://uveksadecom.rs",
     "org2": "National Association of Parents of Children with Cancer \"NURDOR\"",
-    "org3": "Citizens' Association for Fighting Rare Childhood Diseases \"LIFE\""
+    "org2Url": "https://nurdor.rs",
+    "org3": "Citizens' Association for Fighting Rare Childhood Diseases \"LIFE\"",
+    "org3Url": "https://udruzenjezivot.rs"
   },
   "contact": {
     "title": "Contact",
-    "subtitle": "Get in touch with us",
+    "subtitle": "",
     "address": "V. Zečević St. K-1, Loznica, Serbia",
     "addressLabel": "Address",
     "phone": "+381 63 896 4004",
@@ -95,7 +98,13 @@
     "email": "kancelarija.maric@gmail.com",
     "emailLabel": "Email",
     "website": "www.mariclaw.rs",
-    "websiteLabel": "Website"
+    "websiteLabel": "Website",
+    "formName": "Full name",
+    "formEmail": "Email address",
+    "formPhone": "Phone",
+    "formMessage": "Your message",
+    "formSend": "Send message",
+    "formTitle": "Send us a message"
   },
   "blog": {
     "title": "Blog",
@@ -107,7 +116,9 @@
   "footer": {
     "disclaimer": "This website is exclusively informational in nature and is in no way intended to solicit clients, nor does it constitute legal advice regarding any of the listed areas.",
     "rights": "All rights reserved.",
-    "disclaimerLink": "Limitation of Liability"
+    "disclaimerLink": "Limitation of Liability",
+    "privacyLink": "Privacy Policy",
+    "termsLink": "Terms of Service"
   },
   "disclaimerPage": {
     "title": "Limitation of Liability",
@@ -122,6 +133,14 @@
     "p9": "The office is headquartered in Loznica, Republic of Serbia.",
     "p10": "Information on this website must not be used for sending unsolicited mass electronic advertisements or offers. Any such use of information on this website constitutes a violation of these Terms of Use.",
     "p11": "This website is the property of Marić Law Office."
+  },
+  "termsPage": {
+    "title": "Terms of Service",
+    "content": "Terms of service text will be added soon."
+  },
+  "privacyPage": {
+    "title": "Privacy Policy",
+    "content": "Privacy policy text will be added soon."
   },
   "reviews": {
     "title": "Client Testimonials",

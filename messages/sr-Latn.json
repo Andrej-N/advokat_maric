@@ -7,7 +7,7 @@
   "nav": {
     "home": "Početna",
     "about": "O nama",
-    "services": "Pravna pomoć",
+    "services": "Usluge",
     "proBono": "Pro Bono",
     "blog": "Blog",
     "contact": "Kontakt"
@@ -16,8 +16,8 @@
     "title": "Advokatska kancelarija",
     "titleAccent": "Marić",
     "subtitle": "Pravna sigurnost zasnovana na iskustvu od 1994. godine",
-    "cta": "Oblasti prava",
-    "ctaSecondary": "Kontaktirajte nas"
+    "cta": "Usluge",
+    "ctaSecondary": "Zakažite konsultacije"
   },
   "about": {
     "title": "O nama",
@@ -32,7 +32,7 @@
     "areasLabel": "Oblasti prava"
   },
   "services": {
-    "title": "Oblasti prava",
+    "title": "Usluge",
     "subtitle": "Pružamo sveobuhvatnu pravnu pomoć u svim ključnim oblastima prava",
     "criminal": {
       "title": "Krivično pravo",
@@ -79,15 +79,18 @@
   },
   "proBono": {
     "title": "Pro Bono",
-    "subtitle": "Društvena odgovornost pravničke profesije",
+    "subtitle": "",
     "description": "Advokatska kancelarija Marić nastoji da pružanjem Pro Bono pravne pomoći i društvenim aktivizmom doprinese zajednici u kojoj radi, promovišući advokaturu kao društveno odgovornu profesiju.",
     "org1": "Udruženje građana za borbu protiv raka kod dece \u201eUvek sa decom\u201c",
+    "org1Url": "https://uveksadecom.rs",
     "org2": "Nacionalno udruženje roditelja dece obolele od raka \u201eNURDOR\u201c",
-    "org3": "Udruženje građana za borbu protiv retkih bolesti kod dece \u201eŽIVOT\u201c"
+    "org2Url": "https://nurdor.rs",
+    "org3": "Udruženje građana za borbu protiv retkih bolesti kod dece \u201eŽIVOT\u201c",
+    "org3Url": "https://udruzenjezivot.rs"
   },
   "contact": {
     "title": "Kontakt",
-    "subtitle": "Stupite u kontakt sa nama",
+    "subtitle": "",
     "address": "Ul. V. Zečevića K-1, Loznica",
     "addressLabel": "Adresa",
     "phone": "+381 63 896 4004",
@@ -95,7 +98,13 @@
     "email": "kancelarija.maric@gmail.com",
     "emailLabel": "Email",
     "website": "www.mariclaw.rs",
-    "websiteLabel": "Web"
+    "websiteLabel": "Web",
+    "formName": "Ime i prezime",
+    "formEmail": "Email adresa",
+    "formPhone": "Telefon",
+    "formMessage": "Vaša poruka",
+    "formSend": "Pošaljite poruku",
+    "formTitle": "Pošaljite nam poruku"
   },
   "blog": {
     "title": "Blog",
@@ -107,7 +116,9 @@
   "footer": {
     "disclaimer": "Ova internet stranica je isključivo informativnog karaktera i ni na koji način nije namenjena pridobijanju klijenata i ne predstavlja pravno savetovanje u vezi sa bilo kojom od navedenih oblasti.",
     "rights": "Sva prava zadržana.",
-    "disclaimerLink": "Ograničenje odgovornosti"
+    "disclaimerLink": "Ograničenje odgovornosti",
+    "privacyLink": "Politika privatnosti",
+    "termsLink": "Opšti uslovi poslovanja"
   },
   "disclaimerPage": {
     "title": "Ograničenje odgovornosti",
@@ -122,6 +133,14 @@
     "p9": "Sedište kancelarije je u Loznici, Republika Srbija.",
     "p10": "Informacije na ovom sajtu ne smeju se koristiti za slanje neželjenih grupnih elektronskih oglasa ili ponuda. Svako takvo korišćenje informacija na ovom sajtu smatra se kršenjem ovih Uslova korišćenja.",
     "p11": "Ovaj vebsajt je vlasništvo Advokatske kancelarije Marić."
+  },
+  "termsPage": {
+    "title": "Opšti uslovi poslovanja",
+    "content": "Tekst opštih uslova poslovanja će uskoro biti dodat."
+  },
+  "privacyPage": {
+    "title": "Politika privatnosti",
+    "content": "Tekst politike privatnosti će uskoro biti dodat."
   },
   "reviews": {
     "title": "Utisci klijenata",

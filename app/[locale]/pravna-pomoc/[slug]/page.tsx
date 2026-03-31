@@ -9,7 +9,7 @@ import {
   Building2,
   Landmark,
   ShieldAlert,
-  Scale,
+  Users,
   ArrowLeft,
 } from "lucide-react";
 
@@ -23,7 +23,7 @@ const serviceMap: Record<
   "upravno-pravo": { key: "administrative", icon: Building2 },
   "privredno-pravo": { key: "commercial", icon: Landmark },
   "prekrsajno-pravo": { key: "misdemeanor", icon: ShieldAlert },
-  "zastita-ljudskih-prava": { key: "humanRights", icon: Scale },
+  "zastita-ljudskih-prava": { key: "humanRights", icon: Users },
 };
 
 export async function generateStaticParams() {

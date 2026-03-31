@@ -20,10 +20,10 @@ export default async function HomePage({
       <Hero />
       <AboutPreview />
       <ServicesGrid />
-      <ProBonoPreview />
       <BlogPreview />
-      <ContactInfo />
       <GoogleReviews />
+      <ProBonoPreview />
+      <ContactInfo />
     </>
   );
 }

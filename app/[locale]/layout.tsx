@@ -1,18 +1,11 @@
 import type { Metadata } from "next";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
-import { Inter } from "next/font/google";
 import { locales } from "@/lib/i18n/config";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { SpeedDial } from "@/components/layout/SpeedDial";
 import { generateOrganizationJsonLd } from "@/lib/seo";
-import "@/app/globals.css";
-
-const inter = Inter({
-  subsets: ["latin", "latin-ext", "cyrillic"],
-  variable: "--font-inter",
-  display: "swap",
-});
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -65,22 +58,17 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale === "sr-Latn" ? "sr" : locale} suppressHydrationWarning>
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(generateOrganizationJsonLd()),
-          }}
-        />
-      </head>
-      <body className={`${inter.variable} font-sans antialiased`}>
-        <NextIntlClientProvider messages={messages}>
-          <Navbar />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <NextIntlClientProvider messages={messages}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateOrganizationJsonLd()),
+        }}
+      />
+      <Navbar />
+      <main className="min-h-screen">{children}</main>
+      <Footer />
+      <SpeedDial />
+    </NextIntlClientProvider>
   );
 }
