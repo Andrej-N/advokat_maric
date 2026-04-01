@@ -33,7 +33,7 @@ export function Footer() {
                 alt="Marić"
                 width={230}
                 height={100}
-                className="h-10 w-auto brightness-0 invert"
+                className="h-14 w-auto brightness-0 invert"
               />
             </Link>
             <p className="text-text-muted text-sm leading-relaxed">

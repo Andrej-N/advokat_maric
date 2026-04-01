@@ -69,7 +69,7 @@ export function Navbar() {
               alt="Marić"
               width={230}
               height={100}
-              className={`h-10 lg:h-12 w-auto transition-all duration-300 ${
+              className={`h-14 lg:h-16 w-auto transition-all duration-300 ${
                 isTransparent
                   ? "brightness-0 invert"
                   : ""
