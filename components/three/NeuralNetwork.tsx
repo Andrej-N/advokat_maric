@@ -106,11 +106,11 @@ function Nodes() {
           linePositions.array[pi + 4] = positions[j * 3 + 1];
           linePositions.array[pi + 5] = positions[j * 3 + 2];
 
-          // Teal-blue gradient color with alpha
+          // Blue→Green gradient color with alpha
           const t = (positions[i * 3 + 1] + 4) / 8;
-          const r = 0.16 + t * 0.05;
-          const g = 0.55 + t * 0.12;
-          const b = 0.50 + t * 0.15;
+          const r = 0.02 + t * 0.0;
+          const g = 0.45 + t * 0.37;
+          const b = 0.89 - t * 0.37;
           lineColors.array[ci] = r;
           lineColors.array[ci + 1] = g;
           lineColors.array[ci + 2] = b;
@@ -141,7 +141,7 @@ function Nodes() {
       {/* Nodes */}
       <instancedMesh ref={meshRef} args={[undefined, undefined, NODE_COUNT]}>
         <sphereGeometry args={[1, 8, 8]} />
-        <meshBasicMaterial color="#2A9D8F" transparent opacity={0.7} />
+        <meshBasicMaterial color="#0693E3" transparent opacity={0.7} />
       </instancedMesh>
 
       {/* Lines */}

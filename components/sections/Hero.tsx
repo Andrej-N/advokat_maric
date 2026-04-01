@@ -17,7 +17,7 @@ export function Hero() {
   const t = useTranslations("hero");
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-primary">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary-light to-[#0D3B2E]">
       <NeuralNetworkCanvas />
 
       {/* Gradient overlay */}
@@ -35,7 +35,7 @@ export function Hero() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
           <Link
             href="/pravna-pomoc/krivicno-pravo" scroll={false} onClick={(e) => { e.preventDefault(); document.getElementById('usluge')?.scrollIntoView({ behavior: 'smooth' }); }}
-            className="bg-accent hover:bg-accent-dim text-white px-8 py-3.5 rounded-[var(--radius-md)] font-medium transition-colors cursor-pointer"
+            className="bg-gradient-to-r from-accent to-accent-green hover:from-accent-dim hover:to-accent-green-dim text-white px-8 py-3.5 rounded-[var(--radius-md)] font-medium transition-all cursor-pointer shadow-lg shadow-accent/25"
           >
             {t("cta")}
           </Link>
