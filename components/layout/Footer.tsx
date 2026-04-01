@@ -163,7 +163,7 @@ export function Footer() {
                 {t("footer.termsLink")}
               </Link>
               <a
-                href="https://www.linkedin.com/in/advokat-maric"
+                href="https://www.linkedin.com/company/advokatska-kancelarija-mari%C4%87/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-text-dim hover:text-accent transition-colors"

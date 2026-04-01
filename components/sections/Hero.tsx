@@ -39,12 +39,12 @@ export function Hero() {
           >
             {t("cta")}
           </Link>
-          <a
-            href="tel:+381638964004"
+          <Link
+            href="/kontakt"
             className="border border-border-light text-text-primary px-8 py-3.5 rounded-[var(--radius-md)] font-medium hover:bg-surface transition-colors cursor-pointer"
           >
             {t("ctaSecondary")}
-          </a>
+          </Link>
         </div>
       </div>
 

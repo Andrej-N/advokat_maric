@@ -99,7 +99,7 @@ function ContactPageContent() {
           {/* Google Maps Embed */}
           <div className="mt-12 rounded-[var(--radius-lg)] overflow-hidden border border-white-border h-80">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2841.5!2d19.2258!3d44.5333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sLoznica!5e0!3m2!1ssr!2srs!4v1234567890"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2841.5!2d19.2258!3d44.5333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475bc7b4a9b8e3f1%3A0x1!2sUl.+V.+Ze%C4%8Devi%C4%87a+K-1%2C+Loznica!5e0!3m2!1ssr!2srs"
               width="100%"
               height="100%"
               style={{ border: 0 }}
