@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/lib/i18n/routing";
 import { MapPin, Phone, Mail, Globe } from "lucide-react";
 import Image from "next/image";
+import logoSvg from "@/public/og/logo_maric-01.svg";
 
 const serviceKeys = [
   "criminal",
@@ -28,7 +29,7 @@ export function Footer() {
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block mb-4">
               <Image
-                src="/og/logo_maric-01.svg"
+                src={logoSvg}
                 alt="Marić"
                 width={230}
                 height={100}
