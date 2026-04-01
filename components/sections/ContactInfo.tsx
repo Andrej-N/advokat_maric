@@ -34,7 +34,7 @@ export function ContactInfo() {
   ];
 
   return (
-    <section className="py-28 px-4 bg-gradient-to-br from-primary via-primary-light to-[#0D3B2E]">
+    <section className="py-28 px-4 bg-gradient-to-br from-primary via-primary-light to-[#1A4A3A]">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">

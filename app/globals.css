@@ -1,32 +1,32 @@
 @import "tailwindcss";
 
 @theme {
-  /* Blue→Green gradient palette */
-  --color-primary: #0A1930;
-  --color-primary-light: #0E2240;
-  --color-secondary: #122D4A;
-  --color-accent: #0693E3;
-  --color-accent-light: #38ACF0;
-  --color-accent-dim: #0580C8;
+  /* Blue→Green gradient palette — lighter blue */
+  --color-primary: #1A3A5C;
+  --color-primary-light: #22486E;
+  --color-secondary: #2A5580;
+  --color-accent: #3DAFE8;
+  --color-accent-light: #5FC2F5;
+  --color-accent-dim: #2A9AD6;
   --color-accent-green: #00D084;
   --color-accent-green-dim: #00B873;
 
-  --color-surface: #0E2240;
-  --color-surface-light: #153050;
-  --color-border: rgba(6, 147, 227, 0.2);
-  --color-border-light: rgba(6, 147, 227, 0.35);
+  --color-surface: #22486E;
+  --color-surface-light: #2D5A82;
+  --color-border: rgba(61, 175, 232, 0.25);
+  --color-border-light: rgba(61, 175, 232, 0.4);
 
   /* Dark section text */
-  --color-text-primary: #E8ECF4;
-  --color-text-muted: #8A9DBF;
-  --color-text-dim: #5E7599;
+  --color-text-primary: #EDF1F7;
+  --color-text-muted: #A0B4CC;
+  --color-text-dim: #7A93B0;
 
   /* Light section tokens */
   --color-white-bg: #F4F7FA;
   --color-white-bg-alt: #EBF0F5;
   --color-white-surface: #E0E8F0;
   --color-white-border: #CDD8E4;
-  --color-white-text: #0A1930;
+  --color-white-text: #1A3A5C;
   --color-white-text-muted: #3D5275;
   --color-white-text-dim: #6B82A0;
 

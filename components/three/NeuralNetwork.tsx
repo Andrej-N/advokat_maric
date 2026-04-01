@@ -141,7 +141,7 @@ function Nodes() {
       {/* Nodes */}
       <instancedMesh ref={meshRef} args={[undefined, undefined, NODE_COUNT]}>
         <sphereGeometry args={[1, 8, 8]} />
-        <meshBasicMaterial color="#0693E3" transparent opacity={0.7} />
+        <meshBasicMaterial color="#3DAFE8" transparent opacity={0.7} />
       </instancedMesh>
 
       {/* Lines */}
