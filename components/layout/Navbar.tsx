@@ -62,32 +62,18 @@ export function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="group">
             <Image
               src="/og/logo_maric-01.svg"
               alt="Marić"
-              width={100}
-              height={44}
+              width={230}
+              height={100}
               className={`h-10 lg:h-12 w-auto transition-all duration-300 ${
-                isTransparent ? "invert" : ""
+                isTransparent
+                  ? "brightness-0 invert"
+                  : ""
               }`}
             />
-            <div className="flex flex-col">
-              <span
-                className={`text-lg font-semibold leading-tight tracking-tight ${
-                  isTransparent ? "text-white" : "text-white-text"
-                }`}
-              >
-                Marić
-              </span>
-              <span
-                className={`text-[10px] uppercase tracking-[0.2em] leading-none ${
-                  isTransparent ? "text-white/60" : "text-white-text-muted"
-                }`}
-              >
-                {t("hero.title")}
-              </span>
-            </div>
           </Link>
 
           {/* Desktop nav */}

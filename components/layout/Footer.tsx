@@ -26,17 +26,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-3 mb-4">
+            <Link href="/" className="inline-block mb-4">
               <Image
                 src="/og/logo_maric-01.svg"
                 alt="Marić"
-                width={100}
-                height={44}
-                className="h-10 w-auto invert"
+                width={230}
+                height={100}
+                className="h-10 w-auto brightness-0 invert"
               />
-              <span className="text-lg font-semibold text-text-primary">
-                Marić
-              </span>
             </Link>
             <p className="text-text-muted text-sm leading-relaxed">
               {t("about.description")}
