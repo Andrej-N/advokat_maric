@@ -11,6 +11,7 @@ import {
   Landmark,
   ShieldAlert,
   Users,
+  Globe,
   ChevronLeft,
   ChevronRight,
   ArrowRight,
@@ -24,6 +25,7 @@ const services = [
   { key: "commercial", icon: Landmark },
   { key: "misdemeanor", icon: ShieldAlert },
   { key: "humanRights", icon: Users },
+  { key: "diaspora", icon: Globe },
 ] as const;
 
 export function ServicesGrid() {

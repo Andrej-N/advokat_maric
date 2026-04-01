@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/lib/i18n/routing";
 import { MapPin, Phone, Mail, Globe } from "lucide-react";
+import Image from "next/image";
 
 const serviceKeys = [
   "criminal",
@@ -12,6 +13,7 @@ const serviceKeys = [
   "commercial",
   "misdemeanor",
   "humanRights",
+  "diaspora",
 ] as const;
 
 export function Footer() {
@@ -25,6 +27,13 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-4">
+              <Image
+                src="/og/logo_maric-01.svg"
+                alt="Marić"
+                width={100}
+                height={44}
+                className="h-10 w-auto invert"
+              />
               <span className="text-lg font-semibold text-text-primary">
                 Marić
               </span>

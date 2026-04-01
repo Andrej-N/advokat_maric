@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/lib/i18n/routing";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Menu, X, ChevronDown } from "lucide-react";
+import Image from "next/image";
 
 const serviceKeys = [
   "criminal",
@@ -14,6 +15,7 @@ const serviceKeys = [
   "commercial",
   "misdemeanor",
   "humanRights",
+  "diaspora",
 ] as const;
 
 export function Navbar() {
@@ -61,6 +63,15 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
+            <Image
+              src="/og/logo_maric-01.svg"
+              alt="Marić"
+              width={100}
+              height={44}
+              className={`h-10 lg:h-12 w-auto transition-all duration-300 ${
+                isTransparent ? "invert" : ""
+              }`}
+            />
             <div className="flex flex-col">
               <span
                 className={`text-lg font-semibold leading-tight tracking-tight ${

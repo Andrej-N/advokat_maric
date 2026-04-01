@@ -75,6 +75,12 @@
       "slug": "zastita-ljudskih-prava",
       "description": "Zastupanje pred Ustavnim sudom RS i podnošenje predstavki Evropskom sudu za ljudska prava u Strazburu.",
       "full": "Naša advokatska kancelarija pruža usluge zastupanja stranaka u postupcima pred Ustavnim sudom Republike Srbije (podnošenje ustavne žalbe) i podnošenje predstavki Evropskom sudu za ljudska prava u Strazburu. Ovo je najviši nivo pravne zaštite koji pojedinac može da ostvari."
+    },
+    "diaspora": {
+      "title": "Dijaspora",
+      "slug": "dijaspora",
+      "description": "Pravne usluge za građane Srbije u inostranstvu — ostavinski postupci, nekretnine, dokumentacija, razvod braka, državljanstvo.",
+      "full": "Advokatska kancelarija Marić pruža pravne usluge za građane Srbije koji žive u inostranstvu, omogućavajući završetak pravnih poslova bez potrebe za dolaskom u Srbiju.\n\nOstavinski postupak — preuzimamo vođenje ostavinskog postupka, dajemo nasledničke izjave u ime klijenata, pribavljamo ostavinska rešenja i vršimo promene u javnim registrima, sve bez fizičkog prisustva klijenta.\n\nKupoprodaja i poklon nepokretnosti — uz overeno punomoćje, zastupamo klijente u prodaji, kupovini ili razmeni nepokretnosti. Proveravamo dokumentaciju, obezbeđujemo transparentnost i upravljamo celokupnim procesom.\n\nPribavljanje dokumentacije — izvodi iz matičnih knjiga (rođenih, umrlih, venčanih), uverenja o prebivalištu, izvodi iz katastra, uverenja o nekažnjavanju i sva druga dokumentacija iz cele Srbije, sa dostavom u inostranstvo.\n\nRazvod braka — vodimo postupke sporazumnog razvoda, tužbe za razvod i sporove oko podele bračne imovine bez prisustva klijenta na sudu.\n\nPriznanje stranih sudskih odluka — odluke donete pred nadležnim organima u inostranstvu ne proizvode pravna dejstva u Srbiji dok ne budu priznate pred sudskim organima. Vodimo postupke priznavanja i izvršenja stranih odluka.\n\nDržavljanstvo — pribavljamo uverenja o državljanstvu i zastupamo klijente u postupku sticanja srpskog državljanstva."
     }
   },
   "proBono": {
