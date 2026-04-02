@@ -97,9 +97,35 @@ function ServicePageContent({ slug }: { slug: string }) {
 
           <div className="h-px bg-white-border my-8" />
 
-          <p className="text-white-text-muted leading-relaxed text-lg">
-            {t(`${service.key}.full`)}
-          </p>
+          <div className="space-y-6">
+            {t(`${service.key}.full`)
+              .split("\n\n")
+              .map((paragraph, i) => {
+                const dashIndex = paragraph.indexOf(" -");
+                if (dashIndex > 0 && dashIndex < 60 && i > 0) {
+                  const heading = paragraph.slice(0, dashIndex);
+                  const body = paragraph.slice(dashIndex + 2).trim();
+                  return (
+                    <div key={i}>
+                      <h3 className="text-lg font-semibold text-white-text mb-2">
+                        {heading}
+                      </h3>
+                      <p className="text-white-text-muted leading-relaxed text-lg">
+                        {body}
+                      </p>
+                    </div>
+                  );
+                }
+                return (
+                  <p
+                    key={i}
+                    className="text-white-text-muted leading-relaxed text-lg"
+                  >
+                    {paragraph}
+                  </p>
+                );
+              })}
+          </div>
         </div>
       </section>
     </div>
