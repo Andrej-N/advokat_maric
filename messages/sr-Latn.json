@@ -86,7 +86,7 @@
   "proBono": {
     "title": "Pro Bono",
     "subtitle": "",
-    "description": "Advokatska kancelarija Marić nastoji da pružanjem Pro Bono pravne pomoći i društvenim aktivizmom doprinese zajednici u kojoj radi, promovišući advokaturu kao društveno odgovornu profesiju.",
+    "description": "Advokatska kancelarija Marić nastoji da pružanjem Pro Bono pravne pomoći i društvenim aktivizmom doprinese zajednici u kojoj radi, te samim tim i afirmiše advokaturu kao društveno odgovornu delatnost i jača njen ugled u društvu.",
     "org1": "Udruženje građana za borbu protiv raka kod dece \u201eUvek sa decom\u201c",
     "org1Url": "http://www.sadecom.org.rs/",
     "org2": "Nacionalno udruženje roditelja dece obolele od raka \u201eNURDOR\u201c",
@@ -138,15 +138,8 @@
     "p8": "Takođe, kancelarija nije odgovorna za bilo koju praksu, uključujući i zaštitu ličnih podataka, koja se primenjuje na sajtovima kojima se može pristupiti preko ovog sajta.",
     "p9": "Sedište kancelarije je u Loznici, Republika Srbija.",
     "p10": "Informacije na ovom sajtu ne smeju se koristiti za slanje neželjenih grupnih elektronskih oglasa ili ponuda. Svako takvo korišćenje informacija na ovom sajtu smatra se kršenjem ovih Uslova korišćenja.",
-    "p11": "Ovaj vebsajt je vlasništvo Advokatske kancelarije Marić."
-  },
-  "termsPage": {
-    "title": "Opšti uslovi poslovanja",
-    "content": "Tekst opštih uslova poslovanja će uskoro biti dodat."
-  },
-  "privacyPage": {
-    "title": "Politika privatnosti",
-    "content": "Tekst politike privatnosti će uskoro biti dodat."
+    "p11": "Ovaj vebsajt je vlasništvo Advokatske kancelarije Marić.",
+    "footer": "Advokatska kancelarija Marić. Ograničenje odgovornosti."
   },
   "reviews": {
     "title": "Utisci klijenata",
@@ -155,6 +148,7 @@
   },
   "common": {
     "learnMore": "Saznajte više",
-    "backToHome": "Nazad na početnu"
+    "backToHome": "Nazad na početnu",
+    "backToTop": "Vrati se na vrh"
   }
 }

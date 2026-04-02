@@ -1,0 +1,80 @@
+{
+  "title": "Privacy Policy",
+  "sections": [
+    {
+      "heading": "1) Introductory Provisions",
+      "body": "Marić Law Office (hereinafter: the Office) defines through this Privacy Policy which personal data it collects and processes from visitors to the website www.mariclaw.rs, as well as the handling of data of persons who contact the Office via the contact form or electronic mail."
+    },
+    {
+      "heading": "2) Definitions",
+      "body": "The following terms are used in this Privacy Policy:",
+      "list": [
+        "Personal data — any data relating to a natural person whose identity is determined or determinable.",
+        "Data subject — a natural person whose personal data is being processed.",
+        "Processing of personal data — any action or set of actions performed automatically or non-automatically on personal data.",
+        "Cookies — text files stored in the user's browser when visiting a website."
+      ]
+    },
+    {
+      "heading": "3) Data Controller Information and Contact",
+      "body": "The personal data controller is Marić Law Office, headquartered in Loznica, V. Zečević St. K-1, Republic of Serbia. For all questions regarding personal data protection, you may contact us via email at: kancelarija.maric@gmail.com or by phone: +381 63 896 4004."
+    },
+    {
+      "heading": "4) Personal Data We Collect",
+      "body": "The Office collects IP addresses of website visitors, as well as data that visitors voluntarily submit via the contact form (full name, email address, phone number, message content)."
+    },
+    {
+      "heading": "5) Legal Basis for Collection and Processing of Personal Data",
+      "body": "The legal basis for the collection and processing of personal data is the consent of the data subjects, in accordance with Article 12 of the Law on Personal Data Protection of the Republic of Serbia."
+    },
+    {
+      "heading": "6) Purpose of Collection and Processing of Personal Data",
+      "body": "Data is collected for the purpose of enabling the use of web pages, responding to visitor inquiries, and providing information about the Office's services."
+    },
+    {
+      "heading": "7) Method of Personal Data Collection",
+      "body": "The browser automatically sends certain data to the server, including the device's IP address and other technical information. Additional data is collected exclusively from persons who voluntarily fill out the contact form or send electronic mail to the Office."
+    },
+    {
+      "heading": "8) Personal Data Protection Methods",
+      "body": "The Office applies advanced technologies and organizational measures for personal data protection. Despite all measures taken, the Office cannot unconditionally guarantee the absolute security of data transmitted via the internet."
+    },
+    {
+      "heading": "9) Personal Data Retention Period",
+      "body": "IP address data is stored temporarily, for a period of several months. Data collected based on consent is stored until the given consent is revoked."
+    },
+    {
+      "heading": "10) Personal Data Processors",
+      "body": "The Office may engage third parties for data processing based on a contract, with the requirement that they fully guarantee the application of appropriate technical, organizational, and personnel protection measures."
+    },
+    {
+      "heading": "11) Rights of Data Subjects",
+      "body": "The data subject has the following rights:",
+      "list": [
+        "Right to access personal data",
+        "Right to rectification of data",
+        "Right to erasure of data",
+        "Right to restriction of processing",
+        "Right to object to processing",
+        "Right to data portability"
+      ],
+      "afterList": "Automated decision-making and profiling are not applied."
+    },
+    {
+      "heading": "12) Cookie Policy",
+      "body": "The website www.mariclaw.rs uses cookies to ensure functionality and improve user experience. Cookie categories include necessary cookies (for basic site functionality) and statistical cookies (for traffic analysis)."
+    },
+    {
+      "heading": "13) Contact Method",
+      "body": "For all questions regarding personal data protection, you may contact us via email at kancelarija.maric@gmail.com or by mail at: Marić Law Office, V. Zečević St. K-1, Loznica, Republic of Serbia."
+    },
+    {
+      "heading": "14) Commissioner for Information of Public Importance and Personal Data Protection",
+      "body": "If you believe that the processing of your personal data has been carried out contrary to the provisions of the Law on Personal Data Protection, you have the right to file a complaint with the Commissioner for Information of Public Importance and Personal Data Protection at: office@poverenik.rs."
+    },
+    {
+      "heading": "15) Entry into Force and Amendments to the Privacy Policy",
+      "body": "This Privacy Policy enters into force on the date of publication on the website www.mariclaw.rs. Any amendments will be published on this page before they take effect."
+    }
+  ]
+}

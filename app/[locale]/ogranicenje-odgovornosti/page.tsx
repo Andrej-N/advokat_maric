@@ -64,8 +64,7 @@ function DisclaimerContent() {
           <div className="h-px bg-white-border my-8" />
 
           <p className="text-white-text-dim text-sm">
-            &copy;{year} Advokatska kancelarija Marić. {" "}
-            {t("title")}.
+            &copy;{year} {t("footer")}
           </p>
         </div>
       </section>

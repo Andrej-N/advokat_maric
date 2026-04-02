@@ -1,11 +1,31 @@
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { FileText } from "lucide-react";
-import termsData from "@/content/opsti-uslovi.json";
+import termsDataSr from "@/content/opsti-uslovi-sr.json";
+import termsDataSrLatn from "@/content/opsti-uslovi-sr-Latn.json";
+import termsDataEn from "@/content/opsti-uslovi-en.json";
 
-export async function generateMetadata(): Promise<Metadata> {
+const termsByLocale: Record<string, typeof termsDataSr> = {
+  sr: termsDataSr,
+  "sr-Latn": termsDataSrLatn,
+  en: termsDataEn,
+};
+
+const footerByLocale: Record<string, string> = {
+  sr: "Адвокатска канцеларија Марић. Општи услови пословања.",
+  "sr-Latn": "Advokatska kancelarija Marić. Opšti uslovi poslovanja.",
+  en: "Marić Law Office. General Terms and Conditions.",
+};
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "footer" });
   return {
-    title: "Opšti uslovi poslovanja",
+    title: t("termsLink"),
   };
 }
 
@@ -17,6 +37,8 @@ export default async function TermsPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
+  const termsData = termsByLocale[locale] || termsDataSrLatn;
+  const footer = footerByLocale[locale] || footerByLocale["sr-Latn"];
   const year = new Date().getFullYear();
 
   return (
@@ -67,8 +89,7 @@ export default async function TermsPage({
           <div className="h-px bg-white-border my-8" />
 
           <p className="text-white-text-dim text-sm">
-            &copy;{year} Advokatska kancelarija Marić. Opšti uslovi
-            poslovanja.
+            &copy;{year} {footer}
           </p>
         </div>
       </section>

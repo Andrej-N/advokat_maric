@@ -86,7 +86,7 @@
   "proBono": {
     "title": "Pro Bono",
     "subtitle": "",
-    "description": "Marić Law Office strives to contribute to the community through Pro Bono legal assistance and social activism, promoting the legal profession as a socially responsible practice.",
+    "description": "Marić Law Office strives to contribute to the community in which it operates by providing Pro Bono legal assistance and social activism, thereby affirming the legal profession as a socially responsible activity and strengthening its reputation in society.",
     "org1": "Citizens' Association for Fighting Childhood Cancer \"Always With Children\"",
     "org1Url": "http://www.sadecom.org.rs/",
     "org2": "National Association of Parents of Children with Cancer \"NURDOR\"",
@@ -138,15 +138,8 @@
     "p8": "Furthermore, the office is not responsible for any practices, including personal data protection, applied on websites accessible through this site.",
     "p9": "The office is headquartered in Loznica, Republic of Serbia.",
     "p10": "Information on this website must not be used for sending unsolicited mass electronic advertisements or offers. Any such use of information on this website constitutes a violation of these Terms of Use.",
-    "p11": "This website is the property of Marić Law Office."
-  },
-  "termsPage": {
-    "title": "Terms of Service",
-    "content": "Terms of service text will be added soon."
-  },
-  "privacyPage": {
-    "title": "Privacy Policy",
-    "content": "Privacy policy text will be added soon."
+    "p11": "This website is the property of Marić Law Office.",
+    "footer": "Marić Law Office. Limitation of Liability."
   },
   "reviews": {
     "title": "Client Testimonials",
@@ -155,6 +148,7 @@
   },
   "common": {
     "learnMore": "Learn more",
-    "backToHome": "Back to home"
+    "backToHome": "Back to home",
+    "backToTop": "Back to top"
   }
 }
