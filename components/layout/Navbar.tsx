@@ -48,7 +48,7 @@ export function Navbar() {
     { href: "/kontakt", label: t("nav.contact") },
   ];
 
-  const textColor = isTransparent ? "text-text-muted" : "text-white-text-muted";
+  const textColor = isTransparent ? "text-white/90" : "text-white-text-muted";
   const textActiveColor = isTransparent ? "text-white" : "text-white-text";
   const accentColor = "text-accent";
 
@@ -88,7 +88,7 @@ export function Navbar() {
                   onMouseLeave={() => setServicesOpen(false)}
                 >
                   <button
-                    className={`cursor-pointer flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors ${textColor} hover:${textActiveColor}`}
+                    className={`cursor-pointer flex items-center gap-1 px-4 py-2 text-sm uppercase tracking-wide font-medium transition-colors ${textColor} hover:${textActiveColor}`}
                   >
                     {link.label}
                     <ChevronDown
@@ -114,7 +114,7 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-4 py-2 text-sm font-medium transition-colors ${
+                  className={`px-4 py-2 text-sm uppercase tracking-wide font-medium transition-colors ${
                     pathname === link.href
                       ? accentColor
                       : `${textColor} hover:${textActiveColor}`
