@@ -17,7 +17,7 @@ export function Hero() {
   const t = useTranslations("hero");
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary-light to-[#1A4A3A]">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-primary bg-gradient-to-br from-primary via-primary-light to-[#1A4A3A]">
       <NeuralNetworkCanvas />
 
       {/* Gradient overlay */}
@@ -25,13 +25,12 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <h1 className="font-[family-name:var(--font-cormorant)] font-light text-3xl sm:text-4xl md:text-5xl mb-3 tracking-wide">
-          <span className="text-text-primary">{t("title")}</span>
-          <br />
-          <span className="text-accent font-medium text-4xl sm:text-5xl md:text-6xl tracking-wider uppercase">
-            {t("titleAccent")}
-          </span>
-        </h1>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/advokat_maric/og/logo_maric_m.svg"
+          alt="Marić Advokatura"
+          className="mx-auto mb-6 w-40 sm:w-48 md:w-56 h-auto drop-shadow-lg"
+        />
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
           <Link
             href="/pravna-pomoc/krivicno-pravo" scroll={false} onClick={(e) => { e.preventDefault(); document.getElementById('usluge')?.scrollIntoView({ behavior: 'smooth' }); }}

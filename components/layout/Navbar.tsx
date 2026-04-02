@@ -48,7 +48,7 @@ export function Navbar() {
     { href: "/kontakt", label: t("nav.contact") },
   ];
 
-  const textColor = isTransparent ? "text-white/70" : "text-white-text-muted";
+  const textColor = isTransparent ? "text-text-muted" : "text-white-text-muted";
   const textActiveColor = isTransparent ? "text-white" : "text-white-text";
   const accentColor = "text-accent";
 

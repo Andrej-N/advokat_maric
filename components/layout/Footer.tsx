@@ -1,10 +1,19 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
 import { Link } from "@/lib/i18n/routing";
-import { MapPin, Phone, Mail, Globe } from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
 import Image from "next/image";
 import logoSvg from "@/public/og/logo_maric-01.svg";
+
+const NeuralNetworkCanvas = dynamic(
+  () =>
+    import("@/components/three/NeuralNetwork").then(
+      (mod) => mod.NeuralNetworkCanvas
+    ),
+  { ssr: false }
+);
 
 const serviceKeys = [
   "criminal",
@@ -22,12 +31,13 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-br from-primary-light via-primary to-[#1A4A3A] border-t border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Brand */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="inline-block mb-4">
+    <footer className="relative bg-primary bg-gradient-to-br from-primary-light via-primary to-[#1A4A3A] border-t border-border overflow-hidden">
+      <NeuralNetworkCanvas />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {/* Top row: CTA left, Location right */}
+        <div className="flex flex-col md:flex-row items-start justify-between gap-8 mb-12">
+          <div>
+            <Link href="/" className="inline-block mb-6">
               <Image
                 src={logoSvg}
                 alt="Marić"
@@ -36,113 +46,56 @@ export function Footer() {
                 className="h-14 w-auto brightness-0 invert"
               />
             </Link>
-            <p className="text-text-muted text-sm leading-relaxed">
-              {t("about.description")}
-            </p>
+            <h3 className="text-xl font-semibold text-text-primary mb-4">
+              {t("contact.formTitle")}
+            </h3>
+            <div className="flex flex-col gap-3">
+              <a
+                href="tel:+381638964004"
+                className="flex items-center gap-3 text-text-muted text-sm hover:text-accent transition-colors"
+              >
+                <Phone className="w-4 h-4 text-accent shrink-0" />
+                {t("contact.phone")}
+              </a>
+              <a
+                href="mailto:kancelarija.maric@gmail.com"
+                className="flex items-center gap-3 text-text-muted text-sm hover:text-accent transition-colors"
+              >
+                <Mail className="w-4 h-4 text-accent shrink-0" />
+                {t("contact.email")}
+              </a>
+            </div>
           </div>
 
-          {/* Practice Areas */}
-          <div>
-            <h3 className="text-text-primary font-semibold mb-4">
-              {t("nav.services")}
-            </h3>
-            <ul className="space-y-2">
-              {serviceKeys.map((key) => (
-                <li key={key}>
-                  <Link
-                    href={`/pravna-pomoc/${t(`services.${key}.slug`)}`}
-                    className="text-text-muted text-sm hover:text-accent transition-colors"
-                  >
-                    {t(`services.${key}.title`)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <a
+            href="https://maps.google.com/?q=Loznica,+Serbia"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 text-text-muted hover:text-accent transition-colors"
+          >
+            <MapPin className="w-5 h-5 text-accent shrink-0" />
+            <span className="text-sm">Loznica, Srbija</span>
+          </a>
+        </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-text-primary font-semibold mb-4">
-              {t("nav.home")}
-            </h3>
-            <ul className="space-y-2">
-              <li>
+        {/* Services */}
+        <div className="mb-12">
+          <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-2">
+            {serviceKeys.map((key) => (
+              <li key={key}>
                 <Link
-                  href="/o-nama"
+                  href={`/pravna-pomoc/${t(`services.${key}.slug`)}`}
                   className="text-text-muted text-sm hover:text-accent transition-colors"
                 >
-                  {t("nav.about")}
+                  {t(`services.${key}.title`)}
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/pro-bono"
-                  className="text-text-muted text-sm hover:text-accent transition-colors"
-                >
-                  {t("nav.proBono")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blog"
-                  className="text-text-muted text-sm hover:text-accent transition-colors"
-                >
-                  {t("nav.blog")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/kontakt"
-                  className="text-text-muted text-sm hover:text-accent transition-colors"
-                >
-                  {t("nav.contact")}
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h3 className="text-text-primary font-semibold mb-4">
-              {t("contact.title")}
-            </h3>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-accent mt-0.5 shrink-0" />
-                <span className="text-text-muted text-sm">
-                  {t("contact.address")}
-                </span>
-              </li>
-              <li>
-                <a
-                  href="tel:+381638964004"
-                  className="flex items-center gap-3 text-text-muted text-sm hover:text-accent transition-colors"
-                >
-                  <Phone className="w-4 h-4 text-accent shrink-0" />
-                  {t("contact.phone")}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:kancelarija.maric@gmail.com"
-                  className="flex items-center gap-3 text-text-muted text-sm hover:text-accent transition-colors"
-                >
-                  <Mail className="w-4 h-4 text-accent shrink-0" />
-                  {t("contact.email")}
-                </a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Globe className="w-4 h-4 text-accent shrink-0" />
-                <span className="text-text-muted text-sm">
-                  {t("contact.website")}
-                </span>
-              </li>
-            </ul>
-          </div>
+            ))}
+          </ul>
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 pt-8 border-t border-border">
+        <div className="pt-8 border-t border-border">
           <p className="text-text-dim text-xs leading-relaxed mb-4">
             {t("footer.disclaimer")}
           </p>

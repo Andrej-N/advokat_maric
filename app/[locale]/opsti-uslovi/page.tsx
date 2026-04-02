@@ -1,17 +1,11 @@
-import { useTranslations } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { FileText } from "lucide-react";
+import termsData from "@/content/opsti-uslovi.json";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "termsPage" });
+export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: t("title"),
+    title: "Opšti uslovi poslovanja",
   };
 }
 
@@ -23,11 +17,7 @@ export default async function TermsPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <TermsContent />;
-}
-
-function TermsContent() {
-  const t = useTranslations("termsPage");
+  const year = new Date().getFullYear();
 
   return (
     <div className="pt-24 lg:pt-32 bg-white-bg">
@@ -38,14 +28,47 @@ function TermsContent() {
               <FileText className="w-8 h-8 text-accent" />
             </div>
             <h1 className="text-3xl md:text-4xl font-bold text-white-text">
-              {t("title")}
+              {termsData.title}
             </h1>
           </div>
 
           <div className="h-px bg-white-border my-8" />
 
-          <p className="text-white-text-muted leading-relaxed">
-            {t("content")}
+          {termsData.intro && (
+            <p className="text-white-text-muted leading-relaxed mb-8">
+              {termsData.intro}
+            </p>
+          )}
+
+          <div className="space-y-10">
+            {termsData.sections.map((section, i) => (
+              <div key={i}>
+                <h2 className="text-lg font-semibold text-white-text mb-3">
+                  {section.heading}
+                </h2>
+                <div className="space-y-3">
+                  {section.body.split("\n").map((line, j) => {
+                    const trimmed = line.trim();
+                    if (!trimmed) return null;
+                    return (
+                      <p
+                        key={j}
+                        className="text-white-text-muted leading-relaxed"
+                      >
+                        {trimmed}
+                      </p>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="h-px bg-white-border my-8" />
+
+          <p className="text-white-text-dim text-sm">
+            &copy;{year} Advokatska kancelarija Marić. Opšti uslovi
+            poslovanja.
           </p>
         </div>
       </section>
