@@ -106,29 +106,29 @@ export function Footer() {
 
         {/* Bottom */}
         <div className="pt-8 border-t border-border">
-          <p className="text-text-dim text-xs leading-relaxed mb-4">
+          <p className="text-text-dim text-sm leading-relaxed mb-4 cursor-default">
             {t("footer.disclaimer")}
           </p>
           <div className="flex items-center justify-between flex-wrap gap-4">
-            <p className="text-text-dim text-xs">
+            <p className="text-text-dim text-sm cursor-default">
               &copy; {year} Marić. {t("footer.rights")}
             </p>
             <div className="flex items-center gap-4">
               <Link
                 href="/ogranicenje-odgovornosti"
-                className="text-text-dim text-xs hover:text-accent transition-colors"
+                className="text-text-dim text-sm hover:text-accent transition-colors"
               >
                 {t("footer.disclaimerLink")}
               </Link>
               <Link
                 href="/politika-privatnosti"
-                className="text-text-dim text-xs hover:text-accent transition-colors"
+                className="text-text-dim text-sm hover:text-accent transition-colors"
               >
                 {t("footer.privacyLink")}
               </Link>
               <Link
                 href="/opsti-uslovi"
-                className="text-text-dim text-xs hover:text-accent transition-colors"
+                className="text-text-dim text-sm hover:text-accent transition-colors"
               >
                 {t("footer.termsLink")}
               </Link>

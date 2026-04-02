@@ -128,6 +128,16 @@ export function Navbar() {
 
           {/* Right side */}
           <div className="flex items-center gap-4">
+            <Link
+              href="/kontakt"
+              className={`hidden md:block px-4 py-1.5 text-[13px] font-medium uppercase tracking-wide border rounded-[var(--radius-md)] transition-colors ${
+                isTransparent 
+                  ? "border-white/50 text-white hover:border-white hover:bg-white/10" 
+                  : "border-accent text-accent hover:bg-accent hover:text-white"
+              }`}
+            >
+              {t("hero.ctaSecondary")}
+            </Link>
             <div className="hidden sm:block">
               <LanguageSwitcher isTransparent={isTransparent} />
             </div>

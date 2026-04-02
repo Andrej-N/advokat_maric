@@ -6,28 +6,46 @@ import { Star, ChevronLeft, ChevronRight, Plus } from "lucide-react";
 
 const reviews = [
   {
-    author: "M. Petrović",
+    author: "Ivana Tomic",
     rating: 5,
-    title: "U potpunosti se *oslanjam na njih* u svakom pogledu.",
-    text: "Oni su najbolji advokatski tim sa kojim sam ikada radio. Radim sa njima skoro 2 godine.\n\nUradili su mi brojne poslove kao što su boravišna dozvola za celu porodicu (dva puta), radna dozvola, zdravstveno osiguranje, konsultacije o saobraćajnim nesrećama, svađa sa komšijama.\n\nApsolutno najbolje ulaganje novca u pravnu podršku. Imam sa čime da uporedim ovaj tim, jer su me druge advokatske firme izneverile u prošlosti.",
+    title: "Vrhunska usluga i *posvećen pristup* klijentu.",
+    text: "Vrhunska usluga i prijatan, posvećen pristup klijentu. Marljiv i objektivan rad uz poštovanje rokova. Sve pohvale!",
   },
   {
-    author: "J. Nikolić",
+    author: "Nemanja Lukić",
     rating: 5,
-    title: "Uvek ažurni, dostupni, ljubazni, *posvećeni.*",
-    text: "Vrhunska stručnost i profesionalnost! Ako vam je potrebna pravna pomoć, ne tražite dalje, na pravom ste mestu.\n\nUvek ažurni, dostupni, ljubazni, posvećeni... kvalitet i profesionalnost se vrlo lako prepoznaju. Iskrena preporuka.",
+    title: "Sve je bilo *savršeno*, za svaku preporuku.",
+    text: "Koristio sam njihove usluge savetovanja po određenim pravnim pitanjima i angažovao sam ih za pisanje ugovora u vezi nekretnina. Sve je bilo savršeno, za svaku preporuku.",
   },
   {
-    author: "D. Jovanović",
+    author: "Gordana Jakovljevic",
     rating: 5,
-    title: "Uvek *profesionalni i pouzdani* u svom radu.",
-    text: "Dugogodišnja saradnja sa kancelarijom Marić. Ako vam je potrebna pravna pomoć, ne tražite dalje, na pravom ste mestu.\n\nSvaki put su pokazali visok nivo posvećenosti i znanja, što nam je ulilo veliku sigurnost u naše poslovanje.",
+    title: "Korektni, brzi i ukratko *najbolji*.",
+    text: "Postovani Advokat Maric .Hvala Vam od srca sto ste mi pomogli u sudskom sporu .Korektni ,brzi i ukratko najbolji.Preporucujem svima ovu Advokatsku kancelariju",
   },
   {
-    author: "S. Đorđević",
+    author: "Andreja Dragicevic",
     rating: 5,
-    title: "Odlično iskustvo. Advokat je bio *veoma strpljiv.*",
-    text: "Advokat je bio veoma strpljiv i detaljno mi objasnio sve opcije. Postupak je završen uspešno u najkraćem vremenskom formatu.\n\nDefinitivno preporučujem svima koji imaju bilo kakav pravni problem.",
+    title: "Prezadovoljna sam, neko *tako posvećen* poslu.",
+    text: "Sve pohvale . Usluga , ljubaznost, trud sve na nivou. Prezadovoljna sam skoro nisam videla da je neko tako posvecen poslu i da se trudi i pored tolikog posla ljubaznost na nivou. I zelela bih da se zahvalim gospodinu Dusanu Maricu na dosadasnjoj saradnji . Svaka cast👏",
+  },
+  {
+    author: "Nela Ibricic",
+    rating: 5,
+    title: "Veoma pristupačan i *voljan da pomogne*.",
+    text: "Gospodin Dusan Maric je veoma ljubazan,obrazovan l imao je odgovore na sva moja pitanja. Veoma pristupacan I voljan da pomogne. Cijene su realne i pristupacne obicnom gradjaninu. Preporucujem Advokatsku kancelariju Maric svima.",
+  },
+  {
+    author: "Viktoriya Smirnova",
+    rating: 5,
+    title: "Izuzetan advokat. Inteligentan, *brz i jednostavan*.",
+    text: "Izuzetan advokat. Intelegentan, brz i jednostavan. Preporucujem ga svakome. Dragan.",
+  },
+  {
+    author: "dark soulz",
+    rating: 5,
+    title: "*Brzo, jednostavno* i veoma profesionalno.",
+    text: "Brzo, jednostavno i veoma profesionalno. Sve pohvale",
   },
 ];
 
