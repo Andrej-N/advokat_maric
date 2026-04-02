@@ -4,32 +4,44 @@ import { useRef, useMemo, useCallback } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 
-const NODE_COUNT = 80;
-const CONNECTION_DISTANCE = 2.5;
-const MOUSE_INFLUENCE = 0.3;
+const DEFAULT_NODE_COUNT = 80;
+const DEFAULT_CONNECTION_DISTANCE = 2.5;
+const DEFAULT_MOUSE_INFLUENCE = 0.3;
 
-function Nodes() {
+interface NodesProps {
+  nodeCount?: number;
+  connectionDistance?: number;
+  mouseInfluence?: number;
+  spread?: [number, number, number];
+}
+
+function Nodes({
+  nodeCount = DEFAULT_NODE_COUNT,
+  connectionDistance = DEFAULT_CONNECTION_DISTANCE,
+  mouseInfluence = DEFAULT_MOUSE_INFLUENCE,
+  spread = [10, 6, 4],
+}: NodesProps) {
   const meshRef = useRef<THREE.InstancedMesh>(null);
   const linesRef = useRef<THREE.LineSegments>(null);
   const mouseRef = useRef({ x: 0, y: 0 });
   const { viewport } = useThree();
 
   const { positions, velocities, dummy } = useMemo(() => {
-    const pos = new Float32Array(NODE_COUNT * 3);
-    const vel = new Float32Array(NODE_COUNT * 3);
-    for (let i = 0; i < NODE_COUNT; i++) {
-      pos[i * 3] = (Math.random() - 0.5) * 10;
-      pos[i * 3 + 1] = (Math.random() - 0.5) * 6;
-      pos[i * 3 + 2] = (Math.random() - 0.5) * 4;
+    const pos = new Float32Array(nodeCount * 3);
+    const vel = new Float32Array(nodeCount * 3);
+    for (let i = 0; i < nodeCount; i++) {
+      pos[i * 3] = (Math.random() - 0.5) * spread[0];
+      pos[i * 3 + 1] = (Math.random() - 0.5) * spread[1];
+      pos[i * 3 + 2] = (Math.random() - 0.5) * spread[2];
       vel[i * 3] = (Math.random() - 0.5) * 0.005;
       vel[i * 3 + 1] = (Math.random() - 0.5) * 0.005;
       vel[i * 3 + 2] = (Math.random() - 0.5) * 0.003;
     }
     return { positions: pos, velocities: vel, dummy: new THREE.Object3D() };
-  }, []);
+  }, [nodeCount, spread]);
 
   const lineGeometry = useMemo(() => {
-    const maxLines = NODE_COUNT * NODE_COUNT;
+    const maxLines = nodeCount * nodeCount;
     const geo = new THREE.BufferGeometry();
     geo.setAttribute(
       "position",
@@ -54,7 +66,7 @@ function Nodes() {
     if (!meshRef.current || !linesRef.current) return;
 
     // Update positions
-    for (let i = 0; i < NODE_COUNT; i++) {
+    for (let i = 0; i < nodeCount; i++) {
       const ix = i * 3;
       positions[ix] += velocities[ix];
       positions[ix + 1] += velocities[ix + 1];
@@ -65,14 +77,17 @@ function Nodes() {
       const dy = mouseRef.current.y - positions[ix + 1];
       const dist = Math.sqrt(dx * dx + dy * dy);
       if (dist < 3) {
-        positions[ix] += dx * MOUSE_INFLUENCE * 0.01;
-        positions[ix + 1] += dy * MOUSE_INFLUENCE * 0.01;
+        positions[ix] += dx * mouseInfluence * 0.01;
+        positions[ix + 1] += dy * mouseInfluence * 0.01;
       }
 
       // Boundaries
-      if (Math.abs(positions[ix]) > 6) velocities[ix] *= -1;
-      if (Math.abs(positions[ix + 1]) > 4) velocities[ix + 1] *= -1;
-      if (Math.abs(positions[ix + 2]) > 3) velocities[ix + 2] *= -1;
+      const bx = spread[0] * 0.6;
+      const by = spread[1] * 0.6;
+      const bz = spread[2] * 0.6;
+      if (Math.abs(positions[ix]) > bx) velocities[ix] *= -1;
+      if (Math.abs(positions[ix + 1]) > by) velocities[ix + 1] *= -1;
+      if (Math.abs(positions[ix + 2]) > bz) velocities[ix + 2] *= -1;
 
       dummy.position.set(positions[ix], positions[ix + 1], positions[ix + 2]);
       const scale = 0.03 + Math.sin(Date.now() * 0.001 + i) * 0.01;
@@ -87,15 +102,15 @@ function Nodes() {
     const lineColors = lineGeometry.getAttribute("color") as THREE.BufferAttribute;
     let lineIndex = 0;
 
-    for (let i = 0; i < NODE_COUNT; i++) {
-      for (let j = i + 1; j < NODE_COUNT; j++) {
+    for (let i = 0; i < nodeCount; i++) {
+      for (let j = i + 1; j < nodeCount; j++) {
         const dx = positions[i * 3] - positions[j * 3];
         const dy = positions[i * 3 + 1] - positions[j * 3 + 1];
         const dz = positions[i * 3 + 2] - positions[j * 3 + 2];
         const d = Math.sqrt(dx * dx + dy * dy + dz * dz);
 
-        if (d < CONNECTION_DISTANCE) {
-          const alpha = 1 - d / CONNECTION_DISTANCE;
+        if (d < connectionDistance) {
+          const alpha = 1 - d / connectionDistance;
           const pi = lineIndex * 6;
           const ci = lineIndex * 8;
 
@@ -139,7 +154,7 @@ function Nodes() {
       </mesh>
 
       {/* Nodes */}
-      <instancedMesh ref={meshRef} args={[undefined, undefined, NODE_COUNT]}>
+      <instancedMesh ref={meshRef} args={[undefined, undefined, nodeCount]}>
         <sphereGeometry args={[1, 8, 8]} />
         <meshBasicMaterial color="#3DAFE8" transparent opacity={0.7} />
       </instancedMesh>
@@ -152,7 +167,19 @@ function Nodes() {
   );
 }
 
-export function NeuralNetworkCanvas() {
+interface NeuralNetworkCanvasProps {
+  nodeCount?: number;
+  connectionDistance?: number;
+  mouseInfluence?: number;
+  spread?: [number, number, number];
+}
+
+export function NeuralNetworkCanvas({
+  nodeCount,
+  connectionDistance,
+  mouseInfluence,
+  spread,
+}: NeuralNetworkCanvasProps = {}) {
   return (
     <div className="absolute inset-0 opacity-60">
       <Canvas
@@ -161,7 +188,12 @@ export function NeuralNetworkCanvas() {
         gl={{ antialias: false, alpha: true }}
         style={{ background: "transparent" }}
       >
-        <Nodes />
+        <Nodes
+          nodeCount={nodeCount}
+          connectionDistance={connectionDistance}
+          mouseInfluence={mouseInfluence}
+          spread={spread}
+        />
       </Canvas>
     </div>
   );

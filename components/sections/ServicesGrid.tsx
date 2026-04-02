@@ -71,7 +71,7 @@ export function ServicesGrid() {
   const thumbLeft = scrollProgress * (100 - thumbWidth);
 
   return (
-    <section id="usluge" className="py-24 px-4 lg:py-32 bg-primary bg-gradient-to-br from-primary via-primary-light to-[#1A4A3A]">
+    <section id="usluge" className="py-24 px-4 lg:py-32 bg-[#033f40] bg-gradient-to-br from-[#064e4b] via-[#033f40] to-[#012a2b]">
       <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-16 lg:gap-12 items-start justify-between">
         
         {/* Left Column */}

@@ -1,8 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useTranslations } from "next-intl";
-import { Link } from "@/lib/i18n/routing";
+import Image from "next/image";
 import { ArrowDown } from "lucide-react";
 
 const NeuralNetworkCanvas = dynamic(
@@ -14,37 +13,32 @@ const NeuralNetworkCanvas = dynamic(
 );
 
 export function Hero() {
-  const t = useTranslations("hero");
-
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-primary bg-gradient-to-br from-primary via-primary-light to-[#1A4A3A]">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-[#033f40] bg-gradient-to-br from-[#064e4b] via-[#033f40] to-[#012a2b]">
+      {/* Background Image of Greek Pillars */}
+      <div className="absolute inset-0 opacity-30 mix-blend-luminosity pointer-events-none">
+        <Image
+          src="/advokat_maric/og/greek_pillars.png"
+          alt="Grčki stubovi"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+      </div>
+      
       <NeuralNetworkCanvas />
 
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-primary/20 to-primary pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#064e4b]/40 via-[#033f40]/20 to-[#012a2b] pointer-events-none" />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center px-4">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/advokat_maric/og/logo_maric_m.svg"
           alt="Marić Advokatura"
-          className="mx-auto mb-6 w-40 sm:w-48 md:w-56 h-auto drop-shadow-lg"
+          className="mx-auto w-56 sm:w-64 md:w-80 h-auto drop-shadow-[0_4px_24px_rgba(255,255,255,0.25)]"
         />
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
-          <Link
-            href="/pravna-pomoc/krivicno-pravo" scroll={false} onClick={(e) => { e.preventDefault(); document.getElementById('usluge')?.scrollIntoView({ behavior: 'smooth' }); }}
-            className="bg-accent hover:bg-accent-dim text-white px-8 py-3.5 rounded-[var(--radius-md)] font-medium transition-colors cursor-pointer"
-          >
-            {t("cta")}
-          </Link>
-          <Link
-            href="/kontakt"
-            className="border border-border-light text-text-primary px-8 py-3.5 rounded-[var(--radius-md)] font-medium hover:bg-surface transition-colors cursor-pointer"
-          >
-            {t("ctaSecondary")}
-          </Link>
-        </div>
       </div>
 
       {/* Scroll indicator */}

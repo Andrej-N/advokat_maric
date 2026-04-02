@@ -31,8 +31,18 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-primary bg-gradient-to-br from-primary-light via-primary to-[#1A4A3A] border-t border-border overflow-hidden">
-      <NeuralNetworkCanvas />
+    <footer className="relative bg-[#033f40] bg-gradient-to-br from-[#064e4b] via-[#033f40] to-[#012a2b] border-t border-border overflow-hidden">
+      {/* Background Image of Greek Pillars */}
+      <div className="absolute inset-0 opacity-[0.15] mix-blend-luminosity pointer-events-none">
+        <Image
+          src="/advokat_maric/og/greek_pillars.png"
+          alt="Grčki stubovi"
+          fill
+          className="object-cover object-center"
+        />
+      </div>
+      
+      <NeuralNetworkCanvas nodeCount={35} connectionDistance={3} mouseInfluence={0.1} spread={[16, 8, 3]} />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Top row: CTA left, Location right */}
         <div className="flex flex-col md:flex-row items-start justify-between gap-8 mb-12">
@@ -47,7 +57,7 @@ export function Footer() {
               />
             </Link>
             <h3 className="text-xl font-semibold text-text-primary mb-4">
-              {t("contact.formTitle")}
+              {t("contact.title")}
             </h3>
             <div className="flex flex-col gap-3">
               <a

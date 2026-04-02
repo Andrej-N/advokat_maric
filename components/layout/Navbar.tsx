@@ -69,7 +69,7 @@ export function Navbar() {
               alt="Marić"
               width={230}
               height={100}
-              className={`h-14 lg:h-16 w-auto transition-all duration-300 ${
+              className={`h-16 lg:h-20 w-auto transition-all duration-300 ${
                 isTransparent
                   ? "brightness-0 invert"
                   : ""
@@ -129,7 +129,7 @@ export function Navbar() {
           {/* Right side */}
           <div className="flex items-center gap-4">
             <div className="hidden sm:block">
-              <LanguageSwitcher />
+              <LanguageSwitcher isTransparent={isTransparent} />
             </div>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -191,6 +191,15 @@ export function Navbar() {
                   </Link>
                 )
               )}
+            </div>
+            <div className="mt-4 px-4">
+              <Link
+                href="/kontakt"
+                className="block w-full text-center bg-accent hover:bg-accent-dim text-white px-6 py-3 rounded-[var(--radius-md)] font-medium transition-colors"
+                onClick={() => setMobileOpen(false)}
+              >
+                {t("hero.ctaSecondary")}
+              </Link>
             </div>
             <div className="mt-4 px-4 sm:hidden">
               <LanguageSwitcher />
