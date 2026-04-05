@@ -17,6 +17,8 @@ const serviceKeys = [
   "misdemeanor",
   "humanRights",
   "diaspora",
+  "familyAndInheritance",
+  "divorce",
 ] as const;
 
 export function Navbar() {
@@ -138,9 +140,7 @@ export function Navbar() {
             >
               {t("hero.ctaSecondary")}
             </Link>
-            <div className="hidden sm:block">
-              <LanguageSwitcher isTransparent={isTransparent} />
-            </div>
+            <LanguageSwitcher isTransparent={isTransparent} />
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className={`lg:hidden cursor-pointer p-2 ${textColor} hover:${textActiveColor}`}
@@ -210,9 +210,6 @@ export function Navbar() {
               >
                 {t("hero.ctaSecondary")}
               </Link>
-            </div>
-            <div className="mt-4 px-4 sm:hidden">
-              <LanguageSwitcher />
             </div>
           </div>
         )}

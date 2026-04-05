@@ -14,6 +14,8 @@ import {
   Globe,
   ChevronLeft,
   ChevronRight,
+  Heart,
+  HeartCrack,
 } from "lucide-react";
 
 const services = [
@@ -25,6 +27,8 @@ const services = [
   { key: "misdemeanor", icon: ShieldAlert },
   { key: "humanRights", icon: Users },
   { key: "diaspora", icon: Globe },
+  { key: "familyAndInheritance", icon: Heart },
+  { key: "divorce", icon: HeartCrack },
 ] as const;
 
 export function ServicesGrid() {

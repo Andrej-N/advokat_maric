@@ -16,6 +16,7 @@
     "title": "Law Office",
     "titleAccent": "Marić",
     "subtitle": "Legal certainty built on experience since 1994",
+    "tagline": "Your Legal Support",
     "cta": "Services",
     "ctaSecondary": "Schedule a Consultation"
   },
@@ -81,6 +82,18 @@
       "slug": "dijaspora",
       "description": "Legal services for Serbian citizens abroad -inheritance proceedings, real estate, documentation, divorce, recognition of foreign decisions, citizenship.",
       "full": "Marić Law Office provides legal services for Serbian citizens living abroad, enabling completion of legal matters without the need to travel to Serbia.\n\nInheritance proceedings -we manage the entire succession process, submit inheritance declarations on behalf of clients, obtain inheritance decisions, and execute changes in public registries, all without the client's physical presence.\n\nReal estate transactions -with a notarized power of attorney, we represent clients in selling, purchasing, or exchanging properties. We verify documentation, ensure transparency, and manage the entire process.\n\nDocument acquisition -vital records extracts (birth, death, marriage certificates), residence certificates, cadastral extracts, criminal record clearances, and all other documentation from across Serbia, with international delivery.\n\nDivorce -we handle mutual dissolution agreements, file divorce suits, and manage marital property division disputes without requiring the client's court appearance.\n\nRecognition of foreign court decisions -decisions issued by foreign authorities have no legal effect in Serbia until recognized by Serbian courts. We manage recognition and enforcement proceedings.\n\nCitizenship -we obtain citizenship certificates and represent clients in Serbian citizenship acquisition procedures."
+    },
+    "familyAndInheritance": {
+      "title": "Family and Inheritance Law",
+      "slug": "porodicno-i-nasledno-pravo",
+      "description": "Our office provides expert legal assistance in family and inheritance matters. With extensive experience, we protect your rights and efficiently resolve legal challenges.",
+      "full": "Our office provides expert legal assistance in family and inheritance matters. With extensive experience, we protect your rights and efficiently resolve legal challenges.\n\nOur office provides expert legal assistance in all aspects of family and inheritance law, including the following services:\n- Divorce (mutual and contested)\n- Exercise of parental rights\n- Deprivation of parental rights\n- Alimony (child support)\n- Parenting time\n- Division of marital property\n- Division of non-marital property\n- Protection against domestic violence\n- Lifetime distribution of property\n- Will drafting\n- Lifetime maintenance agreement\n- Probate proceedings\n- Challenging lifetime maintenance agreements\n\nWith rich experience in these areas, our team provides precise and efficient legal services to ensure your rights are protected and all proceedings are conducted in accordance with the law.\n\nIf during the marriage marital relations become seriously and permanently disturbed or if the joint life of the spouses can objectively no longer be maintained, they have the right to divorce.\n\nDivorce entails other issues, such as the exercise of parental rights and the division of joint property, so we advise engaging an experienced family and inheritance lawyer in such situations."
+    },
+    "divorce": {
+      "title": "Divorce",
+      "slug": "razvod-braka",
+      "description": "Our divorce lawyers provide detailed counseling, document preparation, and court representation to achieve the best possible solution while protecting your interests.",
+      "full": "Our divorce lawyers provide detailed counseling, document preparation, court representation, and manage negotiations to achieve the best possible solution, with maximum protection of the interests of clients and their children.\n\nDivorce is one of the most sensitive proceedings in family law because it involves not only the termination of the spouses' joint life but also resolving issues of parental rights exercise, parenting time, alimony, and the division of joint property.\n\nDivorce can be carried out in two ways:\n- Mutual divorce\n- Contested divorce (divorce lawsuit)\n\nWhen to choose a mutual divorce? - Mutual divorce means the spouses agree on all key issues: child custody, visits, alimony, division of joint property.\nAdvantages: faster process, lower costs, fewer conflicts, less emotional stress.\nWe assist in preparing the agreement, negotiations, and legally ensuring that the agreement is acceptable to the court and enforceable.\n\nContested divorce (divorce lawsuit) - When spouses cannot reach an agreement on key issues, divorce is initiated through a lawsuit.\n\nBasic characteristics of contested divorce:\n- The process takes longer than a mutual divorce because the court examines evidence, proposals, and testimonies.\n- The lawsuit must contain data about spouses, date of marriage, reasons why the marriage can no longer be maintained, and specific child and property requests.\n- The court makes a decision after a hearing and witnesses, and sometimes based on expert evaluation.\n- Costs are higher due to more hearings and legal actions.\n\nIf you are unsure whether a mutual divorce is possible in your case or a lawsuit is needed, a divorce lawyer will suggest the best legal path after reviewing documentation and talking with you."
     }
   },
   "proBono": {
@@ -149,6 +162,8 @@
   "common": {
     "learnMore": "Learn more",
     "backToHome": "Back to home",
-    "backToTop": "Back to top"
+    "backToTop": "Back to top",
+    "needHelpTitle": "Do you need legal help?",
+    "contactUsLabel": "CONTACT US"
   }
 }

@@ -1,7 +1,9 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { ArrowDown } from "lucide-react";
 
 const NeuralNetworkCanvas = dynamic(
@@ -12,7 +14,52 @@ const NeuralNetworkCanvas = dynamic(
   { ssr: false }
 );
 
+function AnimatedTagline({ text }: { text: string }) {
+  const [visibleCount, setVisibleCount] = useState(0);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const interval = setInterval(() => {
+        setVisibleCount((prev) => {
+          if (prev >= text.length) {
+            clearInterval(interval);
+            return prev;
+          }
+          return prev + 1;
+        });
+      }, 60);
+      return () => clearInterval(interval);
+    }, 1200);
+    return () => clearTimeout(timeout);
+  }, [text]);
+
+  return (
+    <span aria-label={text}>
+      {text.split("").map((char, i) => (
+        <span
+          key={i}
+          className="inline-block transition-all duration-500"
+          style={{
+            opacity: i < visibleCount ? 1 : 0,
+            transform: i < visibleCount ? "translateY(0)" : "translateY(8px)",
+            transitionDelay: `${i * 30}ms`,
+          }}
+        >
+          {char === " " ? "\u00A0" : char}
+        </span>
+      ))}
+    </span>
+  );
+}
+
 export function Hero() {
+  const t = useTranslations("hero");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-[#033f40] bg-gradient-to-br from-[#064e4b] via-[#033f40] to-[#012a2b]">
       {/* Background Image of Greek Pillars */}
@@ -25,20 +72,45 @@ export function Hero() {
           priority
         />
       </div>
-      
+
       <NeuralNetworkCanvas />
 
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#064e4b]/40 via-[#033f40]/20 to-[#012a2b] pointer-events-none" />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4">
+      <div className="relative z-10 text-center px-4 flex flex-col items-center gap-4">
+        {/* Title above logo */}
+        <div
+          className="transition-all duration-1000 ease-out"
+          style={{
+            opacity: mounted ? 1 : 0,
+            transform: mounted ? "translateY(0)" : "translateY(-20px)",
+          }}
+        >
+          <h1 className="text-white uppercase tracking-[0.25em] text-sm sm:text-base md:text-lg font-light">
+            {t("title")}
+          </h1>
+          <p className="text-white uppercase tracking-[0.35em] text-2xl sm:text-3xl md:text-4xl font-bold mt-1">
+            {t("titleAccent")}
+          </p>
+        </div>
+
+        {/* M Logo */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/advokat_maric/og/logo_maric_m.svg"
           alt="Marić Advokatura"
-          className="mx-auto w-56 sm:w-64 md:w-80 h-auto drop-shadow-[0_4px_24px_rgba(255,255,255,0.25)]"
+          className="mx-auto w-40 sm:w-48 md:w-56 h-auto drop-shadow-[0_4px_24px_rgba(255,255,255,0.25)] transition-opacity duration-1000"
+          style={{ opacity: mounted ? 1 : 0 }}
         />
+
+        {/* Tagline with letter-by-letter animation */}
+        <div className="h-10 flex items-center justify-center">
+          <p className="text-white/80 uppercase tracking-[0.3em] text-xs sm:text-sm md:text-base font-light">
+            {mounted && <AnimatedTagline text={t("tagline")} />}
+          </p>
+        </div>
       </div>
 
       {/* Scroll indicator */}

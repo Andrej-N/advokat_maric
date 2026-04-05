@@ -16,6 +16,7 @@
     "title": "Advokatska kancelarija",
     "titleAccent": "Marić",
     "subtitle": "Pravna sigurnost zasnovana na iskustvu od 1994. godine",
+    "tagline": "Vaša pravna podrška",
     "cta": "Usluge",
     "ctaSecondary": "Zakažite konsultacije"
   },
@@ -74,13 +75,25 @@
       "title": "Zaštita ljudskih prava",
       "slug": "zastita-ljudskih-prava",
       "description": "Naša kancelarija pruža zastupanje pred Ustavnim sudom RS i Evropskim sudom za ljudska prava u Strazburu -ustavne žalbe, predstavke i zaštita osnovnih sloboda.",
-      "full": "Naša advokatska kancelarija pruža specijalizovane usluge zastupanja u postupcima zaštite ljudskih prava, obezbeđujući najviši nivo pravne zaštite koji pojedinac može da ostvari.\n\nUstavna žalba -zastupanje stranaka u postupcima pred Ustavnim sudom Republike Srbije, sačinjavanje i podnošenje ustavnih žalbi zbog povrede ili uskraćivanja ljudskih ili manjinskih prava i sloboda zajemčenih Ustavom.\n\nEvropski sud za ljudska prava -priprema i podnošenje predstavki Evropskom sudu za ljudska prava u Strazburu, zastupanje u postupku pred Sudom, praćenje izvršenja presuda.\n\nOblasti zaštite -pravo na pravično suđenje, sloboda izražavanja, zabrana diskriminacije, pravo na imovinu, pravo na privatnost, zabrana mučenja i nečovečnog postupanja, pravo na slobodu i bezbednost ličnosti i druga prava zagarantovana Evropskom konvencijom o ljudskim pravima."
+      "full": "Naša advokatska kancelarija pruža specijalizovane usluge zastupanja u postupcima zaštite ljudskih prava, obezbeđujući najviši nivo pravne zaštite koji pojedinac može da ostvari.\n\nUstavna žalba -zastupanje stranaka u postupcima pred Ustavnim sudom Republike Srbije, sačinjavanje i podnošenje ustavnih žalbi zbog povrede ili uskraćivanja ljudskih ili manjinskih prava i sloboda zajemčenih Ustavom.\n\nEvropski sud za ljudska prava -priprema i podnošenje predstavki Evropskom sudu za ljudska prava u Strazburu, zastupanje u postupku pred Sudom, praćenje izvršenja presuda.\n\nOblasti zaštite -pravo na pravično suđenje, sloboda izražavanja, zabrana diskriminacije, pravo na imovinu, pravo na privatnost, zabrana mučenja i nečovečnog postupanja, pravo na slobodu i bezbednost ličnosti i druga prava zajemčena Evropskom konvencijom o ljudskim pravima."
     },
     "diaspora": {
       "title": "Dijaspora",
       "slug": "dijaspora",
       "description": "Pravne usluge za građane Srbije u inostranstvu -ostavinski postupci, nekretnine, dokumentacija, razvod braka, priznanje stranih odluka, državljanstvo.",
       "full": "Advokatska kancelarija Marić pruža pravne usluge za građane Srbije koji žive u inostranstvu, omogućavajući završetak pravnih poslova bez potrebe za dolaskom u Srbiju.\n\nOstavinski postupak -preuzimamo vođenje ostavinskog postupka, dajemo nasledničke izjave u ime klijenata, pribavljamo ostavinska rešenja i vršimo promene u javnim registrima, sve bez fizičkog prisustva klijenta.\n\nKupoprodaja i poklon nepokretnosti -uz overeno punomoćje, zastupamo klijente u prodaji, kupovini ili razmeni nepokretnosti. Proveravamo dokumentaciju, obezbeđujemo transparentnost i upravljamo celokupnim procesom.\n\nPribavljanje dokumentacije -izvodi iz matičnih knjiga (rođenih, umrlih, venčanih), uverenja o prebivalištu, izvodi iz katastra, uverenja o nekažnjavanju i sva druga dokumentacija iz cele Srbije, sa dostavom u inostranstvo.\n\nRazvod braka -vodimo postupke sporazumnog razvoda, tužbe za razvod i sporove oko podele bračne imovine bez prisustva klijenta na sudu.\n\nPriznanje stranih sudskih odluka -odluke donete pred nadležnim organima u inostranstvu ne proizvode pravna dejstva u Srbiji dok ne budu priznate pred sudskim organima. Vodimo postupke priznavanja i izvršenja stranih odluka.\n\nDržavljanstvo -pribavljamo uverenja o državljanstvu i zastupamo klijente u postupku sticanja srpskog državljanstva."
+    },
+    "familyAndInheritance": {
+      "title": "Porodično i nasledno pravo",
+      "slug": "porodicno-i-nasledno-pravo",
+      "description": "Naša kancelarija pruža stručnu pravnu pomoć u vezi sa porodičnim i naslednim pitanjima. Sa bogatim iskustvom u rešavanju kompleksnih pravnih pitanja u ovim oblastima, posvećeni smo zaštiti vaših prava.",
+      "full": "Naša kancelarija pruža stručnu pravnu pomoć u vezi sa porodičnim i naslednim pitanjima. Sa bogatim iskustvom u rešavanju kompleksnih pravnih pitanja u ovim oblastima, posvećeni smo zaštiti vaših prava i interesa, kao i efikasnom rešavanju svih pravnih izazova koji mogu nastati.\n\nNaša kancelarija pruža stručnu pravnu pomoć u svim aspektima porodičnog i naslednog prava, obuhvatajući sledeće usluge:\n- Razvod braka (sporazumni i po tužbi)\n- Vršenje roditeljskog prava\n- Lišenje roditeljskog prava\n- Alimentacija (doprinos za izdržavanje deteta)\n- Viđanje deteta\n- Podela bračne imovine (bračna tekovina)\n- Podela vanbračne imovine (vanbračna tekovina)\n- Zaštita od nasilja u porodici\n- Raspodela imovine za života\n- Sastavljanje testamenta\n- Ugovor o doživotnom izdržavanju\n- Ostavinski postupak\n- Pobijanje ugovora o doživotnom izdržavanju\n\nSa bogatim iskustvom u ovim oblastima, naš tim pruža precizne i efikasne pravne usluge kako bismo osigurali da vaša prava budu zaštićena i da se svi postupci odvijaju u skladu sa zakonom.\n\nUkoliko u trajanju bračne zajednice dođe do toga da su bračni odnosi ozbiljno i trajno poremećeni ili ako se objektivno ne može ostvariti zajednica života supružnika, oni imaju pravo na razvod braka.\n\nRazvod braka za sobom povlači i druga pitanja, kao što su vršenje roditeljskog prava i deoba zajedničke imovine, te zbog toga savetujemo da se u ovakvim situacijama angažuje iskusan advokat za porodično i nasledno pravo."
+    },
+    "divorce": {
+      "title": "Razvod braka",
+      "slug": "razvod-braka",
+      "description": "Naši advokati za razvod braka obezbeđuju detaljno savetovanje, pripremu potrebne dokumentacije, zastupanje pred sudom i vođenje pregovora radi postizanja najboljeg mogućeg rešenja.",
+      "full": "Naši advokati za razvod braka obezbeđuju detaljno savetovanje, pripremu potrebne dokumentacije, zastupanje pred sudom i vođenje pregovora radi postizanja najboljeg mogućeg rešenja, uz maksimalnu zaštitu interesa klijenata i njihove dece.\n\nRazvod braka spada u najosetljivije postupke u oblasti porodičnog prava, jer obuhvata ne samo prestanak zajednice života supružnika, već i rešavanje pitanja vršenja roditeljskog prava, viđanja dece, izdržavanja, kao i podele zajedničke imovine.\n\nRazvod braka se može sprovesti na dva načina:\n- Sporazumni razvod braka\n- Tužba za razvod braka\n\nKada se odlučiti za sporazumni razvod braka? - Sporazumni razvod braka znači da se supružnici dogovaraju o svim ključnim pitanjima: starateljstvu nad decom, viđanju, alimentaciji, podeli zajedničke imovine (bračne tekovine).\nPrednosti: brži postupak, manji troškovi, manje konflikata, manje emocionalnog stresa.\nMi pomažemo u pripremi sporazuma, pregovorima i pravnom osiguravanju da je sporazum sudu prihvatljiv i izvršan.\n\nTužba za razvod braka - Kada supružnici ne mogu da postignu dogovor o ključnim pitanjima (starateljstvo nad decom, podela imovine, izdržavanje), razvod braka se pokreće putem tužbe za razvod braka.\n\nOsnovne karakteristike razvoda po tužbi:\n- Proces traje duže od sporazumnog razvoda, jer sud razmatra dokaze, predloge i svedočenja.\n- Tužba mora da sadrži podatke o supružnicima, datum zaključenja braka, razloge zbog kojih brak više ne može da opstane i konkretne zahteve u vezi sa decom i imovinom.\n- Sud donosi odluku nakon ročišta i eventualnog saslušanja svedoka, a nekada i na osnovu veštačenja (npr. psihološkog u slučaju spora oko starateljstva).\n- Troškovi su veći jer proces uključuje više ročišta i dodatne pravne radnje.\n\nUkoliko niste sigurni da li je u vašem slučaju moguć sporazumni razvod ili je potrebna tužba, advokat za razvod braka će nakon pregleda dokumentacije i razgovora sa vama predložiti najbolji pravni put."
     }
   },
   "proBono": {
@@ -149,6 +162,8 @@
   "common": {
     "learnMore": "Saznajte više",
     "backToHome": "Nazad na početnu",
-    "backToTop": "Vrati se na vrh"
+    "backToTop": "Vrati se na vrh",
+    "needHelpTitle": "Potrebna vam je pravna pomoć?",
+    "contactUsLabel": "KONTAKTIRAJTE NAS"
   }
 }

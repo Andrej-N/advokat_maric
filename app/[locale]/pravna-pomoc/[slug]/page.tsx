@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/lib/i18n/routing";
 import type { Metadata } from "next";
+import Image from "next/image";
 import {
   Gavel,
   Briefcase,
@@ -12,6 +13,8 @@ import {
   Users,
   Globe,
   ArrowLeft,
+  Heart,
+  HeartCrack,
 } from "lucide-react";
 
 const serviceMap: Record<
@@ -26,6 +29,8 @@ const serviceMap: Record<
   "prekrsajno-pravo": { key: "misdemeanor", icon: ShieldAlert },
   "zastita-ljudskih-prava": { key: "humanRights", icon: Users },
   "dijaspora": { key: "diaspora", icon: Globe },
+  "porodicno-i-nasledno-pravo": { key: "familyAndInheritance", icon: Heart },
+  "razvod-braka": { key: "divorce", icon: HeartCrack },
 };
 
 export async function generateStaticParams() {
@@ -62,6 +67,7 @@ export default async function ServicePage({
 function ServicePageContent({ slug }: { slug: string }) {
   const t = useTranslations("services");
   const tCommon = useTranslations("common");
+  const tNav = useTranslations("nav");
   const service = serviceMap[slug];
 
   if (!service) {
@@ -75,28 +81,49 @@ function ServicePageContent({ slug }: { slug: string }) {
   const Icon = service.icon;
 
   return (
-    <div className="pt-24 lg:pt-32 bg-white-bg">
-      <section className="py-28 px-4">
-        <div className="max-w-4xl mx-auto">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-white-text-muted hover:text-accent mb-8 transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            {tCommon("backToHome")}
-          </Link>
+    <div className="bg-white-bg flex flex-col min-h-screen">
+      {/* Dynamic Header Banner */}
+      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-[#033f40] bg-gradient-to-br from-[#064e4b] via-[#033f40] to-[#012a2b] overflow-hidden">
+        {/* Background Image of Greek Pillars */}
+        <div className="absolute inset-0 opacity-20 mix-blend-luminosity pointer-events-none">
+          <Image
+            src="/advokat_maric/og/greek_pillars.png"
+            alt="Pillars"
+            fill
+            className="object-cover object-center"
+            priority
+          />
+        </div>
+        
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#012a2b]/80 pointer-events-none" />
 
-          <div className="flex items-center gap-4 mb-8">
-            <div className="bg-accent/10 rounded-[var(--radius-md)] p-3">
-              <Icon className="w-8 h-8 text-accent" />
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white-text">
-              {t(`${service.key}.title`)}
-            </h1>
+        <div className="relative z-10 max-w-6xl mx-auto px-4 flex flex-col items-center text-center">
+          <div className="inline-flex items-center justify-center p-4 bg-white/10 rounded-[var(--radius-md)] mb-6 backdrop-blur-sm border border-white/10">
+            <Icon className="w-10 h-10 text-white" />
           </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
+            {t(`${service.key}.title`)}
+          </h1>
+        </div>
+      </section>
 
-          <div className="h-px bg-white-border my-8" />
+      {/* Breadcrumbs Bar */}
+      <div className="bg-[#8B1E28] text-white/90 text-xs sm:text-sm md:text-base font-medium py-3 px-4 shadow-md z-20">
+        <div className="max-w-4xl mx-auto flex items-center gap-2 uppercase tracking-wider flex-wrap">
+          <Link href="/" className="hover:text-white transition-colors">
+            {tNav("home")}
+          </Link>
+          <span className="opacity-70">›</span>
+          <span className="opacity-90">{tNav("services")}</span>
+          <span className="opacity-70">›</span>
+          <span className="text-white font-bold">{t(`${service.key}.title`)}</span>
+        </div>
+      </div>
 
+      {/* Main Content */}
+      <section className="py-16 md:py-24 px-4 flex-grow">
+        <div className="max-w-4xl mx-auto">
           <div className="space-y-6">
             {t(`${service.key}.full`)
               .split("\n\n")
@@ -105,26 +132,60 @@ function ServicePageContent({ slug }: { slug: string }) {
                 if (dashIndex > 0 && dashIndex < 60 && i > 0) {
                   const heading = paragraph.slice(0, dashIndex);
                   const body = paragraph.slice(dashIndex + 2).trim();
+                  
+                  const formattedBody = body
+                    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-accent hover:underline" target="_blank" rel="noopener noreferrer">$1</a>')
+                    .replace(/\n/g, '<br/>');
+
                   return (
                     <div key={i}>
                       <h3 className="text-lg font-semibold text-white-text mb-2">
                         {heading}
                       </h3>
-                      <p className="text-white-text-muted leading-relaxed text-lg">
-                        {body}
-                      </p>
+                      <p 
+                        className="text-white-text-muted leading-relaxed text-lg"
+                        dangerouslySetInnerHTML={{ __html: formattedBody }}
+                      />
                     </div>
                   );
                 }
+
+                const formattedParagraph = paragraph
+                  .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-accent hover:underline" target="_blank" rel="noopener noreferrer">$1</a>')
+                  .replace(/\n/g, '<br/>');
+
                 return (
                   <p
                     key={i}
                     className="text-white-text-muted leading-relaxed text-lg"
-                  >
-                    {paragraph}
-                  </p>
+                    dangerouslySetInnerHTML={{ __html: formattedParagraph }}
+                  />
                 );
               })}
+          </div>
+
+          <div className="mt-20 relative bg-[#033f40] bg-gradient-to-br from-[#064e4b] via-[#033f40] to-[#012a2b] rounded-2xl p-8 md:p-12 overflow-hidden shadow-2xl">
+            {/* Decorative background element simulating the UI dotted pattern */}
+            <div 
+              className="absolute inset-0 opacity-10 pointer-events-none"
+              style={{
+                backgroundImage: "radial-gradient(circle at 2px 2px, white 1px, transparent 0)",
+                backgroundSize: "24px 24px"
+              }}
+            />
+            
+            <div className="relative z-10 flex flex-col gap-8 md:gap-10 max-w-2xl">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight">
+                {tCommon("needHelpTitle")}
+              </h2>
+              
+              <Link
+                href="/kontakt"
+                className="w-full text-center bg-[#a91f24] text-white font-medium tracking-wider text-base md:text-lg py-4 px-6 rounded-xl hover:bg-[#8B1E28] transition-all hover:shadow-lg hover:-translate-y-1"
+              >
+                {tCommon("contactUsLabel")}
+              </Link>
+            </div>
           </div>
         </div>
       </section>

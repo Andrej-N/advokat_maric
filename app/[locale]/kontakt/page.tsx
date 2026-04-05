@@ -99,7 +99,7 @@ function ContactPageContent() {
           {/* Google Maps Embed */}
           <div className="mt-12 rounded-[var(--radius-lg)] overflow-hidden border border-white-border h-80">
             <iframe
-              src="https://maps.google.com/maps?q=Ul.+V.+Ze%C4%8Devi%C4%87a+K-1,+Loznica,+Serbia&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2838.5!2d19.2226843!3d44.5297985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475961b7237b1bff%3A0x7584f1fe25012c87!2sADVOKATSKA%20KANCELARIJA%20MARI%C4%86!5e0!3m2!1sen!2srs!4v1"
               width="100%"
               height="100%"
               style={{ border: 0 }}
