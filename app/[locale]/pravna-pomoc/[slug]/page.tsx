@@ -102,7 +102,7 @@ function ServicePageContent({ slug }: { slug: string }) {
           <div className="inline-flex items-center justify-center p-4 bg-white/10 rounded-[var(--radius-md)] mb-6 backdrop-blur-sm border border-white/10">
             <Icon className="w-10 h-10 text-white" />
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal text-white tracking-tight">
             {t(`${service.key}.title`)}
           </h1>
         </div>
@@ -174,14 +174,14 @@ function ServicePageContent({ slug }: { slug: string }) {
               }}
             />
             
-            <div className="relative z-10 flex flex-col gap-8 md:gap-10 max-w-2xl">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight">
+            <div className="relative z-10 flex flex-col items-center text-center gap-8 md:gap-10 mx-auto max-w-4xl">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight">
                 {tCommon("needHelpTitle")}
               </h2>
               
               <Link
                 href="/kontakt"
-                className="w-full text-center bg-[#a91f24] text-white font-medium tracking-wider text-base md:text-lg py-4 px-6 rounded-xl hover:bg-[#8B1E28] transition-all hover:shadow-lg hover:-translate-y-1"
+                className="inline-flex items-center justify-center bg-[#a91f24] text-white font-medium tracking-wider text-base md:text-lg py-4 px-10 rounded-xl hover:bg-[#8B1E28] transition-all hover:shadow-lg hover:-translate-y-1"
               >
                 {tCommon("contactUsLabel")}
               </Link>
