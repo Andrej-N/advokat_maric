@@ -82,7 +82,7 @@ export function ServicesGrid() {
         <div className="w-full lg:w-[35%] flex flex-col justify-center shrink-0 lg:sticky lg:top-32">
           <div className="flex items-center gap-3 text-white/80 text-xs font-bold tracking-[0.15em] uppercase mb-6">
             <span className="w-2 h-2 rotate-45 border-2 border-white/80" />
-            ADVOKAT NOVI SAD – OBLASTI PRAVA
+            Advokat Novi Sad - Loznica
           </div>
           
           <h2 className="text-4xl md:text-5xl font-medium text-white mb-6 leading-[1.1]">

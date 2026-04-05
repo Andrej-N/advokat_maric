@@ -5,6 +5,7 @@ import { locales } from "@/lib/i18n/config";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SpeedDial } from "@/components/layout/SpeedDial";
+import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { generateOrganizationJsonLd } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -68,6 +69,7 @@ export default async function LocaleLayout({
       <Navbar />
       <main className="min-h-screen">{children}</main>
       <Footer />
+      <ScrollToTop />
       <SpeedDial />
     </NextIntlClientProvider>
   );

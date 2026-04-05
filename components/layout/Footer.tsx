@@ -53,7 +53,7 @@ export function Footer() {
                 alt="Marić"
                 width={230}
                 height={100}
-                className="h-14 w-auto brightness-0 invert"
+                className="h-16 lg:h-20 w-auto brightness-0 invert"
               />
             </Link>
             <h3 className="text-xl font-semibold text-text-primary mb-4">
@@ -109,38 +109,42 @@ export function Footer() {
           <p className="text-text-dim text-sm leading-relaxed mb-4 cursor-default">
             {t("footer.disclaimer")}
           </p>
-          <div className="flex items-center justify-between flex-wrap gap-4">
-            <p className="text-text-dim text-sm cursor-default">
-              &copy; {year} Marić. {t("footer.rights")}
-            </p>
-            <div className="flex items-center gap-4">
-              <Link
-                href="/ogranicenje-odgovornosti"
-                className="text-text-dim text-sm hover:text-accent transition-colors"
-              >
-                {t("footer.disclaimerLink")}
-              </Link>
-              <Link
-                href="/politika-privatnosti"
-                className="text-text-dim text-sm hover:text-accent transition-colors"
-              >
-                {t("footer.privacyLink")}
-              </Link>
-              <Link
-                href="/opsti-uslovi"
-                className="text-text-dim text-sm hover:text-accent transition-colors"
-              >
-                {t("footer.termsLink")}
-              </Link>
-              <a
-                href="https://www.linkedin.com/company/advokatska-kancelarija-mari%C4%87/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-text-dim hover:text-accent transition-colors"
-                aria-label="LinkedIn"
-              >
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              </a>
+          <div className="flex flex-col items-center gap-6">
+            {/* LinkedIn icon - centered, larger */}
+            <a
+              href="https://www.linkedin.com/company/advokatska-kancelarija-mari%C4%87/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-dim hover:text-accent transition-colors"
+              aria-label="LinkedIn"
+            >
+              <svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+
+            <div className="flex items-center justify-between flex-wrap gap-4 w-full">
+              <p className="text-text-dim text-sm cursor-default">
+                &copy; {year} Marić. {t("footer.rights")}
+              </p>
+              <div className="flex items-center gap-4">
+                <Link
+                  href="/ogranicenje-odgovornosti"
+                  className="text-text-dim text-sm hover:text-accent transition-colors"
+                >
+                  {t("footer.disclaimerLink")}
+                </Link>
+                <Link
+                  href="/politika-privatnosti"
+                  className="text-text-dim text-sm hover:text-accent transition-colors"
+                >
+                  {t("footer.privacyLink")}
+                </Link>
+                <Link
+                  href="/opsti-uslovi"
+                  className="text-text-dim text-sm hover:text-accent transition-colors"
+                >
+                  {t("footer.termsLink")}
+                </Link>
+              </div>
             </div>
           </div>
         </div>

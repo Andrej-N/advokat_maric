@@ -50,7 +50,8 @@ const reviews = [
 ];
 
 const GOOGLE_BUSINESS_URL =
-  "https://www.google.com/maps/place/Loznica";
+  "https://www.google.com/search?sca_esv=a5ad54a154ad8b44&rlz=1C1GCEA_enRS1189RS1189&cs=0&output=search&kgmid=/g/11j8vr1jlq&q=ADVOKATSKA+KANCELARIJA+MARI%C4%86&shem=epsd1&shndl=30&source=sh/x/loc/uni/m1/1&kgs=39651c82e375c170&utm_source=epsd1,sh/x/loc/uni/m1/1#lrd=0x475961b7237b1bff:0x7584f1fe25012c87,1,,,,";
+
 
 export function GoogleReviews() {
   const t = useTranslations("reviews");

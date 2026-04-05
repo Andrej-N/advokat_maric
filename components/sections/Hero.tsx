@@ -91,7 +91,7 @@ export function Hero() {
           <h1 className="text-white uppercase tracking-[0.25em] text-sm sm:text-base md:text-lg font-light">
             {t("title")}
           </h1>
-          <p className="text-white uppercase tracking-[0.35em] text-2xl sm:text-3xl md:text-4xl font-bold mt-1">
+          <p className="text-white uppercase tracking-[0.25em] text-sm sm:text-base md:text-lg font-light mt-1">
             {t("titleAccent")}
           </p>
         </div>
@@ -107,7 +107,7 @@ export function Hero() {
 
         {/* Tagline with letter-by-letter animation */}
         <div className="h-10 flex items-center justify-center">
-          <p className="text-white/80 uppercase tracking-[0.3em] text-xs sm:text-sm md:text-base font-light">
+          <p className="text-white/80 uppercase tracking-[0.25em] text-sm sm:text-base md:text-lg font-light">
             {mounted && <AnimatedTagline text={t("tagline")} />}
           </p>
         </div>

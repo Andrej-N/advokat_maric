@@ -164,24 +164,15 @@ function ServicePageContent({ slug }: { slug: string }) {
               })}
           </div>
 
-          <div className="mt-20 relative bg-[#033f40] bg-gradient-to-br from-[#064e4b] via-[#033f40] to-[#012a2b] rounded-2xl p-8 md:p-12 overflow-hidden shadow-2xl">
-            {/* Decorative background element simulating the UI dotted pattern */}
-            <div 
-              className="absolute inset-0 opacity-10 pointer-events-none"
-              style={{
-                backgroundImage: "radial-gradient(circle at 2px 2px, white 1px, transparent 0)",
-                backgroundSize: "24px 24px"
-              }}
-            />
-            
-            <div className="relative z-10 flex flex-col items-center text-center gap-8 md:gap-10 mx-auto max-w-4xl">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight">
+          <div className="mt-20 relative bg-[#033f40] bg-gradient-to-br from-[#064e4b] via-[#033f40] to-[#012a2b] rounded-xl p-6 md:p-8 overflow-hidden shadow-lg">
+            <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-4 mx-auto max-w-4xl">
+              <h2 className="text-lg md:text-xl font-medium text-white leading-tight">
                 {tCommon("needHelpTitle")}
               </h2>
-              
+
               <Link
                 href="/kontakt"
-                className="inline-flex items-center justify-center bg-[#a91f24] text-white font-medium tracking-wider text-base md:text-lg py-4 px-10 rounded-xl hover:bg-[#8B1E28] transition-all hover:shadow-lg hover:-translate-y-1"
+                className="inline-flex items-center justify-center bg-[#a91f24] text-white font-medium tracking-wider text-sm py-2.5 px-6 rounded-lg hover:bg-[#8B1E28] transition-all hover:shadow-md whitespace-nowrap"
               >
                 {tCommon("contactUsLabel")}
               </Link>

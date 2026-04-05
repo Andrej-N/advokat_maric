@@ -1,11 +1,10 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { MapPin, Phone, Mail, Globe, ArrowUp } from "lucide-react";
+import { MapPin, Phone, Mail, Globe } from "lucide-react";
 
 export function ContactInfo() {
   const t = useTranslations("contact");
-  const tCommon = useTranslations("common");
 
   const items = [
     {
@@ -44,7 +43,7 @@ export function ContactInfo() {
           <p className="text-white/80">{t("subtitle")}</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16 mt-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-16 mt-16">
           {items.map(({ icon: Icon, label, value, href }) => (
             <div
               key={label}
@@ -57,29 +56,17 @@ export function ContactInfo() {
               {href ? (
                 <a
                   href={href}
-                  className="text-white text-sm hover:text-accent transition-colors break-words"
+                  className="text-white text-[13px] sm:text-sm hover:text-accent transition-colors break-words"
                 >
                   {value}
                 </a>
               ) : (
-                <span className="text-white text-sm break-words">{value}</span>
+                <span className="text-white text-[13px] sm:text-sm break-words">{value}</span>
               )}
             </div>
           ))}
         </div>
 
-        {/* Scroll To Top */}
-        <div className="flex justify-center mt-16">
-          <button 
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="flex items-center gap-4 text-white hover:text-accent transition-all duration-300 group cursor-pointer"
-          >
-            <div className="w-12 h-12 rounded-full border border-white/40 flex items-center justify-center group-hover:border-accent group-hover:bg-accent/10 transition-all duration-300">
-              <ArrowUp className="w-5 h-5" />
-            </div>
-            <span className="font-medium text-lg tracking-wide">{tCommon("backToTop")}</span>
-          </button>
-        </div>
       </div>
     </section>
   );
