@@ -44,9 +44,6 @@ export default function ProBonoPageContent() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal text-white tracking-tight">
             {t("title")}
           </h1>
-          <p className="text-white/70 text-lg mt-4 max-w-2xl">
-            {t("description")}
-          </p>
         </div>
       </section>
 
