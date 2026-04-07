@@ -15,6 +15,7 @@ import {
   ArrowLeft,
   Heart,
   HeartCrack,
+  FileSignature,
 } from "lucide-react";
 
 const serviceMap: Record<
@@ -31,6 +32,7 @@ const serviceMap: Record<
   "dijaspora": { key: "diaspora", icon: Globe },
   "porodicno-i-nasledno-pravo": { key: "familyAndInheritance", icon: Heart },
   "razvod-braka": { key: "divorce", icon: HeartCrack },
+  "ugovori-i-nekretnine": { key: "contractsAndRealEstate", icon: FileSignature },
 };
 
 export async function generateStaticParams() {
@@ -48,7 +50,7 @@ export async function generateMetadata({
   if (!service) return { title: "404" };
 
   return {
-    title: t(`${service.key}.title`),
+    title: t(`${service.key}.seoTitle`),
     description: t(`${service.key}.description`),
   };
 }
@@ -103,7 +105,7 @@ function ServicePageContent({ slug }: { slug: string }) {
             <Icon className="w-10 h-10 text-white" />
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal text-white tracking-tight">
-            {t(`${service.key}.title`)}
+            {t(`${service.key}.seoTitle`)}
           </h1>
         </div>
       </section>
@@ -115,7 +117,7 @@ function ServicePageContent({ slug }: { slug: string }) {
             {tNav("home")}
           </Link>
           <span className="opacity-70">›</span>
-          <span className="opacity-90">{tNav("services")}</span>
+          <Link href="/usluge" className="opacity-90 hover:text-white transition-colors">{tNav("services")}</Link>
           <span className="opacity-70">›</span>
           <span className="text-white font-bold">{t(`${service.key}.title`)}</span>
         </div>

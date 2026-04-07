@@ -14,6 +14,7 @@ import {
   Globe,
   Heart,
   HeartCrack,
+  FileSignature,
 } from "lucide-react";
 
 const services = [
@@ -27,6 +28,7 @@ const services = [
   { key: "diaspora", icon: Globe },
   { key: "familyAndInheritance", icon: Heart },
   { key: "divorce", icon: HeartCrack },
+  { key: "contractsAndRealEstate", icon: FileSignature },
 ] as const;
 
 export async function generateMetadata({

@@ -19,6 +19,7 @@ const serviceKeys = [
   "diaspora",
   "familyAndInheritance",
   "divorce",
+  "contractsAndRealEstate",
 ] as const;
 
 export function Navbar() {
