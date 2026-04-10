@@ -61,8 +61,12 @@ export default function ProBonoPageContent() {
       {/* Content */}
       <section className="py-16 md:py-24 px-4 flex-grow">
         <div className="max-w-4xl mx-auto">
-          <p className="text-white-text-muted leading-relaxed text-lg mb-12">
+          <p className="text-white-text-muted leading-relaxed text-lg mb-8">
             {t("description")}
+          </p>
+
+          <p className="text-white-text font-semibold text-lg mb-6">
+            {t("subtitle")}
           </p>
 
           <div className="space-y-4">

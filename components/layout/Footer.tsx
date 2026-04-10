@@ -16,17 +16,17 @@ const NeuralNetworkCanvas = dynamic(
 );
 
 const serviceKeys = [
-  "criminal",
-  "labor",
   "civil",
-  "administrative",
+  "familyAndInheritance",
+  "divorce",
+  "contractsAndRealEstate",
+  "criminal",
   "commercial",
+  "diaspora",
+  "administrative",
+  "labor",
   "misdemeanor",
   "humanRights",
-  "diaspora",
-  "familyAndInheritance",
-  "contractsAndRealEstate",
-  "divorce",
 ] as const;
 
 export function Footer() {
@@ -129,10 +129,7 @@ export function Footer() {
 
       {/* Full-width contrast blue bottom bar */}
       <div className="relative z-20 w-full bg-[#0a192f] border-t border-white/5 py-5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/70 text-sm cursor-default">
-            &copy; {year} Marić. {t("footer.rights")}
-          </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-4">
           <div className="flex items-center gap-4 flex-wrap justify-center">
             <Link
               href="/ogranicenje-odgovornosti"
@@ -155,6 +152,9 @@ export function Footer() {
               {t("footer.termsLink")}
             </Link>
           </div>
+          <p className="text-white/70 text-sm cursor-default">
+            &copy; {year} Marić. {t("footer.rights")}
+          </p>
         </div>
       </div>
     </footer>

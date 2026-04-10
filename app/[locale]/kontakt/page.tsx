@@ -32,12 +32,6 @@ function ContactPageContent() {
 
   const contactItems = [
     {
-      icon: MapPin,
-      label: t("addressLabel"),
-      value: t("address"),
-      href: "https://maps.google.com/?q=Loznica+V.+Zecevica+K-1",
-    },
-    {
       icon: Phone,
       label: t("phoneLabel"),
       value: t("phone"),
@@ -54,6 +48,12 @@ function ContactPageContent() {
       label: t("websiteLabel"),
       value: t("website"),
       href: undefined,
+    },
+    {
+      icon: MapPin,
+      label: t("addressLabel"),
+      value: t("address"),
+      href: "https://maps.google.com/?q=Loznica+V.+Zecevica+K-1",
     },
   ];
 

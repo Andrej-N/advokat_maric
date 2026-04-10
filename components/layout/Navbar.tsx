@@ -9,17 +9,17 @@ import Image from "next/image";
 import logoSvg from "@/public/og/logo_maric-01.svg";
 
 const serviceKeys = [
-  "criminal",
-  "labor",
   "civil",
-  "administrative",
-  "commercial",
-  "misdemeanor",
-  "humanRights",
-  "diaspora",
   "familyAndInheritance",
   "divorce",
   "contractsAndRealEstate",
+  "criminal",
+  "commercial",
+  "diaspora",
+  "administrative",
+  "labor",
+  "misdemeanor",
+  "humanRights",
 ] as const;
 
 export function Navbar() {
