@@ -99,7 +99,7 @@ export function ServicesGrid() {
             href="/usluge" 
             className="inline-flex justify-center items-center bg-accent hover:opacity-90 text-white font-medium py-3 hover:scale-105 pr-8 pl-8 transition-all rounded-sm text-sm w-fit"
           >
-            NAŠE USLUGE
+            {t("cta")}
           </Link>
         </div>
 

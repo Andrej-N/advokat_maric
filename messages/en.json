@@ -35,6 +35,7 @@
   "services": {
     "title": "Services",
     "subtitle": "Comprehensive legal assistance across all key areas of law",
+    "cta": "OUR SERVICES",
     "criminal": {
       "title": "Criminal Law",
       "seoTitle": "Criminal Law Attorney Loznica",
@@ -103,7 +104,7 @@
       "seoTitle": "Real Estate and Contract Attorney Loznica",
       "slug": "ugovori-i-nekretnine",
       "description": "Our office offers professional drafting and legal assistance with all types of contracts and real estate matters, backed by years of experience in property law relations.",
-      "full": "Our office provides comprehensive legal assistance in the field of contracts and property law relations. With years of experience in this area, we specialize in drafting, analyzing, and legally verifying all types of contracts, as well as representing clients in court proceedings related to property rights.\n\nTypes of contracts we draft and certify:\n- Real estate purchase agreement - complete documentation preparation and notarization\n- Gift agreement - ensures clarity and legal certainty in property transfer\n- Lease agreement - precisely defined lease terms with protection for both parties\n- Property exchange agreement\n- Division of marital property agreement\n- Investment agreement\n- Lifetime maintenance agreement\n- Construction agreement\n- Property partition agreement\n- Debt assumption and accession agreement\n- Commercial and labor law contracts\n- Will (testament)\n\nIn addition to contract drafting, our office has significant experience in conducting court proceedings related to property law relations, protecting client rights and ensuring their legal protection at all stages of the proceedings."
+      "full": "Our office provides comprehensive legal assistance in the field of contracts and property law relations. With experience in this area, we draft, analyze, and legally verify all types of contracts, as well as represent clients in court proceedings related to property rights.\n\nTypes of contracts we handle:\n\n- **Real estate purchase agreement** - complete documentation preparation and notarization\n\n- **Gift agreement** - ensures clarity and legal certainty in property transfer\n\n- **Lease agreement** - precisely defined lease terms with protection for both parties\n\n- **Property exchange agreement**\n\n- **Division of marital property agreement**\n\n- **Investment agreement**\n\n- **Lifetime maintenance agreement**\n\n- **Construction agreement**\n\n- **Property partition agreement**\n\n- **Debt assumption and accession agreement**\n\n- **Commercial and labor law contracts**\n\n- **Will (testament)**\n\nIn addition to contract drafting, our office has experience in conducting court proceedings related to property law relations, protecting client rights and ensuring their legal protection at all stages of the proceedings."
     },
     "divorce": {
       "title": "Divorce",

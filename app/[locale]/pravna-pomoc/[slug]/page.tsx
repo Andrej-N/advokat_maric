@@ -132,12 +132,13 @@ function ServicePageContent({ slug }: { slug: string }) {
               .map((paragraph, i) => {
                 const dashIndex = paragraph.indexOf(" -");
                 if (dashIndex > 0 && dashIndex < 60 && i > 0) {
-                  const heading = paragraph.slice(0, dashIndex);
+                  const heading = paragraph.slice(0, dashIndex).replace(/\*\*/g, '');
                   const body = paragraph.slice(dashIndex + 2).trim();
                   
                   const formattedBody = body
                     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-accent hover:underline" target="_blank" rel="noopener noreferrer">$1</a>')
-                    .replace(/\n/g, '<br/>');
+                    .replace(/\n/g, '<br/>')
+                    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
 
                   return (
                     <div key={i}>
@@ -154,7 +155,8 @@ function ServicePageContent({ slug }: { slug: string }) {
 
                 const formattedParagraph = paragraph
                   .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-accent hover:underline" target="_blank" rel="noopener noreferrer">$1</a>')
-                  .replace(/\n/g, '<br/>');
+                  .replace(/\n/g, '<br/>')
+                  .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
 
                 return (
                   <p

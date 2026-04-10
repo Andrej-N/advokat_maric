@@ -3,8 +3,9 @@
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { ArrowDown } from "lucide-react";
+import Link from "next/link";
 
 const NeuralNetworkCanvas = dynamic(
   () =>
@@ -54,6 +55,7 @@ function AnimatedTagline({ text }: { text: string }) {
 
 export function Hero() {
   const t = useTranslations("hero");
+  const locale = useLocale();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -111,6 +113,21 @@ export function Hero() {
             {mounted && <AnimatedTagline text={t("tagline")} />}
           </p>
         </div>
+
+        {/* CTA Button */}
+        <Link
+          href={`/${locale}/kontakt`}
+          className="mt-4 inline-block border border-white/60 text-white uppercase tracking-[0.2em] text-xs sm:text-sm px-8 py-3 hover:bg-white/10 transition-all duration-500"
+          style={{
+            opacity: mounted ? 1 : 0,
+            transform: mounted ? "translateY(0)" : "translateY(10px)",
+            transitionProperty: "opacity, transform, background-color",
+            transitionDuration: "1000ms, 1000ms, 300ms",
+            transitionDelay: "2500ms, 2500ms, 0ms",
+          }}
+        >
+          {t("ctaSecondary")}
+        </Link>
       </div>
 
       {/* Scroll indicator */}

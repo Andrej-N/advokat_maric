@@ -45,7 +45,7 @@ export function Navbar() {
   const navLinks = [
     { href: "/", label: t("nav.home") },
     { href: "/o-nama", label: t("nav.about") },
-    { href: "#", label: t("nav.services"), hasDropdown: true },
+    { href: "/usluge", label: t("nav.services"), hasDropdown: true },
     { href: "/pro-bono", label: t("nav.proBono") },
     { href: "/blog", label: t("nav.blog") },
     { href: "/kontakt", label: t("nav.contact") },
@@ -90,14 +90,19 @@ export function Navbar() {
                   onMouseEnter={() => setServicesOpen(true)}
                   onMouseLeave={() => setServicesOpen(false)}
                 >
-                  <button
-                    className={`cursor-pointer flex items-center gap-1 px-4 py-2 text-sm uppercase tracking-wide font-medium transition-colors ${textColor} hover:${textActiveColor}`}
+                  <Link
+                    href={link.href}
+                    className={`cursor-pointer flex items-center gap-1 px-4 py-2 text-sm uppercase tracking-wide font-medium transition-colors ${
+                      pathname === "/usluge" || pathname.startsWith("/pravna-pomoc")
+                        ? accentColor
+                        : `${textColor} hover:${textActiveColor}`
+                    }`}
                   >
                     {link.label}
                     <ChevronDown
                       className={`w-4 h-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`}
                     />
-                  </button>
+                  </Link>
                   {servicesOpen && (
                     <div className="absolute top-full left-0 w-64 py-2 bg-white-bg border border-white-border rounded-[var(--radius-lg)] shadow-xl shadow-black/10">
                       {serviceKeys.map((key) => (
@@ -163,15 +168,28 @@ export function Navbar() {
               {navLinks.map((link) =>
                 link.hasDropdown ? (
                   <div key={link.label}>
-                    <button
-                      onClick={() => setServicesOpen(!servicesOpen)}
-                      className="cursor-pointer w-full flex items-center justify-between px-4 py-3 text-base text-white-text-muted hover:text-white-text"
-                    >
-                      {link.label}
-                      <ChevronDown
-                        className={`w-4 h-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`}
-                      />
-                    </button>
+                    <div className="flex items-center justify-between px-4 py-3">
+                      <Link
+                        href={link.href}
+                        className={`text-base transition-colors ${
+                          pathname === "/usluge" || pathname.startsWith("/pravna-pomoc")
+                            ? "text-accent"
+                            : "text-white-text-muted hover:text-white-text"
+                        }`}
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        {link.label}
+                      </Link>
+                      <button
+                        onClick={() => setServicesOpen(!servicesOpen)}
+                        className="cursor-pointer p-1 text-white-text-muted hover:text-white-text"
+                        aria-label="Toggle services"
+                      >
+                        <ChevronDown
+                          className={`w-4 h-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`}
+                        />
+                      </button>
+                    </div>
                     {servicesOpen && (
                       <div className="pl-6">
                         {serviceKeys.map((key) => (

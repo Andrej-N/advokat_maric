@@ -35,6 +35,7 @@
   "services": {
     "title": "Usluge",
     "subtitle": "Pružamo sveobuhvatnu pravnu pomoć u svim ključnim oblastima prava",
+    "cta": "NAŠE USLUGE",
     "criminal": {
       "title": "Krivično pravo",
       "seoTitle": "Advokat za krivično pravo Loznica",
@@ -103,7 +104,7 @@
       "seoTitle": "Advokat za nekretnine i ugovore Loznica",
       "slug": "ugovori-i-nekretnine",
       "description": "Naša kancelarija nudi profesionalnu izradu i pravnu pomoć u vezi sa svim vrstama ugovora i nekretninama, uz dugogodišnje iskustvo u imovinskopravnim odnosima.",
-      "full": "Naša kancelarija pruža sveobuhvatnu pravnu pomoć u oblasti ugovora i imovinskopravnih odnosa. Sa dugogodišnjim iskustvom u ovoj oblasti, specijalizovani smo za izradu, analizu i pravnu verifikaciju svih vrsta ugovora, kao i za zastupanje klijenata u sudskim postupcima vezanim za imovinska prava.\n\nVrste ugovora koje izrađujemo i overavamo:\n- Ugovor o kupoprodaji nepokretnosti - kompletna priprema dokumentacije i overa kod javnog beležnika\n- Ugovor o poklonu - garantuje jasnoću i pravnu sigurnost pri prenosu imovine\n- Ugovor o zakupu - precizno definisani uslovi zakupa sa zaštitom obe strane\n- Ugovor o razmeni imovine\n- Ugovor o podeli bračne sutekovine\n- Ugovor o investicionom ulaganju\n- Ugovor o doživotnom izdržavanju\n- Ugovor o građenju\n- Ugovor o deobi imovine\n- Ugovor o preuzimanju i pristupanju dugu\n- Ugovori iz oblasti privrednog i radnog prava\n- Testament\n\nPored izrade ugovora, naša kancelarija ima značajno iskustvo u vođenju sudskih postupaka vezanih za imovinskopravne odnose, čime štitimo klijentska prava i osiguravamo njihovu pravnu zaštitu u svim fazama postupka."
+      "full": "Naša kancelarija pruža sveobuhvatnu pravnu pomoć u oblasti ugovora i imovinskopravnih odnosa. Sa iskustvom u ovoj oblasti, vršimo izradu, analizu i pravnu verifikaciju svih vrsta ugovora, kao i zastupanje klijenata u sudskim postupcima vezanim za imovinska prava.\n\nVrste ugovora koje radimo:\n\n- **Ugovor o kupoprodaji nepokretnosti** - kompletna priprema dokumentacije i overa kod javnog beležnika\n\n- **Ugovor o poklonu** - garantuje jasnoću i pravnu sigurnost pri prenosu imovine\n\n- **Ugovor o zakupu** - precizno definisani uslovi zakupa sa zaštitom obe strane\n\n- **Ugovor o razmeni imovine**\n\n- **Ugovor o podeli bračne sutekovine**\n\n- **Ugovor o investicionom ulaganju**\n\n- **Ugovor o doživotnom izdržavanju**\n\n- **Ugovor o građenju**\n\n- **Ugovor o deobi imovine**\n\n- **Ugovor o preuzimanju i pristupanju dugu**\n\n- **Ugovori iz oblasti privrednog i radnog prava**\n\n- **Testament**\n\nPored izrade ugovora, naša kancelarija ima iskustvo u vođenju sudskih postupaka vezanih za imovinskopravne odnose, čime štitimo klijentska prava i osiguravamo njihovu pravnu zaštitu u svim fazama postupka."
     },
     "divorce": {
       "title": "Razvod braka",
@@ -117,11 +118,11 @@
     "title": "Pro Bono",
     "subtitle": "",
     "description": "Advokatska kancelarija Marić nastoji da pružanjem Pro Bono pravne pomoći i društvenim aktivizmom doprinese zajednici u kojoj radi, te samim tim i afirmiše advokaturu kao društveno odgovornu delatnost i jača njen ugled u društvu.",
-    "org1": "Udruženje građana za borbu protiv raka kod dece \u201eUvek sa decom\u201c",
+    "org1": "Udruženje građana za borbu protiv raka kod dece „Uvek sa decom“",
     "org1Url": "http://www.sadecom.org.rs/",
-    "org2": "Nacionalno udruženje roditelja dece obolele od raka \u201eNURDOR\u201c",
+    "org2": "Nacionalno udruženje roditelja dece obolele od raka „NURDOR“",
     "org2Url": "http://www.nurdor.org/",
-    "org3": "Udruženje građana za borbu protiv retkih bolesti kod dece \u201eŽIVOT\u201c",
+    "org3": "Udruženje građana za borbu protiv retkih bolesti kod dece „ŽIVOT“",
     "org3Url": "http://www.zivotorg.org/"
   },
   "contact": {
