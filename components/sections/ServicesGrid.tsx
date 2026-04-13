@@ -20,17 +20,17 @@ import {
 } from "lucide-react";
 
 const services = [
-  { key: "labor", icon: Briefcase },
-  { key: "commercial", icon: Landmark },
-  { key: "criminal", icon: Gavel },
   { key: "civil", icon: Home },
-  { key: "administrative", icon: Building2 },
-  { key: "misdemeanor", icon: ShieldAlert },
-  { key: "humanRights", icon: Users },
-  { key: "diaspora", icon: Globe },
   { key: "familyAndInheritance", icon: Heart },
   { key: "divorce", icon: HeartCrack },
   { key: "contractsAndRealEstate", icon: FileSignature },
+  { key: "criminal", icon: Gavel },
+  { key: "commercial", icon: Landmark },
+  { key: "diaspora", icon: Globe },
+  { key: "administrative", icon: Building2 },
+  { key: "labor", icon: Briefcase },
+  { key: "misdemeanor", icon: ShieldAlert },
+  { key: "humanRights", icon: Users },
 ] as const;
 
 export function ServicesGrid() {

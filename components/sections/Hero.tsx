@@ -81,19 +81,19 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#064e4b]/40 via-[#033f40]/20 to-[#012a2b] pointer-events-none" />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 flex flex-col items-center gap-4">
+      <div className="relative z-10 text-center px-4 flex flex-col items-center">
         {/* Title above logo */}
         <div
-          className="transition-all duration-1000 ease-out"
+          className="transition-all duration-1000 ease-out mb-10 md:mb-14"
           style={{
             opacity: mounted ? 1 : 0,
             transform: mounted ? "translateY(0)" : "translateY(-20px)",
           }}
         >
-          <h1 className="text-white uppercase tracking-[0.25em] text-sm sm:text-base md:text-lg font-light">
+          <h1 className="text-white uppercase tracking-[0.25em] text-base sm:text-lg md:text-xl font-light">
             {t("title")}
           </h1>
-          <p className="text-white uppercase tracking-[0.25em] text-sm sm:text-base md:text-lg font-light mt-1">
+          <p className="text-white uppercase tracking-[0.25em] text-base sm:text-lg md:text-xl font-light mt-2">
             {t("titleAccent")}
           </p>
         </div>
@@ -108,8 +108,8 @@ export function Hero() {
         />
 
         {/* Tagline with letter-by-letter animation */}
-        <div className="h-10 flex items-center justify-center">
-          <p className="text-white/80 uppercase tracking-[0.25em] text-sm sm:text-base md:text-lg font-light">
+        <div className="h-10 flex items-center justify-center mt-10 md:mt-14">
+          <p className="text-white/80 uppercase tracking-[0.25em] text-base sm:text-lg md:text-xl font-light">
             {mounted && <AnimatedTagline text={t("tagline")} />}
           </p>
         </div>
@@ -117,7 +117,7 @@ export function Hero() {
         {/* CTA Button */}
         <Link
           href={`/${locale}/kontakt`}
-          className="mt-4 inline-block border border-white/60 text-white uppercase tracking-[0.2em] text-xs sm:text-sm px-8 py-3 hover:bg-white/10 transition-all duration-500"
+          className="mt-12 md:mt-16 inline-block border border-accent rounded-full text-accent uppercase tracking-[0.2em] text-sm sm:text-base px-10 py-4 hover:bg-accent hover:text-white transition-all duration-500"
           style={{
             opacity: mounted ? 1 : 0,
             transform: mounted ? "translateY(0)" : "translateY(10px)",

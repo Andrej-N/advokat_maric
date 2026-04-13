@@ -4,29 +4,35 @@ import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/lib/i18n/routing";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import logoSvg from "@/public/og/logo_maric-01.svg";
 
-const serviceKeys = [
-  "civil",
-  "familyAndInheritance",
-  "divorce",
-  "contractsAndRealEstate",
-  "criminal",
-  "commercial",
-  "diaspora",
-  "administrative",
-  "labor",
-  "misdemeanor",
-  "humanRights",
-] as const;
+type ServiceEntry =
+  | { type: "item"; key: string }
+  | { type: "group"; labelKey: string; items: string[] };
+
+const serviceEntries: ServiceEntry[] = [
+  {
+    type: "group",
+    labelKey: "civil",
+    items: ["civil", "familyAndInheritance", "divorce", "contractsAndRealEstate"],
+  },
+  { type: "item", key: "criminal" },
+  { type: "item", key: "commercial" },
+  { type: "item", key: "diaspora" },
+  { type: "item", key: "administrative" },
+  { type: "item", key: "labor" },
+  { type: "item", key: "misdemeanor" },
+  { type: "item", key: "humanRights" },
+];
 
 export function Navbar() {
   const t = useTranslations();
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [openGroup, setOpenGroup] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const isHome = pathname === "/";
 
@@ -105,16 +111,50 @@ export function Navbar() {
                   </Link>
                   {servicesOpen && (
                     <div className="absolute top-full left-0 w-64 py-2 bg-white-bg border border-white-border rounded-[var(--radius-lg)] shadow-xl shadow-black/10">
-                      {serviceKeys.map((key) => (
-                        <Link
-                          key={key}
-                          href={`/pravna-pomoc/${t(`services.${key}.slug`)}`}
-                          className="block px-4 py-2.5 text-sm text-white-text-muted hover:text-accent hover:bg-white-bg-alt transition-colors"
-                          onClick={() => setServicesOpen(false)}
-                        >
-                          {t(`services.${key}.title`)}
-                        </Link>
-                      ))}
+                      {serviceEntries.map((entry, i) =>
+                        entry.type === "item" ? (
+                          <Link
+                            key={entry.key}
+                            href={`/pravna-pomoc/${t(`services.${entry.key}.slug`)}`}
+                            className="block px-4 py-2.5 text-sm text-white-text-muted hover:text-accent hover:bg-white-bg-alt transition-colors"
+                            onClick={() => {
+                              setServicesOpen(false);
+                              setOpenGroup(null);
+                            }}
+                          >
+                            {t(`services.${entry.key}.title`)}
+                          </Link>
+                        ) : (
+                          <div
+                            key={`group-${i}`}
+                            className="relative"
+                            onMouseEnter={() => setOpenGroup(entry.labelKey)}
+                            onMouseLeave={() => setOpenGroup(null)}
+                          >
+                            <div className="flex items-center justify-between px-4 py-2.5 text-sm text-white-text-muted hover:text-accent hover:bg-white-bg-alt transition-colors cursor-pointer">
+                              <span>{t(`services.${entry.labelKey}.title`)}</span>
+                              <ChevronRight className="w-4 h-4" />
+                            </div>
+                            {openGroup === entry.labelKey && (
+                              <div className="absolute top-0 left-full ml-0 w-64 py-2 bg-white-bg border border-white-border rounded-[var(--radius-lg)] shadow-xl shadow-black/10">
+                                {entry.items.map((key) => (
+                                  <Link
+                                    key={key}
+                                    href={`/pravna-pomoc/${t(`services.${key}.slug`)}`}
+                                    className="block px-4 py-2.5 text-sm text-white-text-muted hover:text-accent hover:bg-white-bg-alt transition-colors"
+                                    onClick={() => {
+                                      setServicesOpen(false);
+                                      setOpenGroup(null);
+                                    }}
+                                  >
+                                    {t(`services.${key}.title`)}
+                                  </Link>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        )
+                      )}
                     </div>
                   )}
                 </div>
@@ -192,16 +232,47 @@ export function Navbar() {
                     </div>
                     {servicesOpen && (
                       <div className="pl-6">
-                        {serviceKeys.map((key) => (
-                          <Link
-                            key={key}
-                            href={`/pravna-pomoc/${t(`services.${key}.slug`)}`}
-                            className="block px-4 py-2 text-sm text-white-text-muted hover:text-accent"
-                            onClick={() => setMobileOpen(false)}
-                          >
-                            {t(`services.${key}.title`)}
-                          </Link>
-                        ))}
+                        {serviceEntries.map((entry, i) =>
+                          entry.type === "item" ? (
+                            <Link
+                              key={entry.key}
+                              href={`/pravna-pomoc/${t(`services.${entry.key}.slug`)}`}
+                              className="block px-4 py-2 text-sm text-white-text-muted hover:text-accent"
+                              onClick={() => setMobileOpen(false)}
+                            >
+                              {t(`services.${entry.key}.title`)}
+                            </Link>
+                          ) : (
+                            <div key={`group-${i}`}>
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  setOpenGroup(openGroup === entry.labelKey ? null : entry.labelKey)
+                                }
+                                className="flex items-center justify-between w-full px-4 py-2 text-sm text-white-text-muted hover:text-accent cursor-pointer"
+                              >
+                                <span>{t(`services.${entry.labelKey}.title`)}</span>
+                                <ChevronDown
+                                  className={`w-4 h-4 transition-transform ${openGroup === entry.labelKey ? "rotate-180" : ""}`}
+                                />
+                              </button>
+                              {openGroup === entry.labelKey && (
+                                <div>
+                                  {entry.items.map((key) => (
+                                    <Link
+                                      key={key}
+                                      href={`/pravna-pomoc/${t(`services.${key}.slug`)}`}
+                                      className="block pl-8 pr-4 py-2 text-sm text-white-text-muted hover:text-accent"
+                                      onClick={() => setMobileOpen(false)}
+                                    >
+                                      {t(`services.${key}.title`)}
+                                    </Link>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          )
+                        )}
                       </div>
                     )}
                   </div>

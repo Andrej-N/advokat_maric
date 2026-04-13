@@ -132,7 +132,7 @@ export function GoogleReviews() {
             >
               {renderTitle(review.title)}
               
-              <div className="text-white-text-muted leading-relaxed space-y-6 flex-1 text-sm md:text-base mb-8">
+              <div className="text-white-text-muted leading-relaxed space-y-6 flex-1 text-sm md:text-base mb-4">
                 {review.text.split("\n\n").map((paragraph, j) => (
                   <p key={j}>{paragraph}</p>
                 ))}
@@ -140,12 +140,12 @@ export function GoogleReviews() {
 
               <div className="mt-auto">
                 {review.text.length > 200 && (
-                  <button className="mb-8 text-accent font-medium text-sm flex items-center hover:opacity-80 transition-opacity">
+                  <button className="mb-4 text-accent font-medium text-sm flex items-center hover:opacity-80 transition-opacity">
                     Pročitaj više <Plus className="w-4 h-4 ml-1" />
                   </button>
                 )}
 
-                <div className="border-t border-white-border pt-8 flex justify-between items-center">
+                <div className="border-t border-white-border pt-4 flex justify-between items-center">
                   <span className="font-medium text-white-text text-sm md:text-base">
                     {review.author}
                   </span>

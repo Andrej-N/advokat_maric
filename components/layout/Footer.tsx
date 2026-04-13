@@ -77,22 +77,28 @@ export function Footer() {
                 <Mail className="w-4 h-4 text-accent shrink-0" />
                 {t("contact.email")}
               </a>
+              <span className="flex items-center gap-3 text-text-muted text-sm transition-colors mt-0.5">
+                <div className="w-4 h-4 shrink-0" />
+                {t("contact.address").split(",")[0]}
+              </span>
+              <a
+                href="https://maps.google.com/?q=Advokatska+kancelarija+Marić,+Loznica"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-text-muted text-sm hover:text-accent transition-colors"
+              >
+                <MapPin className="w-4 h-4 text-accent shrink-0" />
+                <span>Loznica, Srbija</span>
+              </a>
             </div>
           </div>
-
-          <a
-            href="https://maps.google.com/?q=Loznica,+Serbia"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 text-text-muted hover:text-accent transition-colors"
-          >
-            <MapPin className="w-5 h-5 text-accent shrink-0" />
-            <span className="text-sm">Loznica, Srbija</span>
-          </a>
         </div>
 
         {/* Services */}
         <div className="mb-12">
+          <h3 className="text-xl font-semibold text-text-primary mb-4">
+            {t("footer.areas")}
+          </h3>
           <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 lg:gap-x-10 gap-y-3 lg:max-w-4xl xl:max-w-4xl">
             {serviceKeys.map((key) => (
               <li key={key}>
@@ -153,7 +159,7 @@ export function Footer() {
             </Link>
           </div>
           <p className="text-white/70 text-sm cursor-default">
-            &copy; {year} Marić. {t("footer.rights")}
+            &copy; {year} Advokatska kancelarija MARIĆ. {t("footer.rights")}
           </p>
         </div>
       </div>

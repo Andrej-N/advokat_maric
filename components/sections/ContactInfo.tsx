@@ -8,12 +8,6 @@ export function ContactInfo() {
 
   const items = [
     {
-      icon: MapPin,
-      label: t("addressLabel"),
-      value: t("address"),
-      href: undefined,
-    },
-    {
       icon: Phone,
       label: t("phoneLabel"),
       value: t("phone"),
@@ -29,6 +23,12 @@ export function ContactInfo() {
       icon: Globe,
       label: t("websiteLabel"),
       value: t("website"),
+      href: undefined,
+    },
+    {
+      icon: MapPin,
+      label: t("addressLabel"),
+      value: t("address"),
       href: undefined,
     },
   ];
