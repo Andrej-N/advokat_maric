@@ -6,6 +6,7 @@ import {
   savePost,
   generateId,
   slugify,
+  SERVICE_KEYS,
   type BlogPost,
 } from "@/lib/blog";
 import {
@@ -17,7 +18,40 @@ import {
   Link as LinkIcon,
   Save,
   Eye,
+  Image as ImageIcon,
+  Upload,
+  X,
 } from "lucide-react";
+
+const CATEGORIES = [
+  "Krivično pravo",
+  "Građansko pravo",
+  "Porodično pravo",
+  "Nasledno pravo",
+  "Radno pravo",
+  "Privredno pravo",
+  "Upravno pravo",
+  "Prekršajno pravo",
+  "Obligaciono pravo",
+  "Ugovori i nekretnine",
+  "Ljudska prava",
+  "Dijaspora",
+  "Aktuelnosti",
+] as const;
+
+const SERVICE_LABELS: Record<string, string> = {
+  civil: "Građansko pravo",
+  familyAndInheritance: "Porodično i nasledno pravo",
+  divorce: "Razvod braka",
+  contractsAndRealEstate: "Ugovori i nekretnine",
+  criminal: "Krivično pravo",
+  commercial: "Privredno pravo",
+  diaspora: "Dijaspora",
+  administrative: "Upravno pravo",
+  labor: "Radno pravo",
+  misdemeanor: "Prekršajno pravo",
+  humanRights: "Ljudska prava",
+};
 
 const localeLabels: Record<string, string> = {
   "sr-Latn": "Latinica",
@@ -39,6 +73,34 @@ export function BlogEditor({ post }: Props) {
   const [status, setStatus] = useState<"draft" | "published">(
     post?.status || "draft"
   );
+  const [image, setImage] = useState(post?.image || "");
+  const [category, setCategory] = useState(post?.category || "");
+  const [serviceKey, setServiceKey] = useState(post?.serviceKey || "");
+  const [isDragging, setIsDragging] = useState(false);
+  const [imageError, setImageError] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const MAX_IMAGE_BYTES = 2 * 1024 * 1024; // 2MB
+
+  function handleFile(file: File) {
+    setImageError(null);
+    if (!file.type.startsWith("image/")) {
+      setImageError("Fajl mora biti slika.");
+      return;
+    }
+    if (file.size > MAX_IMAGE_BYTES) {
+      setImageError(
+        `Slika je prevelika (${(file.size / 1024 / 1024).toFixed(1)}MB). Maksimum je 2MB.`
+      );
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = () => {
+      setImage(reader.result as string);
+    };
+    reader.onerror = () => setImageError("Greška pri čitanju fajla.");
+    reader.readAsDataURL(file);
+  }
 
   const [translations, setTranslations] = useState(
     post?.translations || {
@@ -104,6 +166,9 @@ export function BlogEditor({ post }: Props) {
       createdAt: post?.createdAt || now,
       updatedAt: now,
       publishedAt: status === "published" ? now : post?.publishedAt || null,
+      image: image || undefined,
+      category: category || undefined,
+      serviceKey: serviceKey || undefined,
       translations: translations as BlogPost["translations"],
       seo,
     };
@@ -156,6 +221,129 @@ export function BlogEditor({ post }: Props) {
           className="w-full bg-primary border border-border rounded-[var(--radius-md)] px-4 py-2.5 text-text-primary font-mono text-sm placeholder:text-text-dim focus:outline-none focus:border-accent transition-colors"
           placeholder="url-slug-posta"
         />
+      </div>
+
+      {/* Hero image — drag & drop, file picker, or URL */}
+      <div>
+        <label className="block text-text-muted text-sm mb-1.5">
+          <span className="inline-flex items-center gap-1.5">
+            <ImageIcon className="w-3.5 h-3.5" />
+            Hero slika
+          </span>
+        </label>
+
+        {image ? (
+          <div className="relative w-full max-w-md aspect-[16/9] rounded-[var(--radius-md)] overflow-hidden border border-border bg-primary-light group">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={image} alt="Preview" className="w-full h-full object-cover" />
+            <button
+              type="button"
+              onClick={() => {
+                setImage("");
+                setImageError(null);
+                if (fileInputRef.current) fileInputRef.current.value = "";
+              }}
+              className="cursor-pointer absolute top-2 right-2 bg-black/70 hover:bg-black/90 text-white rounded-full p-1.5 transition-colors"
+              title="Ukloni sliku"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+        ) : (
+          <div
+            onDragOver={(e) => {
+              e.preventDefault();
+              setIsDragging(true);
+            }}
+            onDragLeave={() => setIsDragging(false)}
+            onDrop={(e) => {
+              e.preventDefault();
+              setIsDragging(false);
+              const file = e.dataTransfer.files?.[0];
+              if (file) handleFile(file);
+            }}
+            onClick={() => fileInputRef.current?.click()}
+            className={`cursor-pointer w-full max-w-md aspect-[16/9] rounded-[var(--radius-md)] border-2 border-dashed flex flex-col items-center justify-center gap-2 transition-colors ${
+              isDragging
+                ? "border-accent bg-accent/10"
+                : "border-border bg-primary hover:border-accent/60 hover:bg-primary-light"
+            }`}
+          >
+            <Upload className="w-8 h-8 text-text-muted" />
+            <p className="text-text-primary text-sm font-medium">
+              Prevuci sliku ovde
+            </p>
+            <p className="text-text-dim text-xs">
+              ili klikni da izabereš · max 2MB
+            </p>
+          </div>
+        )}
+
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/*"
+          className="hidden"
+          onChange={(e) => {
+            const file = e.target.files?.[0];
+            if (file) handleFile(file);
+          }}
+        />
+
+        {imageError && (
+          <p className="text-red-400 text-xs mt-2">{imageError}</p>
+        )}
+
+        <details className="mt-2">
+          <summary className="text-text-dim text-xs cursor-pointer hover:text-text-muted">
+            Ili unesi URL slike
+          </summary>
+          <input
+            type="text"
+            value={image.startsWith("data:") ? "" : image}
+            onChange={(e) => setImage(e.target.value)}
+            className="mt-2 w-full max-w-md bg-primary border border-border rounded-[var(--radius-md)] px-4 py-2 text-text-primary text-sm placeholder:text-text-dim focus:outline-none focus:border-accent transition-colors"
+            placeholder="https://..."
+          />
+        </details>
+      </div>
+
+      {/* Category + Service */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label className="block text-text-muted text-sm mb-1.5">
+            Kategorija
+          </label>
+          <select
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="w-full bg-primary border border-border rounded-[var(--radius-md)] px-4 py-2.5 text-text-primary text-sm focus:outline-none focus:border-accent transition-colors"
+          >
+            <option value="">— izaberi kategoriju —</option>
+            {CATEGORIES.map((c) => (
+              <option key={c} value={c}>
+                {c}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label className="block text-text-muted text-sm mb-1.5">
+            Link ka usluzi (CTA na kraju bloga)
+          </label>
+          <select
+            value={serviceKey}
+            onChange={(e) => setServiceKey(e.target.value)}
+            className="w-full bg-primary border border-border rounded-[var(--radius-md)] px-4 py-2.5 text-text-primary text-sm focus:outline-none focus:border-accent transition-colors"
+          >
+            <option value="">— bez linka —</option>
+            {SERVICE_KEYS.map((k) => (
+              <option key={k} value={k}>
+                {SERVICE_LABELS[k] || k}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
       {/* Excerpt */}

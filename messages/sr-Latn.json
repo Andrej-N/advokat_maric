@@ -148,9 +148,13 @@
     "subtitle": "Pravni saveti i aktuelnosti",
     "readMore": "Pročitajte više",
     "allPosts": "Svi članci",
-    "backToBlog": "Nazad na blog"
+    "backToBlog": "Nazad na blog",
+    "relatedPosts": "Slični članci",
+    "readService": "Saznajte više o usluzi",
+    "notFound": "Članak nije pronađen"
   },
   "footer": {
+    "sitemap": "Mapa sajta",
     "areas": "Oblasti rada",
     "disclaimer": "Ova internet stranica je isključivo informativnog karaktera i ni na koji način nije namenjena pridobijanju klijenata i ne predstavlja pravno savetovanje u vezi sa bilo kojom od navedenih oblasti.",
     "rights": "Sva prava zadržana.",

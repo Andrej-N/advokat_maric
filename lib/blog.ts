@@ -5,6 +5,9 @@ export interface BlogPost {
   createdAt: string;
   updatedAt: string;
   publishedAt: string | null;
+  image?: string;
+  category?: string;
+  serviceKey?: string;
   translations: {
     "sr-Latn": { title: string; excerpt: string; content: string };
     sr: { title: string; excerpt: string; content: string };
@@ -17,7 +20,23 @@ export interface BlogPost {
   };
 }
 
+export const SERVICE_KEYS = [
+  "civil",
+  "familyAndInheritance",
+  "divorce",
+  "contractsAndRealEstate",
+  "criminal",
+  "commercial",
+  "diaspora",
+  "administrative",
+  "labor",
+  "misdemeanor",
+  "humanRights",
+] as const;
+
 const STORAGE_KEY = "maric_blog_posts";
+const STORAGE_VERSION_KEY = "maric_blog_posts_version";
+const CURRENT_VERSION = "2";
 
 // Seed data
 const seedPosts: BlogPost[] = [
@@ -28,6 +47,9 @@ const seedPosts: BlogPost[] = [
     createdAt: "2026-03-15T10:00:00Z",
     updatedAt: "2026-03-15T10:00:00Z",
     publishedAt: "2026-03-15T10:00:00Z",
+    image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=1200",
+    category: "Radno pravo",
+    serviceKey: "labor",
     translations: {
       "sr-Latn": {
         title: "Zaštita prava zaposlenih u Srbiji",
@@ -65,6 +87,9 @@ const seedPosts: BlogPost[] = [
     createdAt: "2026-03-01T10:00:00Z",
     updatedAt: "2026-03-01T10:00:00Z",
     publishedAt: "2026-03-01T10:00:00Z",
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66cb85?auto=format&fit=crop&q=80&w=1200",
+    category: "Nasledno pravo",
+    serviceKey: "familyAndInheritance",
     translations: {
       "sr-Latn": {
         title: "Nasledno pravo — osnove koje treba znati",
@@ -98,10 +123,13 @@ const seedPosts: BlogPost[] = [
   {
     id: "3",
     slug: "ustavna-zalba-postupak",
-    status: "draft",
+    status: "published",
     createdAt: "2026-02-15T10:00:00Z",
     updatedAt: "2026-02-15T10:00:00Z",
-    publishedAt: null,
+    publishedAt: "2026-02-15T10:00:00Z",
+    image: "https://images.unsplash.com/photo-1589994965851-a8f479c573a9?auto=format&fit=crop&q=80&w=1200",
+    category: "Ljudska prava",
+    serviceKey: "humanRights",
     translations: {
       "sr-Latn": {
         title: "Ustavna žalba — kad i kako je podneti",
@@ -137,12 +165,27 @@ const seedPosts: BlogPost[] = [
 export function getPosts(): BlogPost[] {
   if (typeof window === "undefined") return seedPosts;
 
+  const version = localStorage.getItem(STORAGE_VERSION_KEY);
+  if (version !== CURRENT_VERSION) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(seedPosts));
+    localStorage.setItem(STORAGE_VERSION_KEY, CURRENT_VERSION);
+    return seedPosts;
+  }
+
   const stored = localStorage.getItem(STORAGE_KEY);
   if (!stored) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(seedPosts));
     return seedPosts;
   }
   return JSON.parse(stored);
+}
+
+export function getPostBySlug(slug: string): BlogPost | undefined {
+  return getPosts().find((p) => p.slug === slug);
+}
+
+export function getPublishedPosts(): BlogPost[] {
+  return getPosts().filter((p) => p.status === "published");
 }
 
 export function getPost(id: string): BlogPost | undefined {

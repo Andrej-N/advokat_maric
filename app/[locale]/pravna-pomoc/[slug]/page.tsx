@@ -89,7 +89,7 @@ function ServicePageContent({ slug }: { slug: string }) {
         {/* Background Image of Greek Pillars */}
         <div className="absolute inset-0 opacity-20 mix-blend-luminosity pointer-events-none">
           <Image
-            src="/advokat_maric/og/greek_pillars.png"
+            src="/og/greek_pillars.png"
             alt="Pillars"
             fill
             className="object-cover object-center"

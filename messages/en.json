@@ -148,9 +148,13 @@
     "subtitle": "Legal advice and news",
     "readMore": "Read more",
     "allPosts": "All articles",
-    "backToBlog": "Back to blog"
+    "backToBlog": "Back to blog",
+    "relatedPosts": "Related articles",
+    "readService": "Learn more about this service",
+    "notFound": "Article not found"
   },
   "footer": {
+    "sitemap": "Sitemap",
     "areas": "Practice Areas",
     "disclaimer": "This website is exclusively informational in nature and is in no way intended to solicit clients, nor does it constitute legal advice regarding any of the listed areas.",
     "rights": "All rights reserved.",

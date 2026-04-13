@@ -67,7 +67,7 @@ export function Hero() {
       {/* Background Image of Greek Pillars */}
       <div className="absolute inset-0 opacity-30 mix-blend-luminosity pointer-events-none">
         <Image
-          src="/advokat_maric/og/greek_pillars.png"
+          src="/og/greek_pillars.png"
           alt="Grčki stubovi"
           fill
           className="object-cover object-center"
@@ -90,10 +90,10 @@ export function Hero() {
             transform: mounted ? "translateY(0)" : "translateY(-20px)",
           }}
         >
-          <h1 className="text-white uppercase tracking-[0.25em] text-base sm:text-lg md:text-xl font-light">
+          <h1 className="text-white uppercase tracking-[0.25em] text-base sm:text-lg md:text-xl font-semibold">
             {t("title")}
           </h1>
-          <p className="text-white uppercase tracking-[0.25em] text-base sm:text-lg md:text-xl font-light mt-2">
+          <p className="text-white uppercase tracking-[0.25em] text-base sm:text-lg md:text-xl font-semibold mt-2">
             {t("titleAccent")}
           </p>
         </div>
@@ -101,7 +101,7 @@ export function Hero() {
         {/* M Logo */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/advokat_maric/og/logo_maric_m.svg"
+          src="/og/logo_maric_m.svg"
           alt="Marić Advokatura"
           className="mx-auto w-40 sm:w-48 md:w-56 h-auto drop-shadow-[0_4px_24px_rgba(255,255,255,0.25)] transition-opacity duration-1000"
           style={{ opacity: mounted ? 1 : 0 }}
@@ -117,7 +117,7 @@ export function Hero() {
         {/* CTA Button */}
         <Link
           href={`/${locale}/kontakt`}
-          className="mt-12 md:mt-16 inline-block bg-accent hover:bg-accent-dim text-white uppercase tracking-[0.2em] text-sm sm:text-base px-10 py-4 transition-all duration-500 rounded-full"
+          className="mt-12 md:mt-16 inline-block bg-accent hover:bg-accent-dim text-white uppercase tracking-[0.2em] text-xs sm:text-sm px-7 py-2.5 transition-all duration-500 rounded-full"
           style={{
             opacity: mounted ? 1 : 0,
             transform: mounted ? "translateY(0)" : "translateY(10px)",

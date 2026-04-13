@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
 import { Link } from "@/lib/i18n/routing";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail, Building } from "lucide-react";
 import Image from "next/image";
 import logoSvg from "@/public/og/logo_maric-01.svg";
 
@@ -38,7 +38,7 @@ export function Footer() {
       {/* Background Image of Greek Pillars */}
       <div className="absolute inset-0 opacity-[0.15] mix-blend-luminosity pointer-events-none">
         <Image
-          src="/advokat_maric/og/greek_pillars.png"
+          src="/og/greek_pillars.png"
           alt="Grčki stubovi"
           fill
           className="object-cover object-center"
@@ -47,9 +47,9 @@ export function Footer() {
       
       <NeuralNetworkCanvas nodeCount={35} connectionDistance={3} mouseInfluence={0.1} spread={[16, 8, 3]} />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* Top row: CTA left, Location right */}
-        <div className="flex flex-col md:flex-row items-start justify-between gap-8 mb-12">
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 mb-12">
+          {/* Logo & Contact Info */}
+          <div className="lg:col-span-4">
             <Link href="/" className="inline-block mb-6">
               <Image
                 src={logoSvg}
@@ -78,7 +78,7 @@ export function Footer() {
                 {t("contact.email")}
               </a>
               <span className="flex items-center gap-3 text-text-muted text-sm transition-colors mt-0.5">
-                <div className="w-4 h-4 shrink-0" />
+                <Building className="w-4 h-4 text-accent shrink-0" />
                 {t("contact.address").split(",")[0]}
               </span>
               <a
@@ -92,25 +92,64 @@ export function Footer() {
               </a>
             </div>
           </div>
-        </div>
 
-        {/* Services */}
-        <div className="mb-12">
-          <h3 className="text-xl font-semibold text-text-primary mb-4">
-            {t("footer.areas")}
-          </h3>
-          <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 lg:gap-x-10 gap-y-3 lg:max-w-4xl xl:max-w-4xl">
-            {serviceKeys.map((key) => (
-              <li key={key}>
-                <Link
-                  href={`/pravna-pomoc/${t(`services.${key}.slug`)}`}
-                  className="text-text-muted text-sm hover:text-accent transition-colors"
-                >
-                  {t(`services.${key}.title`)}
+          {/* Mapa Sajta */}
+          <div className="lg:col-span-3">
+            <h3 className="text-xl font-semibold text-text-primary mb-4">
+              {t("footer.sitemap")}
+            </h3>
+            <ul className="flex flex-col gap-3">
+              <li>
+                <Link href="/" className="text-text-muted text-sm hover:text-accent transition-colors">
+                  {t("nav.home")}
                 </Link>
               </li>
-            ))}
-          </ul>
+              <li>
+                <Link href="/usluge" className="text-text-muted text-sm hover:text-accent transition-colors">
+                  {t("nav.services")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/o-nama" className="text-text-muted text-sm hover:text-accent transition-colors">
+                  {t("nav.about")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/pro-bono" className="text-text-muted text-sm hover:text-accent transition-colors">
+                  {t("nav.proBono")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="text-text-muted text-sm hover:text-accent transition-colors">
+                  {t("nav.blog")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/kontakt" className="text-text-muted text-sm hover:text-accent transition-colors">
+                  {t("nav.contact")}
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div className="lg:col-span-5">
+            <h3 className="text-xl font-semibold text-text-primary mb-4">
+              {t("footer.areas")}
+            </h3>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+              {serviceKeys.map((key) => (
+                <li key={key}>
+                  <Link
+                    href={`/pravna-pomoc/${t(`services.${key}.slug`)}`}
+                    className="text-text-muted text-sm hover:text-accent transition-colors"
+                  >
+                    {t(`services.${key}.title`)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         {/* Bottom */}

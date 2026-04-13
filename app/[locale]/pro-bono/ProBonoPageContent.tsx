@@ -30,7 +30,7 @@ export default function ProBonoPageContent() {
       <section className="relative pt-32 pb-28 lg:pt-40 lg:pb-28 bg-[#033f40] bg-gradient-to-br from-[#064e4b] via-[#033f40] to-[#012a2b] overflow-hidden min-h-[45vh] lg:min-h-0 flex items-end">
         <div className="absolute inset-0 opacity-30 mix-blend-luminosity pointer-events-none">
           <Image
-            src="/advokat_maric/og/greek_pillars.png"
+            src="/og/greek_pillars.png"
             alt="Pillars"
             fill
             className="object-cover object-center"
