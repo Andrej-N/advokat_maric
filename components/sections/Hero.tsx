@@ -117,7 +117,7 @@ export function Hero() {
         {/* CTA Button */}
         <Link
           href={`/${locale}/kontakt`}
-          className="mt-12 md:mt-16 inline-block border border-accent rounded-full text-accent uppercase tracking-[0.2em] text-sm sm:text-base px-10 py-4 hover:bg-accent hover:text-white transition-all duration-500"
+          className="mt-12 md:mt-16 inline-block bg-accent hover:bg-accent-dim text-white uppercase tracking-[0.2em] text-sm sm:text-base px-10 py-4 transition-all duration-500 rounded-full"
           style={{
             opacity: mounted ? 1 : 0,
             transform: mounted ? "translateY(0)" : "translateY(10px)",
