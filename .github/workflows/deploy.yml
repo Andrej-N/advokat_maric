@@ -30,8 +30,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
+      - name: Build (static export for GitHub Pages)
         run: npm run build
+        env:
+          EXPORT: "1"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

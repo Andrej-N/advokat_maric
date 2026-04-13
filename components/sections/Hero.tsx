@@ -99,10 +99,12 @@ export function Hero() {
         </div>
 
         {/* M Logo */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src="/og/logo_maric_m.svg"
           alt="Marić Advokatura"
+          width={224}
+          height={224}
+          priority
           className="mx-auto w-40 sm:w-48 md:w-56 h-auto drop-shadow-[0_4px_24px_rgba(255,255,255,0.25)] transition-opacity duration-1000"
           style={{ opacity: mounted ? 1 : 0 }}
         />

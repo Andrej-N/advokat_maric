@@ -1,5 +1,12 @@
-import { writeFileSync } from "fs";
+import { writeFileSync, existsSync } from "fs";
 import { join } from "path";
+
+// Skip when not running a static export — the `out/` folder only exists when
+// next.config.ts has `output: "export"` (toggled by EXPORT=1).
+if (!existsSync("out")) {
+  console.log("post-export: no out/ directory — skipping (not a static export build)");
+  process.exit(0);
+}
 
 // Create root index.html that redirects to default locale (sr-Latn)
 const html = `<!DOCTYPE html>
