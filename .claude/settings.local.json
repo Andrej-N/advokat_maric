@@ -61,7 +61,9 @@
       "WebFetch(domain:andjelkoviclaw.rs)",
       "Bash(xargs ls:*)",
       "Bash(ls *.config.*)",
-      "Bash(tasklist //FI \"IMAGENAME eq node.exe\")"
+      "Bash(tasklist //FI \"IMAGENAME eq node.exe\")",
+      "Bash(gh run:*)",
+      "Bash(EXPORT=1 npx next build)"
     ]
   }
 }

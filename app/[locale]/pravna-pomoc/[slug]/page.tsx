@@ -88,12 +88,11 @@ function ServicePageContent({ slug }: { slug: string }) {
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-[#033f40] bg-gradient-to-br from-[#064e4b] via-[#033f40] to-[#012a2b] overflow-hidden">
         {/* Background Image of Greek Pillars */}
         <div className="absolute inset-0 opacity-20 mix-blend-luminosity pointer-events-none">
-          <Image
-            src="/og/greek_pillars.png"
-            alt="Pillars"
-            fill
-            className="object-cover object-center"
-            priority
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/og/hero.png`}
+            alt=""
+            className="w-full h-full object-cover object-center"
           />
         </div>
         

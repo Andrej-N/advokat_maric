@@ -37,11 +37,11 @@ export function Footer() {
     <footer className="relative bg-[#033f40] bg-gradient-to-br from-[#064e4b] via-[#033f40] to-[#012a2b] border-t border-border overflow-hidden">
       {/* Background Image of Greek Pillars */}
       <div className="absolute inset-0 opacity-[0.15] mix-blend-luminosity pointer-events-none">
-        <Image
-          src="/og/greek_pillars.png"
-          alt="Grčki stubovi"
-          fill
-          className="object-cover object-center"
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/og/hero.png`}
+          alt=""
+          className="w-full h-full object-cover object-center"
         />
       </div>
       
