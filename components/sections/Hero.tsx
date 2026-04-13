@@ -111,7 +111,7 @@ export function Hero() {
 
         {/* Tagline with letter-by-letter animation */}
         <div className="h-10 flex items-center justify-center mt-10 md:mt-14">
-          <p className="text-white/80 uppercase tracking-[0.25em] text-base sm:text-lg md:text-xl font-light">
+          <p className="text-white uppercase tracking-[0.25em] text-base sm:text-lg md:text-xl font-semibold">
             {mounted && <AnimatedTagline text={t("tagline")} />}
           </p>
         </div>
