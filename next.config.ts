@@ -13,15 +13,19 @@ const withNextIntl = createNextIntlPlugin("./lib/i18n/request.ts");
 // acceptable for the demo. Real multi-user persistence comes with the backend
 // migration (see project_blog_production.md).
 const isExport = process.env.EXPORT === "1";
+const basePath = isExport ? "/advokat_maric" : "";
 
 const nextConfig: NextConfig = {
   trailingSlash: true,
   images: {
     unoptimized: true,
   },
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
   ...(isExport && {
     output: "export",
-    basePath: "/advokat_maric",
+    basePath,
   }),
 };
 
