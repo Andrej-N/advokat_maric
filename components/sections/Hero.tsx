@@ -15,7 +15,13 @@ const NeuralNetworkCanvas = dynamic(
   { ssr: false }
 );
 
-function AnimatedTagline({ text }: { text: string }) {
+function AnimatedTagline({
+  text,
+  delay = 1200,
+}: {
+  text: string;
+  delay?: number;
+}) {
   const [visibleCount, setVisibleCount] = useState(0);
 
   useEffect(() => {
@@ -30,9 +36,9 @@ function AnimatedTagline({ text }: { text: string }) {
         });
       }, 60);
       return () => clearInterval(interval);
-    }, 1200);
+    }, delay);
     return () => clearTimeout(timeout);
-  }, [text]);
+  }, [text, delay]);
 
   return (
     <span aria-label={text}>
@@ -63,9 +69,9 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-[#033f40] bg-gradient-to-br from-[#064e4b] via-[#033f40] to-[#012a2b]">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
       {/* Hero background */}
-      <div className="absolute inset-0 opacity-30 mix-blend-luminosity pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/og/hero.png`}
@@ -77,7 +83,7 @@ export function Hero() {
       <NeuralNetworkCanvas />
 
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#064e4b]/40 via-[#033f40]/20 to-[#012a2b] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70 pointer-events-none" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 flex flex-col items-center">
@@ -107,9 +113,12 @@ export function Hero() {
         />
 
         {/* Tagline with letter-by-letter animation */}
-        <div className="h-10 flex items-center justify-center mt-10 md:mt-14">
+        <div className="flex flex-col items-center justify-center mt-10 md:mt-14 space-y-2">
           <p className="text-white uppercase tracking-[0.25em] text-base sm:text-lg md:text-xl font-semibold">
             {mounted && <AnimatedTagline text={t("tagline")} />}
+          </p>
+          <p className="text-white/80 italic font-serif text-sm sm:text-base md:text-lg">
+            {mounted && <AnimatedTagline text={t("experience")} delay={2200} />}
           </p>
         </div>
 

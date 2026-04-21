@@ -8,6 +8,7 @@
     "home": "Home",
     "about": "About",
     "services": "Services",
+    "clients": "Clients",
     "proBono": "Pro Bono",
     "blog": "Blog",
     "contact": "Contact"
@@ -17,6 +18,7 @@
     "titleAccent": "Marić",
     "subtitle": "Legal certainty built on experience since 1994",
     "tagline": "Your Legal Support",
+    "experience": "over 30 years",
     "cta": "Services",
     "ctaSecondary": "Schedule a Consultation"
   },
@@ -97,14 +99,14 @@
       "seoTitle": "Family and Inheritance Law Attorney Loznica",
       "slug": "porodicno-i-nasledno-pravo",
       "description": "Our office provides expert legal assistance in family and inheritance matters. With extensive experience, we protect your rights and efficiently resolve legal challenges.",
-      "full": "Our office provides expert legal assistance in family and inheritance matters. With extensive experience, we protect your rights and efficiently resolve legal challenges.\n\nOur office provides expert legal assistance in all aspects of family and inheritance law, including the following services:\n- **Divorce (mutual and contested)**\n- **Exercise of parental rights**\n- **Deprivation of parental rights**\n- **Alimony (child support)**\n- **Parenting time**\n- **Division of marital property**\n- **Division of non-marital property**\n- **Protection against domestic violence**\n- **Lifetime distribution of property**\n- **Will drafting**\n- **Lifetime maintenance agreement**\n- **Probate proceedings**\n- **Challenging lifetime maintenance agreements**\n\nWith experience in these areas, our team provides precise and efficient legal services to ensure your rights are protected and all proceedings are conducted in accordance with the law.\n\nIf during the marriage marital relations become seriously and permanently disturbed or if the joint life of the spouses can objectively no longer be maintained, they have the right to divorce.\n\nDivorce entails other issues, such as the exercise of parental rights and the division of joint property, so we advise engaging an experienced family and inheritance lawyer in such situations."
+      "full": "Our office provides expert legal assistance in all aspects of family and inheritance law, including the following services:\n- **Divorce (mutual and contested)**\n- **Exercise of parental rights**\n- **Deprivation of parental rights**\n- **Alimony (child support)**\n- **Parenting time**\n- **Division of marital property**\n- **Division of non-marital property**\n- **Protection against domestic violence**\n- **Lifetime distribution of property**\n- **Will drafting**\n- **Lifetime maintenance agreement**\n- **Probate proceedings**\n- **Challenging lifetime maintenance agreements**\n\nOur team provides precise and efficient legal services to ensure your rights are protected and all proceedings are conducted in accordance with the law.\n\nIf during the marriage marital relations become seriously and permanently disturbed or if the joint life of the spouses can objectively no longer be maintained, they have the right to divorce.\n\nDivorce entails other issues, such as the exercise of parental rights and the division of joint property, so we advise engaging an experienced family and inheritance lawyer in such situations."
     },
     "contractsAndRealEstate": {
       "title": "Contracts and Real Estate",
       "seoTitle": "Real Estate and Contract Attorney Loznica",
       "slug": "ugovori-i-nekretnine",
       "description": "Our office offers professional drafting and legal assistance with all types of contracts and real estate matters, backed by years of experience in property law relations.",
-      "full": "Our office provides comprehensive legal assistance in the field of contracts and property law relations. With experience in this area, we draft, analyze, and legally verify all types of contracts, as well as represent clients in court proceedings related to property rights.\n\nTypes of contracts we handle:\n\n- **Real estate purchase agreement** - complete documentation preparation and notarization\n\n- **Gift agreement** - ensures clarity and legal certainty in property transfer\n\n- **Lease agreement** - precisely defined lease terms with protection for both parties\n\n- **Property exchange agreement**\n\n- **Division of marital property agreement**\n\n- **Investment agreement**\n\n- **Lifetime maintenance agreement**\n\n- **Construction agreement**\n\n- **Property partition agreement**\n\n- **Debt assumption and accession agreement**\n\n- **Commercial and labor law contracts**\n\n- **Will (testament)**\n\nIn addition to contract drafting, our office has experience in conducting court proceedings related to property law relations, protecting client rights and ensuring their legal protection at all stages of the proceedings."
+      "full": "Our office provides comprehensive legal assistance in the field of contracts and property law relations. We draft, analyze, and legally verify all types of contracts, as well as represent clients in court proceedings related to property rights.\n\nTypes of contracts we handle:\n\n- **Real estate purchase agreement** - complete documentation preparation and notarization\n\n- **Gift agreement** - ensures clarity and legal certainty in property transfer\n\n- **Lease agreement** - precisely defined lease terms with protection for both parties\n\n- **Property exchange agreement**\n\n- **Division of marital property agreement**\n\n- **Investment agreement**\n\n- **Lifetime maintenance agreement**\n\n- **Construction agreement**\n\n- **Property partition agreement**\n\n- **Debt assumption and accession agreement**\n\n- **Commercial and labor law contracts**\n\n- **Will (testament)**"
     },
     "divorce": {
       "title": "Divorce",

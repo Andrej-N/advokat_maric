@@ -2,13 +2,10 @@
 
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
-import {
-  savePost,
-  generateId,
-  slugify,
-  SERVICE_KEYS,
-  type BlogPost,
-} from "@/lib/blog";
+import { slugify, SERVICE_KEYS, type BlogPost } from "@/lib/blog-db";
+import srLatnMessages from "@/messages/sr-Latn.json";
+import srMessages from "@/messages/sr.json";
+import enMessages from "@/messages/en.json";
 import {
   Bold,
   Italic,
@@ -53,6 +50,23 @@ const SERVICE_LABELS: Record<string, string> = {
   humanRights: "Ljudska prava",
 };
 
+type ServiceMessages = Record<string, { title?: string; slug?: string }>;
+const MESSAGES_BY_LOCALE: Record<string, ServiceMessages> = {
+  "sr-Latn": (srLatnMessages as { services: ServiceMessages }).services,
+  sr: (srMessages as { services: ServiceMessages }).services,
+  en: (enMessages as { services: ServiceMessages }).services,
+};
+
+function getServiceLinkOptions(locale: string) {
+  const m = MESSAGES_BY_LOCALE[locale];
+  if (!m) return [];
+  return SERVICE_KEYS.map((key) => ({
+    key,
+    title: m[key]?.title ?? key,
+    slug: m[key]?.slug ?? "",
+  })).filter((s) => s.slug);
+}
+
 const localeLabels: Record<string, string> = {
   "sr-Latn": "Latinica",
   sr: "Ћирилица",
@@ -70,19 +84,29 @@ export function BlogEditor({ post }: Props) {
 
   const [activeLocale, setActiveLocale] = useState<string>("sr-Latn");
   const [slug, setSlug] = useState(post?.slug || "");
-  const [status, setStatus] = useState<"draft" | "published">(
-    post?.status || "draft"
-  );
+  const [status, setStatus] = useState<"draft" | "published">(post?.status || "draft");
   const [image, setImage] = useState(post?.image || "");
   const [category, setCategory] = useState(post?.category || "");
   const [serviceKey, setServiceKey] = useState(post?.serviceKey || "");
   const [isDragging, setIsDragging] = useState(false);
   const [imageError, setImageError] = useState<string | null>(null);
+  const [uploading, setUploading] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
+  const [linkOpen, setLinkOpen] = useState(false);
+  const [linkMode, setLinkMode] = useState<"service" | "url">("service");
+  const [linkServiceKey, setLinkServiceKey] = useState("");
+  const [linkCustomUrl, setLinkCustomUrl] = useState("");
+  const [linkSelection, setLinkSelection] = useState<{
+    start: number;
+    end: number;
+    text: string;
+  } | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const MAX_IMAGE_BYTES = 2 * 1024 * 1024; // 2MB
+  const MAX_IMAGE_BYTES = 5 * 1024 * 1024; // 5MB
 
-  function handleFile(file: File) {
+  async function handleFile(file: File) {
     setImageError(null);
     if (!file.type.startsWith("image/")) {
       setImageError("Fajl mora biti slika.");
@@ -90,16 +114,27 @@ export function BlogEditor({ post }: Props) {
     }
     if (file.size > MAX_IMAGE_BYTES) {
       setImageError(
-        `Slika je prevelika (${(file.size / 1024 / 1024).toFixed(1)}MB). Maksimum je 2MB.`
+        `Slika je prevelika (${(file.size / 1024 / 1024).toFixed(1)}MB). Maksimum je 5MB.`,
       );
       return;
     }
-    const reader = new FileReader();
-    reader.onload = () => {
-      setImage(reader.result as string);
-    };
-    reader.onerror = () => setImageError("Greška pri čitanju fajla.");
-    reader.readAsDataURL(file);
+    setUploading(true);
+    try {
+      const form = new FormData();
+      form.append("file", file);
+      const res = await fetch("/api/upload", { method: "POST", body: form });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({ error: "Upload failed" }));
+        setImageError(err.error || "Greška pri uploadu.");
+        return;
+      }
+      const { url } = await res.json();
+      setImage(url);
+    } catch {
+      setImageError("Greška pri uploadu.");
+    } finally {
+      setUploading(false);
+    }
   }
 
   const [translations, setTranslations] = useState(
@@ -107,11 +142,11 @@ export function BlogEditor({ post }: Props) {
       "sr-Latn": { title: "", excerpt: "", content: "" },
       sr: { title: "", excerpt: "", content: "" },
       en: { title: "", excerpt: "", content: "" },
-    }
+    },
   );
 
   const [seo, setSeo] = useState(
-    post?.seo || { metaTitle: "", metaDescription: "", keywords: "" }
+    post?.seo || { metaTitle: "", metaDescription: "", keywords: "" },
   );
 
   function switchLocale(locale: string) {
@@ -157,28 +192,88 @@ export function BlogEditor({ post }: Props) {
     }, 0);
   }
 
-  function handleSave() {
-    const now = new Date().toISOString();
-    const blogPost: BlogPost = {
-      id: post?.id || generateId(),
-      slug,
-      status,
-      createdAt: post?.createdAt || now,
-      updatedAt: now,
-      publishedAt: status === "published" ? now : post?.publishedAt || null,
-      image: image || undefined,
-      category: category || undefined,
-      serviceKey: serviceKey || undefined,
-      translations: translations as BlogPost["translations"],
-      seo,
-    };
-
-    savePost(blogPost);
-    router.push("/dashboard/blog");
+  function openLinkModal() {
+    const ta = textareaRef.current;
+    if (!ta) return;
+    const start = ta.selectionStart;
+    const end = ta.selectionEnd;
+    const content = currentTranslation?.content || "";
+    setLinkSelection({ start, end, text: content.substring(start, end) });
+    setLinkMode("service");
+    setLinkServiceKey("");
+    setLinkCustomUrl("");
+    setLinkOpen(true);
   }
 
-  const currentTranslation =
-    translations[activeLocale as keyof typeof translations];
+  function confirmLink() {
+    if (!linkSelection) return;
+    let href = "";
+    if (linkMode === "service") {
+      const opts = getServiceLinkOptions(activeLocale);
+      const opt = opts.find((s) => s.key === linkServiceKey);
+      if (!opt) return;
+      href = `/${activeLocale}/pravna-pomoc/${opt.slug}`;
+    } else {
+      href = linkCustomUrl.trim();
+      if (!href) return;
+    }
+    const { start, end } = linkSelection;
+    const content = currentTranslation?.content || "";
+    const selected = content.substring(start, end) || href;
+    const openTag = `<a href="${href}">`;
+    const closeTag = "</a>";
+    const newContent =
+      content.substring(0, start) +
+      openTag +
+      selected +
+      closeTag +
+      content.substring(end);
+    updateField("content", newContent);
+    setLinkOpen(false);
+    setTimeout(() => {
+      const ta = textareaRef.current;
+      if (!ta) return;
+      ta.focus();
+      ta.selectionStart = start + openTag.length;
+      ta.selectionEnd = start + openTag.length + selected.length;
+    }, 0);
+  }
+
+  async function handleSave() {
+    setSaving(true);
+    setSaveError(null);
+    try {
+      const body = {
+        slug,
+        status,
+        image: image || null,
+        category: category || null,
+        serviceKey: serviceKey || null,
+        translations,
+        seo,
+      };
+      const url = isEdit ? `/api/blog/${post!.id}` : "/api/blog";
+      const method = isEdit ? "PUT" : "POST";
+      const res = await fetch(url, {
+        method,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({ error: "Save failed" }));
+        setSaveError(err.error || "Greška pri čuvanju.");
+        return;
+      }
+      router.push("/dashboard/blog");
+      router.refresh();
+    } catch {
+      setSaveError("Greška pri čuvanju.");
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  const currentTranslation = translations[activeLocale as keyof typeof translations];
 
   return (
     <div className="space-y-6">
@@ -223,7 +318,7 @@ export function BlogEditor({ post }: Props) {
         />
       </div>
 
-      {/* Hero image — drag & drop, file picker, or URL */}
+      {/* Hero image */}
       <div>
         <label className="block text-text-muted text-sm mb-1.5">
           <span className="inline-flex items-center gap-1.5">
@@ -271,10 +366,10 @@ export function BlogEditor({ post }: Props) {
           >
             <Upload className="w-8 h-8 text-text-muted" />
             <p className="text-text-primary text-sm font-medium">
-              Prevuci sliku ovde
+              {uploading ? "Upload u toku..." : "Prevuci sliku ovde"}
             </p>
             <p className="text-text-dim text-xs">
-              ili klikni da izabereš · max 2MB
+              ili klikni da izabereš · max 5MB
             </p>
           </div>
         )}
@@ -290,9 +385,7 @@ export function BlogEditor({ post }: Props) {
           }}
         />
 
-        {imageError && (
-          <p className="text-red-400 text-xs mt-2">{imageError}</p>
-        )}
+        {imageError && <p className="text-red-400 text-xs mt-2">{imageError}</p>}
 
         <details className="mt-2">
           <summary className="text-text-dim text-xs cursor-pointer hover:text-text-muted">
@@ -311,9 +404,7 @@ export function BlogEditor({ post }: Props) {
       {/* Category + Service */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label className="block text-text-muted text-sm mb-1.5">
-            Kategorija
-          </label>
+          <label className="block text-text-muted text-sm mb-1.5">Kategorija</label>
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
@@ -360,29 +451,19 @@ export function BlogEditor({ post }: Props) {
         />
       </div>
 
-      {/* Content editor with toolbar */}
+      {/* Content editor */}
       <div>
         <label className="block text-text-muted text-sm mb-1.5">Sadržaj</label>
         <div className="border border-border rounded-[var(--radius-lg)] overflow-hidden">
-          {/* Toolbar */}
           <div className="flex items-center gap-1 px-2 py-2 bg-primary-light border-b border-border flex-wrap">
-            <ToolbarBtn
-              onClick={() => insertTag("<strong>", "</strong>")}
-              title="Bold"
-            >
+            <ToolbarBtn onClick={() => insertTag("<strong>", "</strong>")} title="Bold">
               <Bold className="w-4 h-4" />
             </ToolbarBtn>
-            <ToolbarBtn
-              onClick={() => insertTag("<em>", "</em>")}
-              title="Italic"
-            >
+            <ToolbarBtn onClick={() => insertTag("<em>", "</em>")} title="Italic">
               <Italic className="w-4 h-4" />
             </ToolbarBtn>
             <div className="w-px h-5 bg-border mx-1" />
-            <ToolbarBtn
-              onClick={() => insertTag("<h2>", "</h2>\n")}
-              title="Heading"
-            >
+            <ToolbarBtn onClick={() => insertTag("<h2>", "</h2>\n")} title="Heading">
               <Heading2 className="w-4 h-4" />
             </ToolbarBtn>
             <div className="w-px h-5 bg-border mx-1" />
@@ -399,30 +480,20 @@ export function BlogEditor({ post }: Props) {
               <ListOrdered className="w-4 h-4" />
             </ToolbarBtn>
             <div className="w-px h-5 bg-border mx-1" />
-            <ToolbarBtn
-              onClick={() => {
-                const url = prompt("URL linka:");
-                if (url) insertTag(`<a href="${url}">`, "</a>");
-              }}
-              title="Link"
-            >
+            <ToolbarBtn onClick={openLinkModal} title="Link">
               <LinkIcon className="w-4 h-4" />
             </ToolbarBtn>
           </div>
 
-          {/* Textarea */}
           <textarea
             ref={textareaRef}
             value={currentTranslation?.content || ""}
             onChange={(e) => updateField("content", e.target.value)}
             rows={15}
             className="w-full bg-primary px-4 py-3 text-text-primary placeholder:text-text-dim focus:outline-none resize-y min-h-[300px] font-mono text-sm leading-relaxed"
-            placeholder="Pišite sadržaj ovde... Možete koristiti HTML tagove ili će se u produkciji zameniti WYSIWYG editorom."
+            placeholder="Pišite sadržaj ovde... Podrzava HTML tagove."
           />
         </div>
-        <p className="text-text-dim text-xs mt-2">
-          Podržava HTML formatiranje. U produkciji će biti zamenjen vizuelnim editorom (TipTap WYSIWYG).
-        </p>
       </div>
 
       {/* SEO */}
@@ -432,30 +503,21 @@ export function BlogEditor({ post }: Props) {
         </summary>
         <div className="p-4 space-y-4 border-t border-border">
           <div>
-            <label className="block text-text-muted text-sm mb-1.5">
-              Meta naslov
-            </label>
+            <label className="block text-text-muted text-sm mb-1.5">Meta naslov</label>
             <input
               type="text"
               value={seo.metaTitle}
-              onChange={(e) =>
-                setSeo((prev) => ({ ...prev, metaTitle: e.target.value }))
-              }
+              onChange={(e) => setSeo((prev) => ({ ...prev, metaTitle: e.target.value }))}
               className="w-full bg-primary border border-border rounded-[var(--radius-md)] px-4 py-2.5 text-text-primary text-sm placeholder:text-text-dim focus:outline-none focus:border-accent transition-colors"
               placeholder="SEO naslov (ostavi prazno za automatski)"
             />
           </div>
           <div>
-            <label className="block text-text-muted text-sm mb-1.5">
-              Meta opis
-            </label>
+            <label className="block text-text-muted text-sm mb-1.5">Meta opis</label>
             <textarea
               value={seo.metaDescription}
               onChange={(e) =>
-                setSeo((prev) => ({
-                  ...prev,
-                  metaDescription: e.target.value,
-                }))
+                setSeo((prev) => ({ ...prev, metaDescription: e.target.value }))
               }
               rows={2}
               className="w-full bg-primary border border-border rounded-[var(--radius-md)] px-4 py-2.5 text-text-primary text-sm placeholder:text-text-dim focus:outline-none focus:border-accent transition-colors resize-none"
@@ -463,15 +525,11 @@ export function BlogEditor({ post }: Props) {
             />
           </div>
           <div>
-            <label className="block text-text-muted text-sm mb-1.5">
-              Ključne reči
-            </label>
+            <label className="block text-text-muted text-sm mb-1.5">Ključne reči</label>
             <input
               type="text"
               value={seo.keywords}
-              onChange={(e) =>
-                setSeo((prev) => ({ ...prev, keywords: e.target.value }))
-              }
+              onChange={(e) => setSeo((prev) => ({ ...prev, keywords: e.target.value }))}
               className="w-full bg-primary border border-border rounded-[var(--radius-md)] px-4 py-2.5 text-text-primary text-sm placeholder:text-text-dim focus:outline-none focus:border-accent transition-colors"
               placeholder="radno pravo, zaposleni, srbija (razdvojeno zarezom)"
             />
@@ -479,19 +537,24 @@ export function BlogEditor({ post }: Props) {
         </div>
       </details>
 
+      {saveError && (
+        <div className="text-red-400 text-sm bg-red-400/10 rounded-[var(--radius-md)] px-4 py-3">
+          {saveError}
+        </div>
+      )}
+
       {/* Actions */}
       <div className="flex items-center gap-4">
         <button
           onClick={handleSave}
-          className="cursor-pointer inline-flex items-center gap-2 bg-accent hover:bg-accent-dim text-white px-6 py-2.5 rounded-[var(--radius-md)] font-medium transition-colors"
+          disabled={saving}
+          className="cursor-pointer inline-flex items-center gap-2 bg-accent hover:bg-accent-dim text-white px-6 py-2.5 rounded-[var(--radius-md)] font-medium transition-colors disabled:opacity-50"
         >
           <Save className="w-4 h-4" />
-          Sačuvaj
+          {saving ? "Čuva se..." : "Sačuvaj"}
         </button>
         <button
-          onClick={() => {
-            setStatus(status === "published" ? "draft" : "published");
-          }}
+          onClick={() => setStatus(status === "published" ? "draft" : "published")}
           className={`cursor-pointer inline-flex items-center gap-2 border px-6 py-2.5 rounded-[var(--radius-md)] font-medium transition-colors ${
             status === "published"
               ? "border-green-500/40 text-green-400 hover:bg-green-500/10"
@@ -502,6 +565,121 @@ export function BlogEditor({ post }: Props) {
           {status === "published" ? "Objavljeno" : "Nacrt"}
         </button>
       </div>
+
+      {linkOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
+          onClick={() => setLinkOpen(false)}
+        >
+          <div
+            className="bg-surface border border-border rounded-[var(--radius-lg)] max-w-md w-full p-6"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-text-primary text-lg font-medium">Ubaci link</h3>
+              <button
+                onClick={() => setLinkOpen(false)}
+                className="cursor-pointer text-text-muted hover:text-text-primary"
+                title="Zatvori"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {linkSelection?.text ? (
+              <div className="text-text-muted text-sm mb-4">
+                Linkovaće se tekst:{" "}
+                <span className="text-text-primary font-medium">
+                  „{linkSelection.text}"
+                </span>
+              </div>
+            ) : (
+              <div className="text-text-dim text-sm mb-4 italic">
+                Nema izabranog teksta — link će prikazati sam URL.
+              </div>
+            )}
+
+            <div className="space-y-3 mb-5">
+              <label className="flex items-start gap-3 cursor-pointer">
+                <input
+                  type="radio"
+                  checked={linkMode === "service"}
+                  onChange={() => setLinkMode("service")}
+                  className="mt-1.5 cursor-pointer accent-accent"
+                />
+                <div className="flex-1">
+                  <div className="text-text-primary text-sm mb-1.5">Link ka usluzi</div>
+                  <select
+                    value={linkServiceKey}
+                    onChange={(e) => {
+                      setLinkServiceKey(e.target.value);
+                      setLinkMode("service");
+                    }}
+                    className="w-full bg-primary border border-border rounded-[var(--radius-md)] px-3 py-2 text-text-primary text-sm focus:outline-none focus:border-accent transition-colors"
+                  >
+                    <option value="">— izaberi uslugu —</option>
+                    {getServiceLinkOptions(activeLocale).map((s) => (
+                      <option key={s.key} value={s.key}>
+                        {s.title}
+                      </option>
+                    ))}
+                  </select>
+                  {linkServiceKey && (
+                    <div className="text-text-dim text-xs mt-1.5 font-mono break-all">
+                      /{activeLocale}/pravna-pomoc/
+                      {
+                        getServiceLinkOptions(activeLocale).find(
+                          (s) => s.key === linkServiceKey,
+                        )?.slug
+                      }
+                    </div>
+                  )}
+                </div>
+              </label>
+
+              <label className="flex items-start gap-3 cursor-pointer">
+                <input
+                  type="radio"
+                  checked={linkMode === "url"}
+                  onChange={() => setLinkMode("url")}
+                  className="mt-1.5 cursor-pointer accent-accent"
+                />
+                <div className="flex-1">
+                  <div className="text-text-primary text-sm mb-1.5">Prilagođeni URL</div>
+                  <input
+                    type="text"
+                    value={linkCustomUrl}
+                    onChange={(e) => {
+                      setLinkCustomUrl(e.target.value);
+                      setLinkMode("url");
+                    }}
+                    placeholder="https://..."
+                    className="w-full bg-primary border border-border rounded-[var(--radius-md)] px-3 py-2 text-text-primary text-sm placeholder:text-text-dim focus:outline-none focus:border-accent transition-colors"
+                  />
+                </div>
+              </label>
+            </div>
+
+            <div className="flex gap-2 justify-end">
+              <button
+                onClick={() => setLinkOpen(false)}
+                className="cursor-pointer px-4 py-2 text-text-muted text-sm hover:text-text-primary transition-colors"
+              >
+                Otkaži
+              </button>
+              <button
+                onClick={confirmLink}
+                disabled={
+                  linkMode === "service" ? !linkServiceKey : !linkCustomUrl.trim()
+                }
+                className="cursor-pointer bg-accent hover:bg-accent-dim text-white text-sm px-4 py-2 rounded-[var(--radius-md)] font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Ubaci link
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

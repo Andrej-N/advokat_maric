@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  password  String
+  role      String   @default("admin")
+  posts     Post[]
+  createdAt DateTime @default(now())
+}
+
+model Post {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  status      String    @default("draft")
+  image       String?
+  category    String?
+  serviceKey  String?
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  author   User   @relation(fields: [authorId], references: [id])
+  authorId String
+
+  translations PostTranslation[]
+  seo          PostSeo?
+
+  @@index([status, publishedAt])
+}
+
+model PostTranslation {
+  id      String @id @default(cuid())
+  post    Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId  String
+  locale  String
+  title   String
+  excerpt String @db.Text
+  content String @db.Text
+
+  @@unique([postId, locale])
+}
+
+model PostSeo {
+  id              String  @id @default(cuid())
+  post            Post    @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId          String  @unique
+  metaTitle       String?
+  metaDescription String?
+  keywords        String?
+}

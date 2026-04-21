@@ -110,7 +110,7 @@ export function GoogleReviews() {
   const thumbLeft = scrollProgress * (100 - thumbWidth);
 
   return (
-    <section className="py-24 px-4 bg-white-bg">
+    <section id="recenzije" className="py-24 px-4 bg-white-bg">
       <div className="max-w-7xl mx-auto">
         <div className="mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white-text mb-2">

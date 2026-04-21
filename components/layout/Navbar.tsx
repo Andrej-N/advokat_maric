@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/lib/i18n/routing";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight, MapPin, Phone, Mail } from "lucide-react";
 import Image from "next/image";
 import logoSvg from "@/public/og/logo_maric-01.svg";
 
@@ -52,6 +52,7 @@ export function Navbar() {
     { href: "/", label: t("nav.home") },
     { href: "/o-nama", label: t("nav.about") },
     { href: "/usluge", label: t("nav.services"), hasDropdown: true },
+    { href: "/#recenzije", label: t("nav.clients") },
     { href: "/pro-bono", label: t("nav.proBono") },
     { href: "/blog", label: t("nav.blog") },
     { href: "/kontakt", label: t("nav.contact") },
@@ -63,14 +64,37 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 flex flex-col ${
         isTransparent
           ? "bg-transparent"
-          : "bg-white-bg/95 backdrop-blur-xl border-b border-white-border shadow-sm"
+          : "bg-white-bg/95 backdrop-blur-xl shadow-sm"
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+      {/* Top Bar - Desktop Only */}
+      <div className={`hidden lg:block w-full border-b transition-colors duration-300 ${
+        isTransparent 
+          ? "bg-transparent text-white/90 border-white/10" 
+          : "bg-[#0a192f] text-gray-300 border-[#0a192f]"
+      }`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center items-center gap-6 py-2 text-[13px]">
+          <div className="flex items-center gap-2">
+            <MapPin className="w-3.5 h-3.5 text-accent" />
+            <span>{t("contact.address")}</span>
+          </div>
+          <a href={`tel:${t("contact.phone").replace(/ /g, "")}`} className="flex items-center gap-2 hover:text-white transition-colors">
+            <Phone className="w-3.5 h-3.5 text-accent" />
+            <span>{t("contact.phone")}</span>
+          </a>
+          <a href={`mailto:${t("contact.email")}`} className="flex items-center gap-2 hover:text-white transition-colors">
+            <Mail className="w-3.5 h-3.5 text-accent" />
+            <span>{t("contact.email")}</span>
+          </a>
+        </div>
+      </div>
+
+      <div className={`w-full border-b transition-colors duration-300 ${isTransparent ? "border-transparent" : "border-white-border"}`}>
+        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="group">
             <Image
@@ -211,7 +235,7 @@ export function Navbar() {
                     <div className="flex items-center justify-between px-4 py-3">
                       <Link
                         href={link.href}
-                        className={`text-base transition-colors ${
+                        className={`text-lg transition-colors ${
                           pathname === "/usluge" || pathname.startsWith("/pravna-pomoc")
                             ? "text-accent"
                             : "text-white-text-muted hover:text-white-text"
@@ -237,7 +261,7 @@ export function Navbar() {
                             <Link
                               key={entry.key}
                               href={`/pravna-pomoc/${t(`services.${entry.key}.slug`)}`}
-                              className="block px-4 py-2 text-sm text-white-text-muted hover:text-accent"
+                              className="block px-4 py-2 text-base text-white-text-muted hover:text-accent"
                               onClick={() => setMobileOpen(false)}
                             >
                               {t(`services.${entry.key}.title`)}
@@ -249,7 +273,7 @@ export function Navbar() {
                                 onClick={() =>
                                   setOpenGroup(openGroup === entry.labelKey ? null : entry.labelKey)
                                 }
-                                className="flex items-center justify-between w-full px-4 py-2 text-sm text-white-text-muted hover:text-accent cursor-pointer"
+                                className="flex items-center justify-between w-full px-4 py-2 text-base text-white-text-muted hover:text-accent cursor-pointer"
                               >
                                 <span>{t(`services.${entry.labelKey}.title`)}</span>
                                 <ChevronDown
@@ -262,7 +286,7 @@ export function Navbar() {
                                     <Link
                                       key={key}
                                       href={`/pravna-pomoc/${t(`services.${key}.slug`)}`}
-                                      className="block pl-8 pr-4 py-2 text-sm text-white-text-muted hover:text-accent"
+                                      className="block pl-8 pr-4 py-2 text-base text-white-text-muted hover:text-accent"
                                       onClick={() => setMobileOpen(false)}
                                     >
                                       {t(`services.${key}.title`)}
@@ -280,7 +304,7 @@ export function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`px-4 py-3 text-base transition-colors ${
+                    className={`px-4 py-3 text-lg transition-colors ${
                       pathname === link.href
                         ? "text-accent"
                         : "text-white-text-muted hover:text-white-text"
@@ -304,6 +328,7 @@ export function Navbar() {
           </div>
         )}
       </nav>
+      </div>
     </header>
   );
 }

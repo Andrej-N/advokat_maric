@@ -1,15 +1,7 @@
+import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { BlogPostContent } from "@/components/blog/BlogPostContent";
-import { getPosts } from "@/lib/blog";
-
-const LOCALES = ["sr-Latn", "sr", "en"] as const;
-
-export async function generateStaticParams() {
-  const posts = getPosts();
-  return LOCALES.flatMap((locale) =>
-    posts.map((p) => ({ locale, slug: p.slug }))
-  );
-}
+import { getPostBySlug, getPublishedPosts } from "@/lib/blog-db";
 
 export default async function BlogPostPage({
   params,
@@ -18,5 +10,12 @@ export default async function BlogPostPage({
 }) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
-  return <BlogPostContent slug={slug} />;
+
+  const post = await getPostBySlug(slug);
+  if (!post || post.status !== "published") notFound();
+
+  const others = await getPublishedPosts();
+  const related = others.filter((p) => p.slug !== post.slug).slice(0, 3);
+
+  return <BlogPostContent post={post} related={related} />;
 }

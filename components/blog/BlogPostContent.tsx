@@ -1,44 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/lib/i18n/routing";
 import { ArrowLeft, ArrowUpRight, Calendar } from "lucide-react";
-import { getPostBySlug, getPublishedPosts, type BlogPost } from "@/lib/blog";
+import type { BlogPost } from "@/lib/blog-db";
 
-export function BlogPostContent({ slug }: { slug: string }) {
+interface Props {
+  post: BlogPost;
+  related: BlogPost[];
+}
+
+export function BlogPostContent({ post, related }: Props) {
   const t = useTranslations("blog");
   const tServices = useTranslations("services");
   const locale = useLocale() as "sr-Latn" | "sr" | "en";
-
-  const [post, setPost] = useState<BlogPost | null | undefined>(undefined);
-  const [related, setRelated] = useState<BlogPost[]>([]);
-
-  useEffect(() => {
-    const found = getPostBySlug(slug);
-    setPost(found || null);
-    if (found) {
-      const others = getPublishedPosts()
-        .filter((p) => p.slug !== found.slug)
-        .slice(0, 3);
-      setRelated(others);
-    }
-  }, [slug]);
-
-  if (post === undefined) {
-    return <div className="pt-32 min-h-screen bg-white-bg" />;
-  }
-
-  if (post === null) {
-    return (
-      <div className="pt-32 text-center py-28 bg-white-bg min-h-screen">
-        <h1 className="text-2xl text-white-text">{t("notFound")}</h1>
-        <Link href="/blog" className="text-accent mt-4 inline-block">
-          {t("backToBlog")}
-        </Link>
-      </div>
-    );
-  }
 
   const tr = post.translations[locale] || post.translations["sr-Latn"];
   const dateLocale = locale === "en" ? "en-US" : "sr-Latn-RS";
