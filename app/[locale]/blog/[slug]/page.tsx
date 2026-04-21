@@ -3,6 +3,8 @@ import { setRequestLocale } from "next-intl/server";
 import { BlogPostContent } from "@/components/blog/BlogPostContent";
 import { getPostBySlug, getPublishedPosts } from "@/lib/blog-db";
 
+export const dynamic = "force-dynamic";
+
 export default async function BlogPostPage({
   params,
 }: {

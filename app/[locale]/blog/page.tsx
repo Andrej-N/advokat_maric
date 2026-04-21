@@ -2,6 +2,8 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { BlogListClient } from "./BlogListClient";
 import { getPublishedPosts } from "@/lib/blog-db";
 
+export const dynamic = "force-dynamic";
+
 export default async function BlogPage({
   params,
 }: {
