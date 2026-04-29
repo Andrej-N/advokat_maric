@@ -4,50 +4,11 @@ import { useState, useRef, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Star, ChevronLeft, ChevronRight, Plus } from "lucide-react";
 
-const reviews = [
-  {
-    author: "Ivana Tomic",
-    rating: 5,
-    title: "Vrhunska usluga i *posvećen pristup* klijentu.",
-    text: "Vrhunska usluga i prijatan, posvećen pristup klijentu. Marljiv i objektivan rad uz poštovanje rokova. Sve pohvale!",
-  },
-  {
-    author: "Nemanja Lukić",
-    rating: 5,
-    title: "Sve je bilo *savršeno*, za svaku preporuku.",
-    text: "Koristio sam njihove usluge savetovanja po određenim pravnim pitanjima i angažovao sam ih za pisanje ugovora u vezi nekretnina. Sve je bilo savršeno, za svaku preporuku.",
-  },
-  {
-    author: "Gordana Jakovljevic",
-    rating: 5,
-    title: "Korektni, brzi i ukratko *najbolji*.",
-    text: "Postovani Advokat Maric .Hvala Vam od srca sto ste mi pomogli u sudskom sporu .Korektni ,brzi i ukratko najbolji.Preporucujem svima ovu Advokatsku kancelariju",
-  },
-  {
-    author: "Andreja Dragicevic",
-    rating: 5,
-    title: "Prezadovoljna sam, neko *tako posvećen* poslu.",
-    text: "Sve pohvale . Usluga , ljubaznost, trud sve na nivou. Prezadovoljna sam skoro nisam videla da je neko tako posvecen poslu i da se trudi i pored tolikog posla ljubaznost na nivou. I zelela bih da se zahvalim gospodinu Dusanu Maricu na dosadasnjoj saradnji . Svaka cast👏",
-  },
-  {
-    author: "Nela Ibricic",
-    rating: 5,
-    title: "Veoma pristupačan i *voljan da pomogne*.",
-    text: "Gospodin Dusan Maric je veoma ljubazan,obrazovan l imao je odgovore na sva moja pitanja. Veoma pristupacan I voljan da pomogne. Cijene su realne i pristupacne obicnom gradjaninu. Preporucujem Advokatsku kancelariju Maric svima.",
-  },
-  {
-    author: "Viktoriya Smirnova",
-    rating: 5,
-    title: "Izuzetan advokat. Inteligentan, *brz i jednostavan*.",
-    text: "Izuzetan advokat. Intelegentan, brz i jednostavan. Preporucujem ga svakome. Dragan.",
-  },
-  {
-    author: "dark soulz",
-    rating: 5,
-    title: "*Brzo, jednostavno* i veoma profesionalno.",
-    text: "Brzo, jednostavno i veoma profesionalno. Sve pohvale",
-  },
-];
+type Review = {
+  author: string;
+  title: string;
+  text: string;
+};
 
 const GOOGLE_BUSINESS_URL =
   "https://www.google.com/search?sca_esv=a5ad54a154ad8b44&rlz=1C1GCEA_enRS1189RS1189&cs=0&output=search&kgmid=/g/11j8vr1jlq&q=ADVOKATSKA+KANCELARIJA+MARI%C4%86&shem=epsd1&shndl=30&source=sh/x/loc/uni/m1/1&kgs=39651c82e375c170&utm_source=epsd1,sh/x/loc/uni/m1/1#lrd=0x475961b7237b1bff:0x7584f1fe25012c87,1,,,,";
@@ -55,6 +16,7 @@ const GOOGLE_BUSINESS_URL =
 
 export function GoogleReviews() {
   const t = useTranslations("reviews");
+  const reviews = t.raw("items") as Review[];
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -141,7 +103,7 @@ export function GoogleReviews() {
               <div className="mt-auto">
                 {review.text.length > 200 && (
                   <button className="mb-4 text-accent font-medium text-sm flex items-center hover:opacity-80 transition-opacity">
-                    Pročitaj više <Plus className="w-4 h-4 ml-1" />
+                    {t("readMore")} <Plus className="w-4 h-4 ml-1" />
                   </button>
                 )}
 
@@ -150,7 +112,7 @@ export function GoogleReviews() {
                     {review.author}
                   </span>
                   <div className="flex gap-1">
-                    {[...Array(review.rating)].map((_, j) => (
+                    {[...Array(5)].map((_, j) => (
                       <Star
                         key={j}
                         className="w-4 h-4 md:w-5 md:h-5 fill-accent text-accent"

@@ -38,6 +38,7 @@
     "title": "Usluge",
     "subtitle": "Pružamo sveobuhvatnu pravnu pomoć u svim ključnim oblastima prava",
     "cta": "NAŠE USLUGE",
+    "learnMore": "Saznaj više",
     "criminal": {
       "title": "Krivično pravo",
       "seoTitle": "Advokat za krivično pravo Loznica",
@@ -182,7 +183,45 @@
   "reviews": {
     "title": "Utisci klijenata",
     "subtitle": "Recenzije sa Google naloga",
-    "viewAll": "Pogledajte sve recenzije na Google"
+    "viewAll": "Pogledajte sve recenzije na Google",
+    "readMore": "Pročitaj više",
+    "items": [
+      {
+        "author": "Ivana Tomic",
+        "title": "Vrhunska usluga i *posvećen pristup* klijentu.",
+        "text": "Vrhunska usluga i prijatan, posvećen pristup klijentu. Marljiv i objektivan rad uz poštovanje rokova. Sve pohvale!"
+      },
+      {
+        "author": "Nemanja Lukić",
+        "title": "Sve je bilo *savršeno*, za svaku preporuku.",
+        "text": "Koristio sam njihove usluge savetovanja po određenim pravnim pitanjima i angažovao sam ih za pisanje ugovora u vezi nekretnina. Sve je bilo savršeno, za svaku preporuku."
+      },
+      {
+        "author": "Gordana Jakovljevic",
+        "title": "Korektni, brzi i ukratko *najbolji*.",
+        "text": "Poštovani Advokat Marić. Hvala Vam od srca što ste mi pomogli u sudskom sporu. Korektni, brzi i ukratko najbolji. Preporučujem svima ovu Advokatsku kancelariju."
+      },
+      {
+        "author": "Andreja Dragicevic",
+        "title": "Prezadovoljna sam, neko *tako posvećen* poslu.",
+        "text": "Sve pohvale. Usluga, ljubaznost, trud — sve na nivou. Prezadovoljna sam, skoro nisam videla da je neko tako posvećen poslu i da se trudi, a i pored tolikog posla ljubaznost na nivou. Želela bih da se zahvalim gospodinu Dušanu Mariću na dosadašnjoj saradnji. Svaka čast 👏"
+      },
+      {
+        "author": "Nela Ibricic",
+        "title": "Veoma pristupačan i *voljan da pomogne*.",
+        "text": "Gospodin Dušan Marić je veoma ljubazan, obrazovan i imao je odgovore na sva moja pitanja. Veoma pristupačan i voljan da pomogne. Cene su realne i pristupačne običnom građaninu. Preporučujem Advokatsku kancelariju Marić svima."
+      },
+      {
+        "author": "Viktoriya Smirnova",
+        "title": "Izuzetan advokat. Inteligentan, *brz i jednostavan*.",
+        "text": "Izuzetan advokat. Inteligentan, brz i jednostavan. Preporučujem ga svakome. Dragan."
+      },
+      {
+        "author": "dark soulz",
+        "title": "*Brzo, jednostavno* i veoma profesionalno.",
+        "text": "Brzo, jednostavno i veoma profesionalno. Sve pohvale."
+      }
+    ]
   },
   "common": {
     "learnMore": "Saznajte više",

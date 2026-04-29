@@ -38,6 +38,7 @@
     "title": "Services",
     "subtitle": "Comprehensive legal assistance across all key areas of law",
     "cta": "OUR SERVICES",
+    "learnMore": "Learn more",
     "criminal": {
       "title": "Criminal Law",
       "seoTitle": "Criminal Law Attorney Loznica",
@@ -182,7 +183,45 @@
   "reviews": {
     "title": "Client Testimonials",
     "subtitle": "Reviews from Google",
-    "viewAll": "View all reviews on Google"
+    "viewAll": "View all reviews on Google",
+    "readMore": "Read more",
+    "items": [
+      {
+        "author": "Ivana Tomic",
+        "title": "Top-notch service and a *dedicated approach* to the client.",
+        "text": "Top-notch service and a pleasant, dedicated approach to the client. Diligent and objective work with strict respect for deadlines. Highly recommended!"
+      },
+      {
+        "author": "Nemanja Lukić",
+        "title": "Everything was *perfect*, highly recommend.",
+        "text": "I used their advisory services on specific legal questions and engaged them to draft real-estate contracts. Everything was perfect — highly recommend."
+      },
+      {
+        "author": "Gordana Jakovljevic",
+        "title": "Fair, fast and simply *the best*.",
+        "text": "Dear Attorney Marić, thank you from the bottom of my heart for helping me with my court case. Fair, fast and simply the best. I recommend this law office to everyone."
+      },
+      {
+        "author": "Andreja Dragicevic",
+        "title": "Extremely satisfied — someone *so dedicated* to their work.",
+        "text": "All praise. Service, courtesy, effort — all top level. I am extremely satisfied; I rarely see anyone so dedicated to their work and so committed despite the heavy workload, with courtesy still on point. I'd like to thank Mr. Dušan Marić for the cooperation so far. Bravo 👏"
+      },
+      {
+        "author": "Nela Ibricic",
+        "title": "Very approachable and *willing to help*.",
+        "text": "Mr. Dušan Marić is very kind and well-educated, and had answers to all of my questions. Very approachable and willing to help. The prices are fair and accessible to the average person. I recommend Marić Law Office to everyone."
+      },
+      {
+        "author": "Viktoriya Smirnova",
+        "title": "An exceptional attorney. Intelligent, *fast and straightforward*.",
+        "text": "An exceptional attorney. Intelligent, fast and straightforward. I recommend him to everyone. Dragan."
+      },
+      {
+        "author": "dark soulz",
+        "title": "*Fast, straightforward* and highly professional.",
+        "text": "Fast, straightforward and highly professional. All praise."
+      }
+    ]
   },
   "common": {
     "learnMore": "Learn more",

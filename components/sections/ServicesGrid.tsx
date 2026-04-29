@@ -135,7 +135,7 @@ export function ServicesGrid() {
                   <div className="mt-auto pt-4">
                     <div className="h-px w-full bg-white/20 mb-6 group-hover:bg-white/40 transition-colors" />
                     <span className="inline-flex items-center justify-center border border-white/30 group-hover:border-white text-white px-6 py-2.5 text-[11px] font-semibold tracking-[0.1em] transition-colors rounded-sm uppercase">
-                      SAZNAJ VIŠE
+                      {t("learnMore")}
                     </span>
                   </div>
                 </Link>
