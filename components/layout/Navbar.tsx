@@ -77,10 +77,15 @@ export function Navbar() {
           : "bg-[#0a192f] text-gray-300 border-[#0a192f]"
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-end items-center gap-6 py-2 text-[13px]">
-          <div className="flex items-center gap-2">
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Advokat+Mari%C4%87+Loznica"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 hover:text-white transition-colors"
+          >
             <MapPin className="w-3.5 h-3.5 text-accent" />
             <span>{t("contact.address")}</span>
-          </div>
+          </a>
           <a href={`tel:${t("contact.phone").replace(/ /g, "")}`} className="flex items-center gap-2 hover:text-white transition-colors">
             <Phone className="w-3.5 h-3.5 text-accent" />
             <span>{t("contact.phone")}</span>
