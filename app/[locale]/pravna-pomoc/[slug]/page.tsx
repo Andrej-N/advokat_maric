@@ -85,9 +85,9 @@ function ServicePageContent({ slug }: { slug: string }) {
   return (
     <div className="bg-white-bg flex flex-col min-h-screen">
       {/* Dynamic Header Banner */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-[#033f40] bg-gradient-to-br from-[#064e4b] via-[#033f40] to-[#012a2b] overflow-hidden">
-        {/* Background Image of Greek Pillars */}
-        <div className="absolute inset-0 opacity-20 mix-blend-luminosity pointer-events-none">
+      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-black overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 pointer-events-none">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/og/hero.png`}
@@ -95,9 +95,9 @@ function ServicePageContent({ slug }: { slug: string }) {
             className="w-full h-full object-cover object-center"
           />
         </div>
-        
+
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#012a2b]/80 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70 pointer-events-none" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 flex flex-col items-center text-center">
           <div className="inline-flex items-center justify-center p-4 bg-white/10 rounded-[var(--radius-md)] mb-6 backdrop-blur-sm border border-white/10">

@@ -34,9 +34,9 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-[#033f40] bg-gradient-to-br from-[#064e4b] via-[#033f40] to-[#012a2b] border-t border-border overflow-hidden">
-      {/* Background Image of Greek Pillars */}
-      <div className="absolute inset-0 opacity-[0.15] mix-blend-luminosity pointer-events-none">
+    <footer className="relative bg-black border-t border-border overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 opacity-40 pointer-events-none">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/og/hero.png`}
@@ -44,7 +44,8 @@ export function Footer() {
           className="w-full h-full object-cover object-center"
         />
       </div>
-      
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70 pointer-events-none" />
+
       <NeuralNetworkCanvas nodeCount={35} connectionDistance={3} mouseInfluence={0.1} spread={[16, 8, 3]} />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 mb-12">
@@ -112,6 +113,11 @@ export function Footer() {
               <li>
                 <Link href="/o-nama" className="text-text-muted text-sm hover:text-accent transition-colors">
                   {t("nav.about")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/#recenzije" className="text-text-muted text-sm hover:text-accent transition-colors">
+                  {t("nav.clients")}
                 </Link>
               </li>
               <li>

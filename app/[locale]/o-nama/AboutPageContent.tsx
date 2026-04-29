@@ -3,15 +3,6 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/lib/i18n/routing";
 import Image from "next/image";
-import dynamic from "next/dynamic";
-
-const NeuralNetworkCanvas = dynamic(
-  () =>
-    import("@/components/three/NeuralNetwork").then(
-      (mod) => mod.NeuralNetworkCanvas
-    ),
-  { ssr: false }
-);
 
 export default function AboutPageContent() {
   const t = useTranslations("about");
@@ -26,8 +17,8 @@ export default function AboutPageContent() {
   return (
     <div className="bg-white-bg flex flex-col min-h-screen">
       {/* Header Banner */}
-      <section className="relative pt-32 pb-28 lg:pt-40 lg:pb-28 bg-[#033f40] bg-gradient-to-br from-[#064e4b] via-[#033f40] to-[#012a2b] overflow-hidden min-h-[45vh] lg:min-h-0 flex items-end">
-        <div className="absolute inset-0 opacity-30 mix-blend-luminosity pointer-events-none">
+      <section className="relative pt-32 pb-28 lg:pt-40 lg:pb-28 bg-black overflow-hidden min-h-[45vh] lg:min-h-0 flex items-end">
+        <div className="absolute inset-0 pointer-events-none">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/og/hero.png`}
@@ -35,8 +26,7 @@ export default function AboutPageContent() {
             className="w-full h-full object-cover object-center"
           />
         </div>
-        <NeuralNetworkCanvas nodeCount={35} connectionDistance={3} mouseInfluence={0.1} spread={[16, 8, 3]} />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#012a2b]/80 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70 pointer-events-none" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 flex flex-col items-center text-center w-full">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal text-white tracking-tight">
