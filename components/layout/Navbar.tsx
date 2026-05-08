@@ -240,7 +240,7 @@ export function Navbar() {
                     <div className="flex items-center justify-between px-4 py-3">
                       <Link
                         href={link.href}
-                        className={`text-lg transition-colors ${
+                        className={`text-lg uppercase tracking-wide font-medium transition-colors ${
                           pathname === "/usluge" || pathname.startsWith("/pravna-pomoc")
                             ? "text-accent"
                             : "text-white-text-muted hover:text-white-text"
@@ -309,7 +309,7 @@ export function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`px-4 py-3 text-lg transition-colors ${
+                    className={`px-4 py-3 text-lg uppercase tracking-wide font-medium transition-colors ${
                       pathname === link.href
                         ? "text-accent"
                         : "text-white-text-muted hover:text-white-text"

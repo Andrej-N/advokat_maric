@@ -7,7 +7,7 @@
   "nav": {
     "home": "Home",
     "about": "About",
-    "services": "Services",
+    "services": "Practice Areas",
     "clients": "Clients",
     "proBono": "Pro Bono",
     "blog": "Blog",
@@ -19,7 +19,7 @@
     "subtitle": "Legal certainty built on experience since 1994",
     "tagline": "Your Legal Support",
     "experience": "over 30 years",
-    "cta": "Services",
+    "cta": "Practice Areas",
     "ctaSecondary": "Schedule a Consultation"
   },
   "about": {
@@ -35,9 +35,9 @@
     "areasLabel": "Practice Areas"
   },
   "services": {
-    "title": "Services",
+    "title": "Practice Areas",
     "subtitle": "Comprehensive legal assistance across all key areas of law",
-    "cta": "OUR SERVICES",
+    "cta": "PRACTICE AREAS",
     "learnMore": "Learn more",
     "criminal": {
       "title": "Criminal Law",
@@ -153,7 +153,7 @@
     "allPosts": "All articles",
     "backToBlog": "Back to blog",
     "relatedPosts": "Related articles",
-    "readService": "Learn more about this service",
+    "readService": "Learn more about this practice area",
     "notFound": "Article not found"
   },
   "footer": {
@@ -186,6 +186,16 @@
     "viewAll": "View all reviews on Google",
     "readMore": "Read more",
     "items": [
+      {
+        "author": "Sofija Goćić",
+        "title": "Professional approach, *highly recommend*.",
+        "text": "A law office with a professional approach — they explain all steps and legal options clearly and simply. Our cooperation was successful; I warmly recommend them."
+      },
+      {
+        "author": "Intermedicus Loznica",
+        "title": "*Highly satisfied* with the services provided.",
+        "text": "We are highly satisfied with the services provided. Recommended."
+      },
       {
         "author": "Ivana Tomic",
         "title": "Top-notch service and a *dedicated approach* to the client.",

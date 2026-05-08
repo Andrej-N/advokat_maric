@@ -7,7 +7,7 @@
   "nav": {
     "home": "Početna",
     "about": "O nama",
-    "services": "Usluge",
+    "services": "Oblasti rada",
     "clients": "Klijenti",
     "proBono": "Pro Bono",
     "blog": "Blog",
@@ -19,7 +19,7 @@
     "subtitle": "Pravna sigurnost zasnovana na iskustvu od 1994. godine",
     "tagline": "Vaša pravna podrška",
     "experience": "više od 30 godina",
-    "cta": "Usluge",
+    "cta": "Oblasti rada",
     "ctaSecondary": "Zakažite konsultacije"
   },
   "about": {
@@ -35,9 +35,9 @@
     "areasLabel": "Oblasti prava"
   },
   "services": {
-    "title": "Usluge",
+    "title": "Oblasti rada",
     "subtitle": "Pružamo sveobuhvatnu pravnu pomoć u svim ključnim oblastima prava",
-    "cta": "NAŠE USLUGE",
+    "cta": "OBLASTI RADA",
     "learnMore": "Saznaj više",
     "criminal": {
       "title": "Krivično pravo",
@@ -153,7 +153,7 @@
     "allPosts": "Svi članci",
     "backToBlog": "Nazad na blog",
     "relatedPosts": "Slični članci",
-    "readService": "Saznajte više o usluzi",
+    "readService": "Saznajte više o oblasti rada",
     "notFound": "Članak nije pronađen"
   },
   "footer": {
@@ -186,6 +186,16 @@
     "viewAll": "Pogledajte sve recenzije na Google",
     "readMore": "Pročitaj više",
     "items": [
+      {
+        "author": "Sofija Goćić",
+        "title": "Profesionalni pristup, *toplo preporučujem*.",
+        "text": "Advokatska kancelarija sa profesionalnim pristupom, jasno i jednostavno objašnjavaju sve korake i pravne mogućnosti. Naša saradnja je bila uspešna, toplo preporučujem."
+      },
+      {
+        "author": "Intermedicus Loznica",
+        "title": "*Zadovoljni* smo pruženim uslugama.",
+        "text": "Zadovoljni smo pruženim uslugama. Preporuke."
+      },
       {
         "author": "Ivana Tomic",
         "title": "Vrhunska usluga i *posvećen pristup* klijentu.",
