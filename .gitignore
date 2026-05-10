@@ -31,6 +31,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# db migration backups (contain password hashes)
+migration-backup*.sql
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
