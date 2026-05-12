@@ -1,5 +1,6 @@
 import "@/app/globals.css";
 import { Inter } from "next/font/google";
+import { SessionProvider } from "next-auth/react";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext", "cyrillic"],
@@ -20,7 +21,7 @@ export default function DashboardLayout({
   return (
     <html lang="sr" suppressHydrationWarning>
       <body className={`${inter.variable} font-sans antialiased`}>
-        {children}
+        <SessionProvider>{children}</SessionProvider>
       </body>
     </html>
   );

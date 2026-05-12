@@ -1,19 +1,32 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { DashboardSidebar } from "@/components/dashboard/DashboardSidebar";
 import { FileText, Eye, FilePenLine } from "lucide-react";
 import type { BlogPost } from "@/lib/blog-db";
 
 export default function DashboardPage() {
+  const { status } = useSession();
+  const router = useRouter();
   const [posts, setPosts] = useState<BlogPost[]>([]);
 
   useEffect(() => {
+    if (status === "unauthenticated") {
+      router.replace("/dashboard/login");
+    }
+  }, [status, router]);
+
+  useEffect(() => {
+    if (status !== "authenticated") return;
     fetch("/api/blog")
       .then((r) => (r.ok ? r.json() : []))
       .then(setPosts)
       .catch(() => setPosts([]));
-  }, []);
+  }, [status]);
+
+  if (status !== "authenticated") return null;
 
   const published = posts.filter((p) => p.status === "published").length;
   const drafts = posts.filter((p) => p.status === "draft").length;

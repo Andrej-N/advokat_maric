@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+import { signOut } from "next-auth/react";
 import { Scale, FileText, PlusCircle, LogOut, LayoutDashboard } from "lucide-react";
 
 const links = [
@@ -12,11 +13,9 @@ const links = [
 
 export function DashboardSidebar() {
   const pathname = usePathname();
-  const router = useRouter();
 
   function handleLogout() {
-    localStorage.removeItem("dashboard_auth");
-    router.push("/dashboard/login");
+    signOut({ callbackUrl: "/dashboard/login" });
   }
 
   return (
