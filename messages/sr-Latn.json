@@ -144,6 +144,9 @@
     "formPhone": "Telefon",
     "formMessage": "Vaša poruka",
     "formSend": "Pošaljite poruku",
+    "formSending": "Slanje...",
+    "formSuccess": "Poruka je uspešno poslata! Javićemo vam se uskoro.",
+    "formError": "Došlo je do greške. Pokušajte ponovo ili nas pozovite.",
     "formTitle": "Pošaljite nam poruku"
   },
   "blog": {

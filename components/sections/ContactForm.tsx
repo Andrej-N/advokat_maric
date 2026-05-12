@@ -1,22 +1,60 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Send } from "lucide-react";
+import { Send, CheckCircle, AlertCircle } from "lucide-react";
+import { useState } from "react";
 
 export function ContactForm() {
   const t = useTranslations("contact");
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("sending");
+
+    const form = e.currentTarget;
+    const data = {
+      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+    };
+
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    if (res.ok) {
+      setStatus("success");
+      form.reset();
+    } else {
+      setStatus("error");
+    }
+  }
 
   return (
     <div className="bg-white-bg-alt border border-white-border rounded-[var(--radius-lg)] p-8">
       <h2 className="text-2xl font-semibold text-white-text mb-6">
         {t("formTitle")}
       </h2>
-      <form
-        action="mailto:kancelarija.maric@gmail.com"
-        method="POST"
-        encType="text/plain"
-        className="space-y-5"
-      >
+
+      {status === "success" && (
+        <div className="flex items-center gap-3 bg-accent/10 border border-accent/30 text-accent rounded-[var(--radius-md)] px-5 py-4 mb-6">
+          <CheckCircle className="w-5 h-5 shrink-0" />
+          <span className="text-sm font-medium">{t("formSuccess")}</span>
+        </div>
+      )}
+
+      {status === "error" && (
+        <div className="flex items-center gap-3 bg-red-50 border border-red-200 text-red-600 rounded-[var(--radius-md)] px-5 py-4 mb-6">
+          <AlertCircle className="w-5 h-5 shrink-0" />
+          <span className="text-sm font-medium">{t("formError")}</span>
+        </div>
+      )}
+
+      <form onSubmit={handleSubmit} className="space-y-5">
         <div>
           <label
             htmlFor="name"
@@ -80,9 +118,10 @@ export function ContactForm() {
         </div>
         <button
           type="submit"
-          className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dim text-white px-8 py-3.5 rounded-[var(--radius-md)] font-medium transition-colors cursor-pointer"
+          disabled={status === "sending"}
+          className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dim text-white px-8 py-3.5 rounded-[var(--radius-md)] font-medium transition-colors cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          {t("formSend")}
+          {status === "sending" ? t("formSending") : t("formSend")}
           <Send className="w-4 h-4" />
         </button>
       </form>

@@ -144,6 +144,9 @@
     "formPhone": "Phone",
     "formMessage": "Your message",
     "formSend": "Send message",
+    "formSending": "Sending...",
+    "formSuccess": "Message sent successfully! We will get back to you shortly.",
+    "formError": "Something went wrong. Please try again or call us directly.",
     "formTitle": "Send us a message"
   },
   "blog": {

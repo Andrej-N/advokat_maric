@@ -324,7 +324,7 @@ export function Navbar() {
             <div className="mt-4 px-4">
               <Link
                 href="/kontakt"
-                className="block w-full text-center bg-accent hover:bg-accent-dim text-white px-6 py-3 rounded-[var(--radius-md)] font-medium transition-colors"
+                className="block w-full text-center bg-accent hover:bg-accent-dim text-white px-6 py-3 rounded-[var(--radius-md)] font-medium uppercase tracking-wide transition-colors"
                 onClick={() => setMobileOpen(false)}
               >
                 {t("hero.ctaSecondary")}
