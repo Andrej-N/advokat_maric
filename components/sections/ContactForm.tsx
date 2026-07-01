@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
 import { useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 export function ContactForm() {
   const t = useTranslations("contact");
@@ -28,6 +29,7 @@ export function ContactForm() {
 
     if (res.ok) {
       setStatus("success");
+      trackEvent("contact_form_submit");
       form.reset();
     } else {
       setStatus("error");

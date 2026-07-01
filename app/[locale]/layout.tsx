@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SpeedDial } from "@/components/layout/SpeedDial";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
+import { CookieConsent } from "@/components/analytics/CookieConsent";
 import { generateOrganizationJsonLd } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -71,6 +72,7 @@ export default async function LocaleLayout({
       <Footer />
       <ScrollToTop />
       <SpeedDial />
+      <CookieConsent />
     </NextIntlClientProvider>
   );
 }

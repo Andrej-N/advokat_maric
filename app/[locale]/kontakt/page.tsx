@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { MapPin, Phone, Mail, Globe } from "lucide-react";
 import { ContactForm } from "@/components/sections/ContactForm";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 
 export async function generateMetadata({
   params,
@@ -66,29 +67,38 @@ function ContactPageContent() {
           </h1>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {contactItems.map(({ icon: Icon, label, value, href }) => (
-              <div
-                key={label}
-                className="bg-white-bg-alt border border-white-border rounded-[var(--radius-lg)] p-6"
-              >
-                <Icon className="w-6 h-6 text-accent mb-3" />
-                <div className="text-white-text-dim text-xs uppercase tracking-wider mb-2">
-                  {label}
+            {contactItems.map(({ icon: Icon, label, value, href }) => {
+              const event = href?.startsWith("tel:")
+                ? "click_phone"
+                : href?.startsWith("mailto:")
+                  ? "click_email"
+                  : "click_map";
+              return (
+                <div
+                  key={label}
+                  className="bg-white-bg-alt border border-white-border rounded-[var(--radius-lg)] p-6"
+                >
+                  <Icon className="w-6 h-6 text-accent mb-3" />
+                  <div className="text-white-text-dim text-xs uppercase tracking-wider mb-2">
+                    {label}
+                  </div>
+                  {href ? (
+                    <TrackedLink
+                      href={href}
+                      event={event}
+                      eventParams={{ location: "contact_page" }}
+                      target={href.startsWith("http") ? "_blank" : undefined}
+                      rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      className="text-white-text hover:text-accent transition-colors"
+                    >
+                      {value}
+                    </TrackedLink>
+                  ) : (
+                    <span className="text-white-text">{value}</span>
+                  )}
                 </div>
-                {href ? (
-                  <a
-                    href={href}
-                    target={href.startsWith("http") ? "_blank" : undefined}
-                    rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="text-white-text hover:text-accent transition-colors"
-                  >
-                    {value}
-                  </a>
-                ) : (
-                  <span className="text-white-text">{value}</span>
-                )}
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Contact Form */}

@@ -6,6 +6,7 @@ import { Link } from "@/lib/i18n/routing";
 import { MapPin, Phone, Mail, Building } from "lucide-react";
 import Image from "next/image";
 import logoSvg from "@/public/og/logo_maric-01.svg";
+import { trackEvent } from "@/lib/analytics";
 
 const NeuralNetworkCanvas = dynamic(
   () =>
@@ -66,6 +67,7 @@ export function Footer() {
             <div className="flex flex-col gap-3">
               <a
                 href="tel:+381638964004"
+                onClick={() => trackEvent("click_phone", { location: "footer" })}
                 className="flex items-center gap-3 text-text-muted text-sm hover:text-accent transition-colors"
               >
                 <Phone className="w-4 h-4 text-accent shrink-0" />
@@ -73,6 +75,7 @@ export function Footer() {
               </a>
               <a
                 href="mailto:kancelarija.maric@gmail.com"
+                onClick={() => trackEvent("click_email", { location: "footer" })}
                 className="flex items-center gap-3 text-text-muted text-sm hover:text-accent transition-colors"
               >
                 <Mail className="w-4 h-4 text-accent shrink-0" />

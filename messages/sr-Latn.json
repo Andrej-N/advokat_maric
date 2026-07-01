@@ -242,5 +242,12 @@
     "backToTop": "Vrati se na vrh",
     "needHelpTitle": "Potrebna vam je pravna pomoć?",
     "contactUsLabel": "KONTAKTIRAJTE NAS"
+  },
+  "cookies": {
+    "title": "Kolačići",
+    "message": "Koristimo kolačiće za analitiku posećenosti kako bismo unapredili sajt. Klikom na „Prihvatam” prihvatate korišćenje analitičkih kolačića. Više u",
+    "privacyLink": "Politici privatnosti",
+    "accept": "Prihvatam",
+    "decline": "Odbijam"
   }
 }

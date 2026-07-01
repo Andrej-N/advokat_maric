@@ -242,5 +242,12 @@
     "backToTop": "Back to top",
     "needHelpTitle": "Do you need legal help?",
     "contactUsLabel": "CONTACT US"
+  },
+  "cookies": {
+    "title": "Cookies",
+    "message": "We use cookies for traffic analytics to improve the site. By clicking “Accept” you agree to the use of analytics cookies. More in our",
+    "privacyLink": "Privacy Policy",
+    "accept": "Accept",
+    "decline": "Decline"
   }
 }
